@@ -53,60 +53,69 @@ const UploadPage = () => {
 							{"<-back to home"}
 						</Link>
 						{/* Card to display content of the file */}
-						<UIInput
-							id="file"
-							type="file"
-							accept="tsv,.csv"
-							onChange={handleFileChange}
-							className={clsx("text-center border-dashed sm:px-20 sm:py-20", {
-								hidden: selectedFile,
-							})}
-							// create a ref to click this input from the button
-							ref={fileInputRef}
-						/>
-						{selectedFile && (
-							<CustomCard
-								cardHeader={
-									<div className="flex items-center justify-between space-x-4 rounded-md border p-4">
-										<CardTitle className="text-sm">{fileName}</CardTitle>
-										<CardDescription>{`${numRecords} Records`}</CardDescription>
-									</div>
-								}
-								cardFooter={
-									<div className="flex items-center justify-center space-x-32">
-										<Button
-											onClick={() => {
-												fileInputRef?.current?.click();
-											}}
-											variant="ghost"
-										>
-											Replace File
-										</Button>
-										<Button
-											onClick={() => {
-												fileInputRef.current &&
-													(fileInputRef.current.value = "");
-												setSelectedFile(null);
-											}}
-											variant="destructive"
-										>
-											Remove
-										</Button>
-									</div>
-								}
+						<div className={clsx("", { hidden: selectedFile })}>
+							<UIInput
+								id="file"
+								type="file"
+								accept="tsv,.csv"
+								onChange={handleFileChange}
+								className={clsx("text-center border-dashed sm:px-20 sm:py-20", {
+									hidden: selectedFile,
+								})}
+								// create a ref to click this input from the button
+								ref={fileInputRef}
 							/>
-						)}
-					</div>
-					<div>
-						<div className="mt-3 text-bold text-xl">Graph Data</div>
-						<br />
-						<div className="max-w-sm">
-							File that contains a list of graph edges records. It must have
-							three columns representing head, relation and tail.
-							<br />
-							<br />
-							Supported formats: .csv, .tsv
+							<div>
+								<div className="mt-3 text-bold text-xl">Graph Data</div>
+								<br />
+								<div className="max-w-sm">
+									File that contains a list of graph edges records. It must have
+									three columns representing head, relation and tail.
+									<br />
+									<br />
+									Supported formats: .csv, .tsv
+								</div>
+							</div>
 						</div>
+						{selectedFile && (
+							<>
+								<CustomCard
+									cardHeader={
+										<div className="flex items-center justify-between space-x-4 rounded-md border p-4">
+											<CardTitle className="text-sm">{fileName}</CardTitle>
+											<CardDescription>{`${numRecords} Records`}</CardDescription>
+										</div>
+									}
+									cardFooter={
+										<div className="flex items-center justify-center space-x-32">
+											<Button
+												onClick={() => {
+													fileInputRef?.current?.click();
+												}}
+												variant="ghost"
+											>
+												Replace File
+											</Button>
+											<Button
+												onClick={() => {
+													fileInputRef.current &&
+														(fileInputRef.current.value = "");
+													setSelectedFile(null);
+												}}
+												variant="destructive"
+											>
+												Remove
+											</Button>
+										</div>
+									}
+								/>
+								<div>
+									<Button className="w-full bg-primary font-bold" asChild>
+										<Link href="/dashboard">Launch</Link>
+									</Button>
+								</div>
+							</>
+						)}
 					</div>
 				</div>
 			</div>
