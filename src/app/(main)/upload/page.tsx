@@ -40,9 +40,6 @@ const UploadPage = () => {
 				items-center
 				gap-4 dark:text-white"
 			>
-				<div className="absolute top-0 left-0 font-bold text-3xl m-3">
-					Kosmograph
-				</div>
 				<div className="flex flex-col">
 					<div className="grid w-full max-w-sm items-center gap-1.5">
 						{" "}
