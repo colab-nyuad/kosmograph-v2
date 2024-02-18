@@ -1,11 +1,14 @@
 "use client";
 import CustomCard from "@/components/global/custom-card";
+import BackToHome from "@/components/kosmograph/backToHome";
 import { Button } from "@/components/ui/button";
 import { CardDescription, CardFooter, CardTitle } from "@/components/ui/card";
 import { Input as UIInput } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import clsx from "clsx";
+import { writeFile } from "fs/promises";
 import Link from "next/link";
+import { join } from "path";
 import React from "react";
 
 const UploadPage = () => {
@@ -16,10 +19,31 @@ const UploadPage = () => {
 	const [numRecords, setNumRecords] = React.useState<number | null>();
 	const fileInputRef = React.useRef<HTMLInputElement>(null);
 
-	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e?.target?.files?.[0];
 		setFileName(file?.name);
 		if (!file) return;
+
+		// Create a FormData object and append the file
+		const formData = new FormData();
+		formData.set("file", file);
+		// Send the file to the /api/upload endpoint
+		try {
+			const response = await fetch("/api/upload", {
+				method: "POST",
+				body: formData,
+			});
+
+			if (!response.ok) {
+				throw new Error("File upload failed");
+			}
+
+			const result = await response.json();
+			console.log("File uploaded successfully:", result);
+		} catch (error) {
+			console.error("Error uploading file:", error);
+		}
+
 		if (file) {
 			const reader = new FileReader();
 			reader.onloadend = () => {
@@ -43,12 +67,7 @@ const UploadPage = () => {
 				<div className="flex flex-col">
 					<div className="grid w-full max-w-sm items-center gap-1.5">
 						{" "}
-						<Link
-							href="/"
-							className="text-sm opacity-80 dark:text-muted hover:opacity-90"
-						>
-							{"<-back to home"}
-						</Link>
+						<BackToHome />
 						{/* Card to display content of the file */}
 						<div className={clsx("", { hidden: selectedFile })}>
 							<UIInput
@@ -108,7 +127,9 @@ const UploadPage = () => {
 								/>
 								<div>
 									<Button className="w-full bg-primary font-bold" asChild>
-										<Link href="/dashboard">Launch</Link>
+										<Link href={`/kosmograph/dashboard?file=${fileName}`}>
+											Launch
+										</Link>
 									</Button>
 								</div>
 							</>
