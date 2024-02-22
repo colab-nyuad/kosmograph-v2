@@ -5,6 +5,7 @@ import {
 	useSigma,
 } from "@react-sigma/core";
 import "@react-sigma/core/lib/react-sigma.min.css";
+import { useWorkerLayoutForceAtlas2 } from "@react-sigma/layout-forceatlas2";
 import Graph from "graphology";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -14,24 +15,24 @@ export const LoadGraph = () => {
 	useEffect(() => {
 		const graph = new Graph();
 		// Add 2000 nodes
-		for (let i = 1; i <= 2000; i++) {
+		for (let i = 1; i <= 200; i++) {
 			graph.addNode(`node${i}`, {
 				x: Math.random() * 1000, // Spread out the X position more
 				y: Math.random() * 1000, // Spread out the Y position more
-				size: 3, // Keep the size small to accommodate many nodes
-				label: `Node ${i}`,
+				size: 5, // Keep the size small to accommodate many nodes
+				label: `Node ${i}`, // Label the nodes
 				color: `#${Math.floor(Math.random() * 16777215).toString(16)}`, // Random color
 			});
 		}
 
 		// Add 5000 edges between random nodes
 		let attempts = 0; // To prevent infinite loops
-		for (let i = 0; i < 5000; i++) {
-			const source = `node${Math.floor(Math.random() * 2000) + 1}`;
-			let target = `node${Math.floor(Math.random() * 2000) + 1}`;
+		for (let i = 0; i < 500; i++) {
+			const source = `node${Math.floor(Math.random() * 200) + 1}`;
+			let target = `node${Math.floor(Math.random() * 200) + 1}`;
 			while (target === source && attempts < 10000) {
 				// Ensure that the source and target are not the same, with a limit to attempts
-				target = `node${Math.floor(Math.random() * 2000) + 1}`;
+				target = `node${Math.floor(Math.random() * 200) + 1}`;
 				attempts++;
 			}
 			if (!graph.hasEdge(source, target)) {
@@ -43,6 +44,23 @@ export const LoadGraph = () => {
 
 		loadGraph(graph);
 	}, [loadGraph]);
+
+	return null;
+};
+
+const Fa2: React.FC = () => {
+	const { start, kill, isRunning } = useWorkerLayoutForceAtlas2({
+		settings: { slowDown: 10 },
+	});
+
+	useEffect(() => {
+		// start FA2
+		start();
+		return () => {
+			// Kill FA2 on unmount
+			kill();
+		};
+	}, [start, kill]);
 
 	return null;
 };
@@ -96,6 +114,7 @@ export const DisplayGraph = () => {
 			{/* Adjusted for larger view */}
 			<LoadGraph />
 			<GraphEvents />
+			<Fa2 />
 		</SigmaContainer>
 	);
 };
