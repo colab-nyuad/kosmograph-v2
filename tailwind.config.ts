@@ -54,6 +54,8 @@ const config = {
 				},
 				"brand-dark": "#030014",
 				"brand-primaryBlue": "#0469ff",
+				"brand-sidebar": "#1a1a1a",
+				"brand-sidebarButtons": "49465a",
 			},
 			borderRadius: {
 				lg: "var(--radius)",

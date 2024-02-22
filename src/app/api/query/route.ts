@@ -4,12 +4,12 @@ import { join } from "path";
 
 export async function POST(request: NextRequest) {
 	//get text area data
-	const query = await request.json();
+	const sparqlQuery = await request.json();
 
-	console.log(query);
+	console.log(sparqlQuery);
 	const queryUrl =
 		"https://query.citygraph.co/proxy/wdqs/bigdata/namespace/wdq/sparql?query=" +
-		encodeURIComponent(query.data) +
+		encodeURIComponent(sparqlQuery.query) +
 		"&format=json";
 
 	const headers = {
@@ -29,18 +29,22 @@ export async function POST(request: NextRequest) {
 	// filename is query + random number + .csv
 	const filename = "query" + Math.floor(Math.random() * 100) + ".csv";
 
-	const filePath = join(process.cwd(), filename);
+	const filePath = join(process.cwd(), "data", filename);
 
 	let fileData = "s,p,o\n";
+
+	let count = 0;
 
 	//   loop through results and get the data from value key
 	const data = result.results.bindings.map((item: any) => {
 		let num = 0;
+		// count the number of lines
 		for (const [_, value] of Object.entries(item)) {
 			// write the value key to the file in format s,p,o
 			if (num == 2) {
 				fileData += (value as { value: string }).value + "\n";
 				num = 0;
+				count++;
 			} else {
 				fileData += (value as { value: string }).value + ",";
 				num++;
@@ -54,5 +58,6 @@ export async function POST(request: NextRequest) {
 
 	return NextResponse.json({
 		fileName: filename,
+		count: count,
 	});
 }
