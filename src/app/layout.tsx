@@ -1,5 +1,6 @@
 import { ModeToggle } from "@/components/global/mode-toggle";
 import { ThemeProvider } from "@/lib/providers/next-theme-provider";
+import { Provider } from "jotai";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -20,8 +21,10 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={inter.className}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-					<ModeToggle />
-					{children}
+					<Provider>
+						<ModeToggle />
+						{children}
+					</Provider>
 				</ThemeProvider>
 			</body>
 		</html>

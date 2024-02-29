@@ -1,6 +1,6 @@
 "use client";
 import Header from "@/components/kosmograph/header";
-import Dashboard from "@/components/kosmograph/sideNavigation";
+import Dashboard from "@/components/kosmograph/sidebar/sideNavigation";
 import UploadError from "@/components/kosmograph/uploadError";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";

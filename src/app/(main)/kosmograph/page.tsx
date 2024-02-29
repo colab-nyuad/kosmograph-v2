@@ -14,7 +14,7 @@ const HomePage = () => {
                     pb-8
                     text-4xl font-bold"
 				>
-					CityGraph Viz
+					Kosmograph
 				</div>
 				<div className="h-32"></div>
 				<div className="flex item-center justify-center">
