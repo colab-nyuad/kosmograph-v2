@@ -22,27 +22,8 @@ const UploadPage = () => {
 	const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e?.target?.files?.[0];
 		setFileName(file?.name);
+
 		if (!file) return;
-
-		// Create a FormData object and append the file
-		const formData = new FormData();
-		formData.set("file", file);
-		// Send the file to the /api/upload endpoint
-		try {
-			const response = await fetch("/api/upload", {
-				method: "POST",
-				body: formData,
-			});
-
-			if (!response.ok) {
-				throw new Error("File upload failed");
-			}
-
-			const result = await response.json();
-			console.log("File uploaded successfully:", result);
-		} catch (error) {
-			console.error("Error uploading file:", error);
-		}
 
 		if (file) {
 			const reader = new FileReader();
@@ -52,6 +33,28 @@ const UploadPage = () => {
 				setSelectedFile(reader.result);
 			};
 			reader.readAsText(file);
+		}
+
+		// Create a FormData object and append the file
+		const formData = new FormData();
+		formData.set("file", file);
+		// Send the file to the /api/upload endpoint
+		try {
+			const response = await fetch("/kosmograph/api/upload", {
+				method: "POST",
+				body: formData,
+			});
+
+			if (!response.ok) {
+				setSelectedFile("");
+				throw new Error("File upload failed");
+			}
+
+			const result = await response.json();
+			console.log("File uploaded successfully:", result);
+		} catch (error) {
+			setSelectedFile("");
+			console.error("Error uploading file:", error);
 		}
 	};
 

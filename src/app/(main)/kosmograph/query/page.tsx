@@ -42,7 +42,7 @@ const QueryPage = () => {
 		// sleep for 30 seconds
 		await new Promise((resolve) => setTimeout(resolve, 500));
 		// post the data to the api
-		const res = await fetch("/api/query", {
+		const res = await fetch("/kosmograph/api/query", {
 			method: "POST",
 			body: JSON.stringify(data),
 		});
