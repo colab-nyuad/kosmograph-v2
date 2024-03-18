@@ -23,4 +23,4 @@ COPY . .
 EXPOSE 8080
 
 # Run dev, as we would via the command line
-CMD npm run dev
+CMD ["npm", "run", "start"]
