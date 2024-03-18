@@ -10,7 +10,7 @@ const nodeScaleAtom = atom([1]);
 const nodeSizeAtom = atom("default");
 const nodeColorAtom = atom("default");
 const activeTabAtom = atom("general");
-const numberOfNodeLabels = atom(3);
+const numberOfNeighborsAtom = atom(1);
 const selectedNodeAtom = atom<NodeData | undefined>(undefined);
 export {
 	activeTabAtom,
@@ -18,7 +18,7 @@ export {
 	nodeColorAtom,
 	nodeScaleAtom,
 	nodeSizeAtom,
-	numberOfNodeLabels,
+	numberOfNeighborsAtom,
 	selectedNodeAtom,
 	showNodeLabelsAtom,
 };

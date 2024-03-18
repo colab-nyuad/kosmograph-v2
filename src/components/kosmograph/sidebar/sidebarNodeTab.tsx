@@ -25,7 +25,7 @@ import {
 	nodeColorAtom,
 	nodeScaleAtom,
 	nodeSizeAtom,
-	numberOfNodeLabels,
+	numberOfNeighborsAtom,
 	showNodeLabelsAtom,
 } from "../atoms/store";
 import ToolTip from "../toolTip";
@@ -35,12 +35,15 @@ const SidebarNodeTab = () => {
 	const [nodeSwitchChecked, setNodeSwitchChecked] = useAtom(showNodeLabelsAtom);
 	const [nodeSize, setNodeSize] = useAtom(nodeSizeAtom);
 	const [nodeColor, setNodeColor] = useAtom(nodeColorAtom);
-	const [numberLabels, setNumberLabels] = useAtom(numberOfNodeLabels);
-	const [debouncedValue] = useDebounce(numberLabels, 500);
+	const [numberOfNeighbors, setNumberOfNeighbors] = useAtom(
+		numberOfNeighborsAtom
+	);
+	// const [debouncedValue] = useDebounce(numberOfNeighbors, 500);
 
 	// @ts-ignore
 	const handleInputChange = (event) => {
-		setNumberLabels(event.target.value);
+		console.log(numberOfNeighbors);
+		setNumberOfNeighbors(event.target.value);
 	};
 
 	return (
@@ -123,7 +126,7 @@ const SidebarNodeTab = () => {
 
 					<div className="flex flex-row h-[50px] mt-2 items-center justify-between px-3 opacity-85 hover:opacity-100">
 						<span>
-							Labels for # Nodes{" "}
+							# of Neighbors{" "}
 							<div className="inline-block p-0">
 								<ToolTip heading="" text={NODE_SIZE_DESC} />
 							</div>
@@ -134,7 +137,7 @@ const SidebarNodeTab = () => {
 								id="num"
 								min="0"
 								// placeholder={numberLabels.toString()}
-								value={numberLabels}
+								value={numberOfNeighbors}
 								onChange={handleInputChange}
 							/>
 						</span>

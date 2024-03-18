@@ -20,7 +20,13 @@ export default function Dashboard({ file }: { file: string }) {
 	const cosmographRef = React.useRef(null);
 
 	const fitView = () => (cosmographRef.current as any)?.fitView();
-	const getZoomLevel = () =>
+	const resetViewOnSidebarChange = () => {
+		setSidebarOpen(!sidebarOpen);
+		(cosmographRef.current as any)?.fitView();
+		let zoomLevel = (cosmographRef.current as any)?.getZoomLevel();
+		(cosmographRef.current as any)?.setZoomLevel(zoomLevel, 250);
+	};
+	const setZoomLevel = () =>
 		(cosmographRef.current as any)?.setZoomLevel(162, 250);
 	return (
 		<div className="flex">
@@ -33,7 +39,7 @@ export default function Dashboard({ file }: { file: string }) {
 					}
 				)}
 			>
-				<div className="space-y-3 p-2">
+				<div className="space-y-3 p-2 overflow-auto h-full">
 					<SidebarTabs />
 				</div>
 			</div>
@@ -43,7 +49,7 @@ export default function Dashboard({ file }: { file: string }) {
 					{" "}
 					<div className="absolute top-0 left-0 p-2 flex flex-col space-y-1 z-40">
 						<Button
-							onClick={() => setSidebarOpen(!sidebarOpen)}
+							onClick={resetViewOnSidebarChange}
 							variant="ghost"
 							size="sm"
 						>
@@ -54,7 +60,13 @@ export default function Dashboard({ file }: { file: string }) {
 							)}
 						</Button>
 						<Button
-							onClick={() => console.log("zoom level: ", getZoomLevel())}
+							onClick={() =>
+								setZoomLevel() ||
+								console.log(
+									"zoom level: ",
+									(cosmographRef.current as any)?.getZoomLevel()
+								)
+							}
 							variant="ghost"
 							size="sm"
 						>
@@ -71,7 +83,7 @@ export default function Dashboard({ file }: { file: string }) {
 					</div> */}
 					<div className="absolute inset-1">
 						{" "}
-						<GraphViz cosmographRef={cosmographRef} />
+						<GraphViz cosmographRef={cosmographRef} sidebarOpen={sidebarOpen} />
 					</div>
 				</div>
 			</div>
