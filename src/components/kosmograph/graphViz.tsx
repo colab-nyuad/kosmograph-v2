@@ -151,6 +151,7 @@ export function GraphViz({
 					let current = queue.shift(); // Dequeue a node from front of the queue
 
 					if (current && current.depth <= numberOfNeighbors) {
+						let depth = current?.depth || 1;
 						globalGraph.forEachNeighbor(
 							current.node.id,
 							function (neighbor, attributes) {
@@ -166,7 +167,7 @@ export function GraphViz({
 										indegree: attributes.in,
 										outdegree: attributes.out,
 									},
-									depth: current.depth + 1,
+									depth: depth + 1,
 								});
 							}
 						);
