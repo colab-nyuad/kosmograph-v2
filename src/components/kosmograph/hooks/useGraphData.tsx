@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import {
 	globalGraphAtom,
-	numberOfNodeLabels,
+	numberOfNeighborsAtom,
 	showNodeLabelsAtom,
 } from "../atoms/store";
 
@@ -62,7 +62,7 @@ export const useGraphData = () => {
 export const useTopKNodes = () => {
 	const [globalGraph] = useAtom<Graph>(globalGraphAtom);
 	const [topKNodes, setTopKNodes] = useState<NodeData[]>([]);
-	const [numberLabels, setNumberLabels] = useAtom(numberOfNodeLabels);
+	const [numberLabels, setNumberLabels] = useAtom(numberOfNeighborsAtom);
 
 	useEffect(() => {
 		if (!globalGraph) return;

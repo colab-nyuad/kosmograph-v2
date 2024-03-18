@@ -3,7 +3,9 @@ import {
 	Cosmograph,
 	CosmographInputConfig,
 	CosmographProvider,
+	CosmographSearch,
 } from "@cosmograph/react";
+import clsx from "clsx";
 import Graph from "graphology";
 import { useAtom } from "jotai";
 import { TrendingUpIcon } from "lucide-react";
@@ -15,7 +17,7 @@ import {
 	nodeColorAtom,
 	nodeScaleAtom,
 	nodeSizeAtom,
-	numberOfNodeLabels,
+	numberOfNeighborsAtom,
 	selectedNodeAtom,
 	showNodeLabelsAtom,
 } from "./atoms/store";
@@ -73,9 +75,9 @@ const createGraph = () => {
 		newGraph.addNode(`node${i}`, { in: 0, out: 0 });
 	}
 
-	// Add 3000 edges with no duplicates, self-loops, and assign a link type
+	// Add 2000 edges with no duplicates, self-loops, and assign a link type
 	let edgesAdded = 0;
-	while (edgesAdded < 3000) {
+	while (edgesAdded < 2000) {
 		const sourceIndex = Math.floor(Math.random() * 1000);
 		const targetIndex = Math.floor(Math.random() * 1000);
 		const source = `node${sourceIndex}`;
@@ -106,8 +108,10 @@ const createGraph = () => {
 
 export function GraphViz({
 	cosmographRef,
+	sidebarOpen,
 }: {
 	cosmographRef: React.MutableRefObject<null>;
+	sidebarOpen: boolean;
 }) {
 	const { theme } = useTheme();
 	const [globalGraph, setGlobalGraph] = useAtom(globalGraphAtom);
@@ -116,8 +120,7 @@ export function GraphViz({
 	const [nodeSize] = useAtom(nodeSizeAtom);
 	const [nodeColor] = useAtom(nodeColorAtom);
 	const { nodes, links } = useGraphData();
-	const [numberOfLabels] = useAtom(numberOfNodeLabels);
-
+	const [numberOfNeighbors] = useAtom(numberOfNeighborsAtom);
 	const [activeTab, setActiveTab] = useAtom(activeTabAtom);
 
 	const [showLabelsFor, setShowLabelsFor] = React.useState<
@@ -127,8 +130,7 @@ export function GraphViz({
 
 	// const createGraph
 	React.useEffect(() => {
-		// Initialize or update the global graph here
-		// For example, to add a node and an edge:
+		// Initialize or update the global graph
 		const newGraph = createGraph();
 		setGlobalGraph(newGraph);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -136,38 +138,76 @@ export function GraphViz({
 
 	const onCosmographClick = React.useCallback<
 		Exclude<CosmographInputConfig<NodeData, LinkData>["onClick"], undefined>
-	>((n) => {
-		if (n) {
-			let neighbors: NodeData[] = [n];
+	>(
+		(n) => {
+			if (n) {
+				let neighbors: NodeData[] = [n];
 
-			// Get neighbors of the selected node
-			globalGraph.forEachNeighbor(n.id, function (neighbor, attributes) {
-				neighbors.push({
-					id: neighbor,
-					indegree: attributes.in,
-					outdegree: attributes.out,
-				});
-			});
+				let queue: { node: NodeData; depth: number }[] = [
+					{ node: n, depth: 1 },
+				];
 
-			// @ts-expect-error: Resetting selected node
-			cosmographRef.current?.selectNodes([...neighbors]);
-			// cosmographRef.current?.selectNode(n, true);
+				while (queue.length > 0) {
+					let current = queue.shift(); // Dequeue a node from front of the queue
 
-			setActiveTab("info");
+					if (current && current.depth <= numberOfNeighbors) {
+						globalGraph.forEachNeighbor(
+							current.node.id,
+							function (neighbor, attributes) {
+								neighbors.push({
+									id: neighbor,
+									indegree: attributes.in,
+									outdegree: attributes.out,
+								});
 
-			setShowLabelsFor([n]);
-			setSelectedNode(n);
-		} else {
-			// @ts-expect-error: Resetting selected node
-			cosmographRef.current?.unselectNodes();
-			setActiveTab("general");
-			setShowLabelsFor(undefined);
-			setSelectedNode(undefined);
-		}
-	}, []);
+								queue.push({
+									node: {
+										id: neighbor,
+										indegree: attributes.in,
+										outdegree: attributes.out,
+									},
+									depth: current.depth + 1,
+								});
+							}
+						);
+					}
+				}
+				// // Get neighbors of the selected node
+				// globalGraph.forEachNeighbor(n.id, function (neighbor, attributes) {
+				// 	neighbors.push({
+				// 		id: neighbor,
+				// 		indegree: attributes.in,
+				// 		outdegree: attributes.out,
+				// 	});
+				// });
+
+				// console.log(neighbors);
+				// @ts-expect-error: Resetting selected node
+				cosmographRef.current?.selectNodes([...neighbors]);
+				// cosmographRef.current?.selectNode(n, true);
+
+				setActiveTab("info");
+
+				// setShowLabelsFor([...neighbors].slice(1));
+				// const labels = [...neighbors].slice(1); // rendering issue
+				setShowLabelsFor([n]);
+				setSelectedNode(n);
+			} else {
+				// @ts-expect-error: Resetting selected node
+				cosmographRef.current?.unselectNodes();
+				setActiveTab("general");
+				setShowLabelsFor(undefined);
+				setSelectedNode(undefined);
+			}
+		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[numberOfNeighbors, globalGraph]
+	);
 
 	const calculateNodeSize = () => {
-		const total = nodes.length;
+		const total = Math.sqrt(links.length);
+		let MaxSize = 10 * nodeScale[0] * Math.sqrt(links.length); // suitable value for max size
+		console.log((cosmographRef.current as any)?.getZoomLevel());
 		switch (nodeSize) {
 			case "total":
 				return (n: any, i: any) => {
@@ -175,7 +215,7 @@ export function GraphViz({
 						((n.indegree + n.outdegree) / total) *
 							10 *
 							nodeScale[0] *
-							(cosmographRef.current as any)?.getZoomLevel() +
+							Math.min((cosmographRef.current as any)?.getZoomLevel(), 20) +
 						1
 					);
 				};
@@ -194,42 +234,33 @@ export function GraphViz({
 						nodeScale[0] *
 						(cosmographRef.current as any)?.getZoomLevel() +
 					1;
-			default:
-				return (n: any, i: any) => 10 * nodeScale[0];
+			case "default":
+				return (n: any, i: any) => 15 * nodeScale[0];
 		}
 	};
 	const calculateColorSize = () => {
-		const total = links.length;
+		const total = Math.sqrt(links.length);
 		switch (nodeColor) {
 			case "total":
 				return (n: any, i: any) => {
-					const scale =
-						((n.indegree + n.outdegree) / total) *
-							10 *
-							(cosmographRef.current as any)?.getZoomLevel() +
-						1;
+					const scale = n.indegree + n.outdegree;
+					if (n.id == "node178") {
+						console.log(scale, total, getColorBetween(scale, total));
+					}
 					return getColorBetween(scale, total);
 				};
 
 			case "incoming":
 				return (n: any, i: any) => {
-					const scale =
-						(n.indegree / total) *
-							10 *
-							(cosmographRef.current as any)?.getZoomLevel() +
-						1;
+					const scale = n.indegree;
 					return getColorBetween(scale, total);
 				};
 			case "outgoing":
 				return (n: any, i: any) => {
-					const scale =
-						(n.outdegree / total) *
-							10 *
-							(cosmographRef.current as any)?.getZoomLevel() +
-						1;
+					const scale = n.outdegree;
 					return getColorBetween(scale, total);
 				};
-			default:
+			case "default":
 				return (n: any, i: any) => "#455BB7CC";
 		}
 	};
@@ -237,8 +268,17 @@ export function GraphViz({
 	// const nodeSizer = calculateNodeSize();
 	// console.log(calculateNodeColor(1)); // #7F007FCC
 	const themeToUse = theme === "dark" ? "#030014" : "#fafafa";
+
 	return (
-		<div className="flex w-[84.5vw] h-[99vh] items-center justify-center bg-white dark:bg-brand-dark">
+		<div
+			className={clsx(
+				"flex  items-center justify-center bg-white dark:bg-brand-dark w-[99.5vw] h-[98vh]"
+				// {
+				// 	"w-[83.5vw] h-[99vh]": !sidebarOpen,
+				// 	"w-[99.5vw] h-[98vh]": sidebarOpen,
+				// }
+			)}
+		>
 			<CosmographProvider>
 				<Cosmograph
 					ref={cosmographRef}
@@ -249,24 +289,22 @@ export function GraphViz({
 					// nodeColor="#4B5BBFCC"
 					nodeColor={calculateColorSize()}
 					// nodeSizeScale={nodeScale[0]}
-					// nodeSize={25}
-					// nodeSize={(n, i) => (n.indegree + n.outdegree) * 4}
 					nodeSize={calculateNodeSize()}
 					linkWidth={1}
 					linkArrowsSizeScale={1}
-					linkGreyoutOpacity={0.2}
+					linkGreyoutOpacity={0.0}
 					// backgroundColor="#f5f5f5"
 					focusedNodeRingColor={"red"}
 					hoveredNodeRingColor={"rgb(244, 63, 94)"}
 					nodeLabelClassName={"text-white"}
 					hoveredNodeLabelClassName={"text-teal-400"}
-					nodeGreyoutOpacity={0.2}
+					nodeGreyoutOpacity={0.0}
 					curvedLinks={false}
 					showLabelsFor={showLabelsFor}
-					showDynamicLabels={nodeLabel}
+					showDynamicLabels={false}
 					showTopLabels={nodeLabel}
 					showHoveredNodeLabel={nodeLabel}
-					showTopLabelsLimit={3}
+					showTopLabelsLimit={0}
 					// simulationLinkDistance={nodes.length < 200 ? 20 : 5}
 					useQuadtree={true}
 					disableSimulation={false}
@@ -280,6 +318,7 @@ export function GraphViz({
 					simulationRepulsionFromMouse={5.0}
 					onClick={onCosmographClick}
 				/>
+				{/* <CosmographSearch /> */}
 			</CosmographProvider>
 		</div>
 	);
