@@ -1,0 +1,52 @@
+[
+  {
+    "subject": "john",
+    "predicate": " father of",
+    "object": " adam"
+  },
+  {
+    "subject": "alice",
+    "predicate": " friend of",
+    "object": " bob"
+  },
+  {
+    "subject": "charles",
+    "predicate": " brother of",
+    "object": " diana"
+  },
+  {
+    "subject": "emma",
+    "predicate": " colleague of",
+    "object": " frank"
+  },
+  {
+    "subject": "george",
+    "predicate": " neighbor of",
+    "object": " hannah"
+  },
+  {
+    "subject": "isabel",
+    "predicate": " teacher of",
+    "object": " jack"
+  },
+  {
+    "subject": "kevin",
+    "predicate": " mentor of",
+    "object": " laura"
+  },
+  {
+    "subject": "mike",
+    "predicate": " boss of",
+    "object": " nancy"
+  },
+  {
+    "subject": "oliver",
+    "predicate": " partner of",
+    "object": " paula"
+  },
+  {
+    "subject": "quincy",
+    "predicate": " coach of",
+    "object": " rachel"
+  }
+]

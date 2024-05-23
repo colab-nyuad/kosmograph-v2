@@ -1,22 +1,31 @@
 import { writeFile } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
 import { join } from "path";
+import { parse } from 'csv-parse/sync';
 
 export async function POST(request: NextRequest) {
-	const data = await request.formData();
-	const file: File | null = data.get("file") as unknown as File;
+    const data = await request.formData();
+    const file: File | null = data.get("file") as unknown as File;
 
-	if (!file) {
-		return NextResponse.json({ success: false });
-	}
+    if (!file) {
+        return NextResponse.json({ success: false });
+    }
 
-	const bytes = await file.arrayBuffer();
-	const buffer = Buffer.from(bytes);
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
 
-	// With the file data in the buffer, you can do whatever you want with it.
-	// For this, we'll just write it to the filesystem in a new location
-	const path = join(process.cwd(), "data", file.name);
-	await writeFile(path, buffer);
+    // Parse the CSV content
+    const csvContent = buffer.toString();
+    const records = parse(csvContent, {
+        columns: ['subject', 'predicate', 'object'],
+        skip_empty_lines: true
+    });
 
-	return NextResponse.json({ success: true });
+    // Save the parsed data to a JSON file in the public directory
+    const path = join(process.cwd(), "public", "data", 'uploadFile.json');
+
+    await writeFile(path, JSON.stringify(records, null, 2));
+
+    return NextResponse.json({ success: true, data: records });
 }
+
