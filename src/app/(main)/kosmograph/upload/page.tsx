@@ -76,7 +76,7 @@ const UploadPage = () => {
 							<UIInput
 								id="file"
 								type="file"
-								accept="tsv,.csv"
+								accept="tsv,.csv,.txt"
 								onChange={handleFileChange}
 								className={clsx("text-center border-dashed sm:px-20 sm:py-20", {
 									hidden: selectedFile,
