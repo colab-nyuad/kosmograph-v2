@@ -312,7 +312,7 @@ export function GraphViz({
     const [showLabelsFor, setShowLabelsFor] = useState<NodeData[] | undefined>([]);
     const [selectedNode, setSelectedNode] = useAtom(selectedNodeAtom);
 
-    const [graphData, setGraphData] = useState<{ nodes: NodeData[], links: LinkData[] } | null>(null);
+    const [graphData, setGraphData] = useState<{ nodes: NodeData[], links: LinkData[], linkTypeColors: Record<string, string> } | null>(null);
 
     useEffect(() => {
         const fetchGraphData = async () => {
@@ -348,7 +348,9 @@ export function GraphViz({
             const uniqueNodes = Array.from(new Set(nodes.map(node => node.id)))
                 .map(id => nodes.find(node => node.id === id)!);
 
-            setGraphData({ nodes: uniqueNodes, links });
+            const linkTypeColors = getUniqueLinkTypesWithColors(links);
+
+            setGraphData({ nodes: uniqueNodes, links, linkTypeColors });
         };
 
         fetchGraphData();
@@ -452,6 +454,34 @@ export function GraphViz({
 				return () => "#455BB7CC";
 		}
 	};
+
+    //Generating link type colors
+    const generateRandomColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
+    const getUniqueLinkTypesWithColors = (links: LinkData[]) => {
+        const linkTypeColors: Record<string, string> = {};
+        links.forEach((link) => {
+            if (!linkTypeColors[link.type]) {
+                linkTypeColors[link.type] = generateRandomColor();
+            }
+        });
+        return linkTypeColors;
+    };
+
+    const getLinkColor = (link: LinkData) => {
+        return graphData?.linkTypeColors[link.type] || '#000000';
+    };
+    
+    
+
+
+
 	
     const themeToUse = theme === "dark" ? "#030014" : "#fafafa";
 
@@ -474,6 +504,7 @@ export function GraphViz({
                     nodeColor={calculateColorSize()}
                     nodeSize={calculateNodeSize()}
                     linkWidth={1}
+                    linkColor={getLinkColor}
                     linkArrowsSizeScale={1}
                     linkGreyoutOpacity={0.0}
                     focusedNodeRingColor={"red"}
