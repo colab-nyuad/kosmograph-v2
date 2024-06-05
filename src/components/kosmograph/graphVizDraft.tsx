@@ -1,5 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { getColorBetween } from "@/lib/utils";
+import {
+    Cosmograph,
+    CosmographInputConfig,
+    CosmographProvider,
+    CosmographRef,
+} from "@cosmograph/react";
+import clsx from "clsx";
+import Graph from "graphology";
 import { useAtom } from "jotai";
+import { useTheme } from "next-themes";
+import React, { useEffect, useState, useRef } from "react";
 import {
     activeTabAtom,
     globalGraphAtom,
@@ -9,22 +19,14 @@ import {
     numberOfNeighborsAtom,
     selectedNodeAtom,
     showNodeLabelsAtom,
-    isDirectedAtom,
-    visitedNodesAtom
 } from "./atoms/store";
-import { Cosmograph, CosmographInputConfig, CosmographProvider } from "@cosmograph/react";
-import clsx from "clsx";
-import Graph from "graphology";
-import { useTheme } from "next-themes";
-import { Accordion } from "@/components/ui/accordion";
-import { NodeData, LinkData } from "./hooks/useGraphData";
-import { LinkTypes } from "../kosmograph/linkTypes";  // Import LinkTypes
+import { LinkData, NodeData } from "./hooks/useGraphData";
 
 const createGraph = (nodes: NodeData[], links: LinkData[]) => {
     const newGraph = new Graph();
 
     nodes.forEach((node) => {
-        newGraph.addNode(node.id, { in: node.indegree, out: node.outdegree, nodeSize: 1 });
+        newGraph.addNode(node.id, { in: node.indegree, out: node.outdegree });
     });
 
     links.forEach((link) => {
@@ -53,10 +55,10 @@ export function GraphViz({
     const [activeTab, setActiveTab] = useAtom(activeTabAtom);
     const [showLabelsFor, setShowLabelsFor] = useState<NodeData[] | undefined>([]);
     const [selectedNode, setSelectedNode] = useAtom(selectedNodeAtom);
-    const [enabledLinkTypes, setEnabledLinkTypes] = useState<Record<string, boolean>>({});
+    const [clickedLink, setClickedLink] = useState<LinkData | null>(null);
+    const svgRef = useRef<SVGSVGElement | null>(null);
+
     const [graphData, setGraphData] = useState<{ nodes: NodeData[], links: LinkData[], linkTypeColors: Record<string, string> } | null>(null);
-    const [visitedNodes, setVisitedNodes] = useAtom(visitedNodesAtom);
-    const [isDirected] = useAtom(isDirectedAtom);
 
     useEffect(() => {
         const fetchGraphData = async () => {
@@ -93,10 +95,8 @@ export function GraphViz({
                 .map(id => nodes.find(node => node.id === id)!);
 
             const linkTypeColors = getUniqueLinkTypesWithColors(links);
-            console.log("link colors", linkTypeColors);
 
             setGraphData({ nodes: uniqueNodes, links, linkTypeColors });
-
         };
 
         fetchGraphData();
@@ -106,97 +106,77 @@ export function GraphViz({
         if (graphData) {
             const newGraph = createGraph(graphData.nodes, graphData.links);
             setGlobalGraph(newGraph);
-            setDegree(graphData);
-            const initialEnabledLinkTypes = Object.keys(graphData.linkTypeColors).reduce((acc, type) => {
-                acc[type] = true;
-                return acc;
-            }, {} as Record<string, boolean>);
-
-            setEnabledLinkTypes(initialEnabledLinkTypes);
         }
     }, [graphData, setGlobalGraph]);
 
-    const onCosmographClick = React.useCallback<Exclude<CosmographInputConfig<NodeData, LinkData>["onClick"], undefined>>(
+    const onCosmographClick = React.useCallback<
+        Exclude<CosmographInputConfig<NodeData, LinkData>["onClick"], undefined>
+    >(
         (n) => {
             if (n) {
                 let neighbors: NodeData[] = [n];
+                let queue: { node: NodeData; depth: number }[] = [
+                    { node: n, depth: 1 },
+                ];
 
-                // Collect neighbors with updated indegree and outdegree
-                globalGraph.forEachNeighbor(n.id, (neighbor, attributes) => {
-                    neighbors.push({
-                        id: neighbor,
-                        indegree: 0,
-                        outdegree: 0,
-                    });
-                });
-
+                while (queue.length > 0) {
+                    let current = queue.shift();
+                    if (current && current.depth <= numberOfNeighbors) {
+                        let depth = current?.depth || 1;
+                        globalGraph.forEachNeighbor(
+                            current.node.id,
+                            function (neighbor, attributes) {
+                                neighbors.push({
+                                    id: neighbor,
+                                    indegree: attributes.in,
+                                    outdegree: attributes.out,
+                                });
+                                queue.push({
+                                    node: {
+                                        id: neighbor,
+                                        indegree: attributes.in,
+                                        outdegree: attributes.out,
+                                    },
+                                    depth: depth + 1,
+                                });
+                            }
+                        );
+                    }
+                }
                 //@ts-ignore
                 cosmographRef.current?.selectNodes([...neighbors] as any);
                 setActiveTab("info");
                 setShowLabelsFor([n]);
                 setSelectedNode(n);
-                setVisitedNodes((prevVisitedNodes) => {
-                    // Add the clicked node to the list of visited nodes
-                    const newVisitedNodes = [...prevVisitedNodes];
-                    if (!newVisitedNodes.find((node) => node.id === n.id)) {
-                        newVisitedNodes.push(n);
-                    }
-                    return newVisitedNodes;
-                });
+            } else {
+                //@ts-ignore
+                cosmographRef.current?.unselectNodes();
+                setActiveTab("general");
+                setShowLabelsFor(undefined);
+                setSelectedNode(undefined);
             }
         },
-        [globalGraph, setActiveTab, setShowLabelsFor, setSelectedNode, setVisitedNodes]
+        [numberOfNeighbors, globalGraph]
     );
-
-    const setDegree = (graphData: { nodes: NodeData[]; links: LinkData[]; linkTypeColors: Record<string, string>; } | null) => {
-        graphData?.nodes.forEach((node) => {
-            let indegree = 0;
-            let outdegree = 0;
-            graphData?.links.forEach((link) => {
-                if (link.source === node.id) {
-                    indegree++;
-                }
-                if (link.target === node.id) {
-                    outdegree++;
-                }
-            });
-            node.indegree = indegree;
-            node.outdegree = outdegree;
-        });
-    }
 
     const calculateNodeSize = () => {
         const total = Math.sqrt(graphData?.links.length || 1);
-        let nodeSize = 'total';
-        const minSize = 15;
-        const maxSize = 500;
-
-        const scaleSize = (size: number) => Math.min(maxSize, Math.max(minSize, size));
-
         switch (nodeSize) {
             case "total":
-                return (n: NodeData) => {
-                    const size = ((n.indegree + n.outdegree) / total) * 30 * nodeScale[0] + 1;
-                    return scaleSize(size);
-                };
+                return (n: any) =>
+                    ((n.indegree + n.outdegree) / total) * 10 * nodeScale[0] + 1;
             case "incoming":
-                return (n: NodeData) => {
-                    const size = (n.indegree / total) * 10 * nodeScale[0] + 1;
-                    return scaleSize(size);
-                };
+                return (n: any) => (n.indegree / total) * 10 * nodeScale[0] + 1;
             case "outgoing":
-                return (n: NodeData) => {
-                    const size = (n.outdegree / total) * 10 * nodeScale[0] + 1;
-                    return scaleSize(size);
-                };
+                return (n: any) => (n.outdegree / total) * 10 * nodeScale[0] + 1;
             default:
-                return (n: NodeData) => 15 * nodeScale[0];
+                return (n: any) => 15 * nodeScale[0];
         }
     };
 
     const getColorBetween = (scale: number, total: number) => {
-        const startColor = { r: 69, g: 91, b: 183 };
-        const endColor = { r: 244, g: 63, b: 94 };
+        const startColor = { r: 69, g: 91, b: 183 }; // #455BB7
+        const endColor = { r: 244, g: 63, b: 94 }; // #F43F5E
 
         const ratio = Math.min(scale / total, 1);
 
@@ -207,46 +187,21 @@ export function GraphViz({
         return `rgb(${r}, ${g}, ${b})`;
     };
 
-    const darkenColor = (color: string, percent: number) => {
-        let num = parseInt(color.slice(1), 16),
-            amt = Math.round(2.55 * percent),
-            R = (num >> 16) + amt,
-            G = ((num >> 8) & 0x00FF) + amt,
-            B = (num & 0x0000FF) + amt;
-        return (
-            "#" +
-            (0x1000000 +
-                (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
-                (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
-                (B < 255 ? (B < 1 ? 0 : B) : 255))
-                .toString(16)
-                .slice(1)
-        );
-    };
-
     const calculateColorSize = () => {
-        const getNodeSize = calculateNodeSize();
-
-        const colors = [
-            "#FFC0CB",
-            "#FF69B4",
-            "#FF1493",
-            "#DB7093"
-        ];
-
-        return (node: NodeData) => {
-            const size = getNodeSize(node);
-            let colorIndex;
-            if (size !== 15) {
-                const maxNodeSize = Math.max(...(graphData?.nodes.map((n) => getNodeSize(n)) || [15]));
-                colorIndex = Math.floor((size / maxNodeSize) * (colors.length - 1));
-            } else {
-                colorIndex = 0;
-            }
-            return colors[colorIndex];
-        };
+        const total = Math.sqrt(graphData?.links.length || 1);
+        switch (nodeColor) {
+            case "total":
+                return (n: any) => getColorBetween(n.indegree + n.outdegree, total);
+            case "incoming":
+                return (n: any) => getColorBetween(n.indegree, total);
+            case "outgoing":
+                return (n: any) => getColorBetween(n.outdegree, total);
+            default:
+                return () => "#455BB7CC";
+        }
     };
 
+    // Generating link type colors
     const generateRandomColor = () => {
         const letters = '0123456789ABCDEF';
         let color = '#';
@@ -255,7 +210,6 @@ export function GraphViz({
         }
         return color;
     };
-
     const getUniqueLinkTypesWithColors = (links: LinkData[]) => {
         const linkTypeColors: Record<string, string> = {};
         links.forEach((link) => {
@@ -270,29 +224,68 @@ export function GraphViz({
         return graphData?.linkTypeColors[link.type] || '#000000';
     };
 
+    // Handle click events for links
+    const handleClick = (event: MouseEvent) => {
+        const target = event.target as SVGElement;
+        const linkId = target.getAttribute('data-link-id');
+        if (linkId && graphData) {
+            const [source, target] = linkId.split('-');
+            const link = graphData.links.find((l) => l.source === source && l.target === target);
+            setClickedLink(link || null);
+        } else {
+            setClickedLink(null);
+        }
+    };
+
     const themeToUse = theme === "dark" ? "#030014" : "#fafafa";
+
+    useEffect(() => {
+        if (graphData && svgRef.current) {
+            const svg = svgRef.current;
+            const links = svg.querySelectorAll('line');
+            links.forEach((link) => {
+                link.addEventListener('click', handleClick);
+            });
+
+            return () => {
+                links.forEach((link) => {
+                    link.removeEventListener('click', handleClick);
+                });
+            };
+        }
+    }, [graphData]);
 
     if (!graphData) {
         return <div>Loading...</div>;
     }
 
-    const colors = ['#E6A0AF', '#CC8093', '#B36078', "#FFC0CB"];
-
     return (
-        <div className={clsx("flex items-center justify-center bg-white dark:bg-brand-dark w-[99.5vw] h-[98vh]")}>
+        <div
+            className={clsx(
+                "flex items-center justify-center bg-white dark:bg-brand-dark w-[99.5vw] h-[98vh]"
+            )}
+        >
+            {clickedLink && (
+                <div
+                    className="absolute z-50 p-2 bg-gray-800 text-white rounded"
+                    style={{ left: `50%`, top: `50%` }} // Adjust positioning as needed
+                >
+                    {clickedLink.type}
+                </div>
+            )}
             <CosmographProvider>
                 <Cosmograph
                     ref={cosmographRef}
                     nodes={graphData.nodes}
-                    links={graphData.links}
+                    links={graphData.links.map(link => ({ ...link, data: { linkId: `${link.source}-${link.target}` } }))}
                     backgroundColor={themeToUse}
                     nodeColor={calculateColorSize()}
                     nodeSize={calculateNodeSize()}
                     linkWidth={1}
                     linkColor={getLinkColor}
-                    linkArrowsSizeScale={isDirected ? 1 : 0}
+                    linkArrowsSizeScale={1}
                     linkGreyoutOpacity={0.0}
-                    focusedNodeRingColor={"blue"}
+                    focusedNodeRingColor={"red"}
                     hoveredNodeRingColor={"rgb(244, 63, 94)"}
                     nodeLabelClassName={"text-white"}
                     hoveredNodeLabelClassName={"text-teal-400"}
@@ -311,16 +304,12 @@ export function GraphViz({
                     scaleNodesOnZoom={false}
                     simulationFriction={0.1}
                     simulationLinkSpring={0.5}
-                    simulationLinkDistance={18}
+                    simulationLinkDistance={2.0}
                     simulationRepulsionFromMouse={5.0}
                     onClick={onCosmographClick}
-                    nodeSamplingDistance={10.0}
-                    simulationRepulsion={1.0}
                 />
             </CosmographProvider>
-            <Accordion type="multiple">
-                <LinkTypes linkTypes={graphData.linkTypeColors} onToggle={setEnabledLinkTypes} />
-            </Accordion>
+            <svg ref={svgRef} />
         </div>
     );
 }

@@ -1,9 +1,13 @@
 import React from "react";
+
 import {
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
 } from "../../ui/accordion";
+
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
 	Select,
 	SelectContent,
@@ -14,28 +18,45 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import { NODE_SIZE_DESC } from "@/lib/constants";
-import { Switch } from "../../ui/switch";
-import ToolTip from "../toolTip";
-import { Button } from "@/components/ui/button";
 import { useAtom } from "jotai";
-import { isDirectedAtom } from "../atoms/store";
+import { useDebounce } from "use-debounce";
+import { Switch } from "../../ui/switch";
+import {
+	nodeColorAtom,
+	nodeScaleAtom,
+	nodeSizeAtom,
+	numberOfNeighborsAtom,
+	showNodeLabelsAtom,
+} from "../atoms/store";
+import ToolTip from "../toolTip";
 
-const SidebarLinkTab = () => {
-	const [linkSliderVal, setLinkSliderVal] = React.useState([1]);
-	const [linkSwitchChecked, setLinkSwitchChecked] = React.useState(false);
-	const [isDirected, setIsDirected] = useAtom(isDirectedAtom);
+const SidebarNodeTab = () => {
+	const [nodeSliderVal, setNodeSliderVal] = useAtom(nodeScaleAtom);
+	const [nodeSwitchChecked, setNodeSwitchChecked] = useAtom(showNodeLabelsAtom);
+	const [nodeSize, setNodeSize] = useAtom(nodeSizeAtom);
+	const [nodeColor, setNodeColor] = useAtom(nodeColorAtom);
+	const [numberOfNeighbors, setNumberOfNeighbors] = useAtom(
+		numberOfNeighborsAtom
+	);
+	// const [debouncedValue] = useDebounce(numberOfNeighbors, 500);
+
+	// @ts-ignore
+	const handleInputChange = (event) => {
+		console.log(numberOfNeighbors);
+		setNumberOfNeighbors(event.target.value);
+	};
 
 	return (
-		<AccordionItem value="item-2">
+		<AccordionItem value="node-appearance">
 			<AccordionTrigger className="opacity-70 hover:opacity-100">
-				Link Appearance
+				Node Appearance
 			</AccordionTrigger>
 			<AccordionContent>
-				<div className="bg-neutral-300 dark:bg-neutral-700 rounded px-1 pb-4">
-					<Select>
+				<div className="bg-neutral-300 dark:bg-neutral-700 rounded px-1 ">
+					<Select value={nodeSize} onValueChange={setNodeSize}>
 						<SelectTrigger className="w-full opacity-85 h-[55px] my-2 bg-neutral-300 dark:bg-neutral-700 border-none hover:opacity-100">
 							<div className="flex flex-col p-0 m-0">
-								<ToolTip heading="link size by " text={NODE_SIZE_DESC} />
+								<ToolTip heading="node size by " text={NODE_SIZE_DESC} />
 								<SelectValue placeholder="default" />
 							</div>
 						</SelectTrigger>
@@ -47,10 +68,10 @@ const SidebarLinkTab = () => {
 						</SelectContent>
 					</Select>
 					<Separator />
-					<Select>
+					<Select value={nodeColor} onValueChange={setNodeColor}>
 						<SelectTrigger className="w-full opacity-85 h-[55px] bg-neutral-300 dark:bg-neutral-700 border-none hover:opacity-100">
 							<div className="flex flex-col p-0 m-0">
-								<ToolTip heading="link color by " text={NODE_SIZE_DESC} />
+								<ToolTip heading="node color by " text={NODE_SIZE_DESC} />
 								<SelectValue placeholder="default" />
 							</div>
 						</SelectTrigger>
@@ -64,21 +85,21 @@ const SidebarLinkTab = () => {
 					<Separator />
 
 					<div className="h-[55px] pt-2 px-3 opacity-85 hover:opacity-100">
-						<div className="flex flex-row items-center justify-between my-2">
+						<div className="flex flex-row itmes-center justify-between my-2">
 							<span className="text-sm">
-								Link Scale:{" "}
+								Node Scale:{" "}
 								<div className="inline-block p-0 m-0 align-baseline">
 									<ToolTip heading="" text={NODE_SIZE_DESC} />
 								</div>
 							</span>
-							<span>{linkSliderVal[0]} </span>
+							<span>{nodeSliderVal[0]} </span>
 						</div>
 						<Slider
 							max={5}
 							step={0.1}
-							value={linkSliderVal}
+							value={nodeSliderVal}
 							onValueChange={(val: React.SetStateAction<number[]>) => {
-								setLinkSliderVal(val);
+								setNodeSliderVal(val);
 							}}
 						/>
 					</div>
@@ -86,26 +107,40 @@ const SidebarLinkTab = () => {
 
 					<div className="flex flex-row h-[50px] mt-2 items-center justify-between px-3 opacity-85 hover:opacity-100">
 						<span>
-							Show Links{" "}
+							Show Labels{" "}
 							<div className="inline-block p-0">
 								<ToolTip heading="" text={NODE_SIZE_DESC} />
 							</div>
 						</span>
 						<span className="">
 							<Switch
-								checked={linkSwitchChecked}
+								checked={nodeSwitchChecked}
 								onCheckedChange={(val) => {
-									setLinkSwitchChecked(val);
+									setNodeSwitchChecked(val);
 								}}
 							/>{" "}
 						</span>
 					</div>
+
 					<Separator className="mt-3" />
 
-					<div className="flex flex-row h-[50px] mt-4 items-center justify-between px-3 opacity-85 hover:opacity-100">
-						<Button onClick={() => setIsDirected(!isDirected)} className="w-full">
-							{isDirected ? "Show Link Directions" : "Hide Link Directions"}
-						</Button>
+					<div className="flex flex-row h-[50px] mt-2 items-center justify-between px-3 opacity-85 hover:opacity-100">
+						<span>
+							# of Neighbors{" "}
+							<div className="inline-block p-0">
+								<ToolTip heading="" text={NODE_SIZE_DESC} />
+							</div>
+						</span>
+						<span className="w-16">
+							<Input
+								type="number"
+								id="num"
+								min="0"
+								// placeholder={numberLabels.toString()}
+								value={numberOfNeighbors}
+								onChange={handleInputChange}
+							/>
+						</span>
 					</div>
 				</div>
 			</AccordionContent>
@@ -113,4 +148,4 @@ const SidebarLinkTab = () => {
 	);
 };
 
-export default SidebarLinkTab;
+export default SidebarNodeTab;
