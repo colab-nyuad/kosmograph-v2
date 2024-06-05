@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+
 import * as React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
@@ -16,11 +17,6 @@ import {
 import { useAtom } from "jotai";
 import { ColorPicker, useColor } from "react-color-palette";
 
-const getLinks = () => {
-    const [linkTypeColors, setLinkTypeColors] = useAtom(linkTypeColorsAtom);
-    const linkTypes = linkTypeColors;
-    console.log("link types:", linkTypes);
-}
 
 export function LinkTypes() {
     const [linkTypeColors] = useAtom(linkTypeColorsAtom);
