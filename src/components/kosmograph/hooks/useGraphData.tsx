@@ -20,15 +20,21 @@ export interface LinkData {
 	type: string;
 }
 
+export interface LinkType {
+	type: string;
+
+}
+
 // Define an interface for the state managed by useState in the hook
 export interface GraphData {
 	nodes: NodeData[];
 	links: LinkData[];
+	linkType: LinkType[];
 }
 
 export const useGraphData = () => {
 	const [globalGraph] = useAtom<Graph>(globalGraphAtom);
-	const [data, setData] = useState<GraphData>({ nodes: [], links: [] });
+	const [data, setData] = useState<GraphData>({ nodes: [], links: [], linkType: [] });
 
 	useEffect(() => {
 		if (!globalGraph) return;
@@ -52,8 +58,14 @@ export const useGraphData = () => {
 				type: edgeData.type as string, // Cast to string if necessary
 			};
 		});
-
-		setData({ nodes, links });
+		//to keep a record of the link  type of the unqiue links
+		const linkType: LinkType[] = globalGraph.edges().map((edge) => {
+			const edgeData = globalGraph.getEdgeAttributes(edge);
+			return {
+				type: edgeData.type as string, // Cast to string if necessary
+			};
+		});
+		setData({ nodes, links, linkType });
 	}, [globalGraph]);
 
 	return data;

@@ -126,7 +126,7 @@ const SidebarNodeTab = () => {
 
 					<div className="flex flex-row h-[50px] mt-2 items-center justify-between px-3 opacity-85 hover:opacity-100">
 						<span>
-							# of Neighbors{" "}
+							Number of Neighbors{" "}
 							<div className="inline-block p-0">
 								<ToolTip heading="" text={NODE_SIZE_DESC} />
 							</div>
