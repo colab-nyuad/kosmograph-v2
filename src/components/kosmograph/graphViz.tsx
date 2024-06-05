@@ -1,16 +1,5 @@
-// @ts-nocheck 
-import { LinkTypes } from "../kosmograph/linkTypes";
-import { getColorBetween } from "@/lib/utils";
-import {
-    Cosmograph,
-    CosmographInputConfig,
-    CosmographProvider,
-} from "@cosmograph/react";
-import clsx from "clsx";
-import Graph from "graphology";
-import { useAtom } from "jotai";
-import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
+import { useAtom } from "jotai";
 import {
     activeTabAtom,
     globalGraphAtom,
@@ -21,16 +10,15 @@ import {
     selectedNodeAtom,
     showNodeLabelsAtom,
     isDirectedAtom,
+    visitedNodesAtom
 } from "./atoms/store";
-import { LinkData, NodeData } from "./hooks/useGraphData";
-import { Accordion } from "@/components/ui/accordion"; // Import the Accordion component
-import { set } from "zod";
-import { log } from "console";
-import { get } from "http";
-
-//node sizes global
-const maxNodeSize = 500;
-const minNodeSize = 15;
+import { Cosmograph, CosmographInputConfig, CosmographProvider } from "@cosmograph/react";
+import clsx from "clsx";
+import Graph from "graphology";
+import { useTheme } from "next-themes";
+import { Accordion } from "@/components/ui/accordion";
+import { NodeData, LinkData } from "./hooks/useGraphData";
+import { LinkTypes } from "../kosmograph/linkTypes";  // Import LinkTypes
 
 const createGraph = (nodes: NodeData[], links: LinkData[]) => {
     const newGraph = new Graph();
@@ -67,7 +55,7 @@ export function GraphViz({
     const [selectedNode, setSelectedNode] = useAtom(selectedNodeAtom);
     const [enabledLinkTypes, setEnabledLinkTypes] = useState<Record<string, boolean>>({});
     const [graphData, setGraphData] = useState<{ nodes: NodeData[], links: LinkData[], linkTypeColors: Record<string, string> } | null>(null);
-    const [visitedNodes, setVisitedNodes] = useState([]);
+    const [visitedNodes, setVisitedNodes] = useAtom(visitedNodesAtom);
     const [isDirected] = useAtom(isDirectedAtom);
 
     useEffect(() => {
@@ -147,24 +135,24 @@ export function GraphViz({
                 setActiveTab("info");
                 setShowLabelsFor([n]);
                 setSelectedNode(n);
-            } else {
-                //@ts-ignore
-                // cosmographRef.current?.unselectNodes();
-                // setActiveTab("general");
-                // setShowLabelsFor(undefined);
-                // setSelectedNode(undefined);
+                setVisitedNodes((prevVisitedNodes) => {
+                    // Add the clicked node to the list of visited nodes
+                    const newVisitedNodes = [...prevVisitedNodes];
+                    if (!newVisitedNodes.find((node) => node.id === n.id)) {
+                        newVisitedNodes.push(n);
+                    }
+                    return newVisitedNodes;
+                });
             }
         },
-        [globalGraph]
+        [globalGraph, setActiveTab, setShowLabelsFor, setSelectedNode, setVisitedNodes]
     );
 
     const setDegree = (graphData: { nodes: NodeData[]; links: LinkData[]; linkTypeColors: Record<string, string>; } | null) => {
-        //@ts-expect-error
-        graphData.nodes.forEach((node) => {
+        graphData?.nodes.forEach((node) => {
             let indegree = 0;
             let outdegree = 0;
-            //@ts-expect-error
-            graphData.links.forEach((link) => {
+            graphData?.links.forEach((link) => {
                 if (link.source === node.id) {
                     indegree++;
                 }
@@ -181,28 +169,28 @@ export function GraphViz({
         const total = Math.sqrt(graphData?.links.length || 1);
         let nodeSize = 'total';
         const minSize = 15;
-        const maxSize = maxNodeSize;
+        const maxSize = 500;
 
-        const scaleSize = (size) => Math.min(maxSize, Math.max(minSize, size));
+        const scaleSize = (size: number) => Math.min(maxSize, Math.max(minSize, size));
 
         switch (nodeSize) {
             case "total":
-                return (n) => {
+                return (n: NodeData) => {
                     const size = ((n.indegree + n.outdegree) / total) * 30 * nodeScale[0] + 1;
                     return scaleSize(size);
                 };
             case "incoming":
-                return (n) => {
+                return (n: NodeData) => {
                     const size = (n.indegree / total) * 10 * nodeScale[0] + 1;
                     return scaleSize(size);
                 };
             case "outgoing":
-                return (n) => {
+                return (n: NodeData) => {
                     const size = (n.outdegree / total) * 10 * nodeScale[0] + 1;
                     return scaleSize(size);
                 };
             default:
-                return (n) => 15 * nodeScale[0];
+                return (n: NodeData) => 15 * nodeScale[0];
         }
     };
 
@@ -219,7 +207,7 @@ export function GraphViz({
         return `rgb(${r}, ${g}, ${b})`;
     };
 
-    const darkenColor = (color, percent) => {
+    const darkenColor = (color: string, percent: number) => {
         let num = parseInt(color.slice(1), 16),
             amt = Math.round(2.55 * percent),
             R = (num >> 16) + amt,
@@ -246,11 +234,11 @@ export function GraphViz({
             "#DB7093"
         ];
 
-        return (node) => {
+        return (node: NodeData) => {
             const size = getNodeSize(node);
             let colorIndex;
-            if (size != 15) {
-                const maxNodeSize = Math.max(...graphData?.nodes.map((n) => getNodeSize(n)));
+            if (size !== 15) {
+                const maxNodeSize = Math.max(...(graphData?.nodes.map((n) => getNodeSize(n)) || [15]));
                 colorIndex = Math.floor((size / maxNodeSize) * (colors.length - 1));
             } else {
                 colorIndex = 0;
@@ -330,7 +318,7 @@ export function GraphViz({
                     simulationRepulsion={1.0}
                 />
             </CosmographProvider>
-            <Accordion>
+            <Accordion type="multiple">
                 <LinkTypes linkTypes={graphData.linkTypeColors} onToggle={setEnabledLinkTypes} />
             </Accordion>
         </div>
