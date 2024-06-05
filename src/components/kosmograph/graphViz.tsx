@@ -692,8 +692,8 @@ export function GraphViz({
             <CosmographProvider>
                 <Cosmograph
                     ref={cosmographRef}
-                    nodes={filteredNodes}  // Use filtered nodes here
-                    links={filteredLinks}  // Use filtered links here
+                    nodes={filteredNodes}  
+                    links={filteredLinks}  
                     backgroundColor={themeToUse}
                     nodeColor={calculateColorSize()}
                     nodeSize={calculateNodeSize()}
