@@ -435,7 +435,7 @@ export function GraphViz({
     const [selectedNode, setSelectedNode] = useAtom(selectedNodeAtom);
     const [enabledLinkTypes, setEnabledLinkTypes] = useState<Record<string, boolean>>({});
     const [graphData, setGraphData] = useState<{ nodes: NodeData[], links: LinkData[], linkTypeColors: Record<string, string> } | null>(null);
-    const [visitedNodes, setVisitedNodes] = useState([]);
+    const [visitedNodes, setVisitedNodes] = useState<Set<NodeData>>(new Set());
     const [linkTypeColors, setLinkTypeColors] = useAtom(linkTypeColorsAtom);
     const [selectedLinkType, setSelectedLinkType] = useAtom(selectedLinkTypeAtom);
     const [filteredLinks, setFilteredLinks] = useState<LinkData[]>([]);
@@ -557,7 +557,6 @@ export function GraphViz({
         (n) => {
             if (n) {
                 let neighbors: NodeData[] = [n];
-                // Collect neighbors with updated indegree and outdegree
                 globalGraph.forEachNeighbor(n.id, (neighbor, attributes) => {
                     neighbors.push({
                         id: neighbor,
@@ -565,10 +564,13 @@ export function GraphViz({
                         outdegree: 0,
                     });
                 });
+                const updatedVisitedNodes = new Set(visitedNodes);
+                neighbors.forEach(node => updatedVisitedNodes.add(node));
                 //@ts-ignore
-                cosmographRef.current?.selectNodes([...neighbors] as any);
+                cosmographRef.current?.selectNodes([...updatedVisitedNodes] as any);
                 setActiveTab("info");
                 setShowLabelsFor([n]);
+                setVisitedNodes(updatedVisitedNodes);
                 setSelectedNode(n);
             } else {
                 //@ts-ignore
@@ -578,8 +580,11 @@ export function GraphViz({
                 setSelectedNode(undefined);
             }
         },
-        [globalGraph]
+        [globalGraph, visitedNodes]
     );
+
+
+    
 
     const setDegree = (graphData: { nodes: NodeData[]; links: LinkData[]; linkTypeColors: Record<string, string>; } | null) => {
         //@ts-expect-error
