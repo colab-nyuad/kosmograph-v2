@@ -388,12 +388,14 @@ import {
     linkTypeColorsAtom,
     selectedLinkTypeAtom,
     LinkTypesSelctionAtom,
+    isHistoryEnabledAtom,
 } from "./atoms/store";
 import { LinkData, LinkType, NodeData } from "./hooks/useGraphData";
 import { Accordion } from "@/components/ui/accordion"; // Import the Accordion component
 import { set } from "zod";
 import { log } from "console";
 import { get } from "http";
+import SidebarTabs from "./sidebar/sidebarTabs";
 
 //node sizes global
 const maxNodeSize = 500;
@@ -441,6 +443,7 @@ export function GraphViz({
     const [filteredLinks, setFilteredLinks] = useState<LinkData[]>([]);
     const [filteredNodes, setFilteredNodes] = useState<NodeData[]>([]);
     const [linkTypes, setLinkTypes] = useAtom(LinkTypesSelctionAtom);
+    const [isHistoryEnabled, setIsHistoryEnabled] = useAtom(isHistoryEnabledAtom);
 
     useEffect(() => {
         const fetchGraphData = async () => {
@@ -552,37 +555,102 @@ export function GraphViz({
         }
     }, [graphData, linkTypes]);
 
+    //Save visited nodes history
+    // const onCosmographClick = React.useCallback<Exclude<CosmographInputConfig<NodeData, LinkData>["onClick"], undefined>>(
+    //     (n) => {
+    //         if (n) {
+    //             let neighbors: NodeData[] = [n];
+    //             globalGraph.forEachNeighbor(n.id, (neighbor, attributes) => {
+    //                 neighbors.push({
+    //                     id: neighbor,
+    //                     indegree: 0,
+    //                     outdegree: 0,
+    //                 });
+    //             });
+    //             const updatedVisitedNodes = new Set(visitedNodes);
+    //             neighbors.forEach(node => updatedVisitedNodes.add(node));
+    //             //@ts-ignore
+    //             cosmographRef.current?.selectNodes([...updatedVisitedNodes] as any);
+    //             setActiveTab("info");
+    //             setShowLabelsFor([n]);
+    //             setVisitedNodes(updatedVisitedNodes);
+    //             setSelectedNode(n);
+    //         } else {
+    //             //@ts-ignore
+    //             cosmographRef.current?.unselectNodes();
+    //             setActiveTab("general");
+    //             setShowLabelsFor(undefined);
+    //             setSelectedNode(undefined);
+    //         }
+    //     },
+    //     [globalGraph, visitedNodes]
+    // );
 
     const onCosmographClick = React.useCallback<Exclude<CosmographInputConfig<NodeData, LinkData>["onClick"], undefined>>(
         (n) => {
-            if (n) {
-                let neighbors: NodeData[] = [n];
-                globalGraph.forEachNeighbor(n.id, (neighbor, attributes) => {
-                    neighbors.push({
-                        id: neighbor,
-                        indegree: 0,
-                        outdegree: 0,
+            console.log("History Enabled status", isHistoryEnabled);
+    
+            if (isHistoryEnabled) {
+                if (n) {
+                    let neighbors: NodeData[] = [n];
+                    globalGraph.forEachNeighbor(n.id, (neighbor, attributes) => {
+                        neighbors.push({
+                            id: neighbor,
+                            indegree: 0,
+                            outdegree: 0,
+                        });
                     });
-                });
-                const updatedVisitedNodes = new Set(visitedNodes);
-                neighbors.forEach(node => updatedVisitedNodes.add(node));
-                //@ts-ignore
-                cosmographRef.current?.selectNodes([...updatedVisitedNodes] as any);
-                setActiveTab("info");
-                setShowLabelsFor([n]);
-                setVisitedNodes(updatedVisitedNodes);
-                setSelectedNode(n);
+                    const updatedVisitedNodes = new Set(visitedNodes);
+                    neighbors.forEach(node => updatedVisitedNodes.add(node));
+                    //@ts-ignore
+                    cosmographRef.current?.selectNodes([...updatedVisitedNodes] as any);
+                    setActiveTab("info");
+                    setShowLabelsFor([n]);
+                    setVisitedNodes(updatedVisitedNodes);
+                    setSelectedNode(n);
+                } else {
+                    //@ts-ignore
+                    console.log("Unselecting nodes");
+                    
+                    cosmographRef.current?.unselectNodes();
+                    
+                    setActiveTab("general");
+                    setShowLabelsFor(undefined);
+                    setSelectedNode(undefined);
+                    visitedNodes.clear();
+                }
             } else {
-                //@ts-ignore
-                cosmographRef.current?.unselectNodes();
-                setActiveTab("general");
-                setShowLabelsFor(undefined);
-                setSelectedNode(undefined);
+                if (n) {
+                    let neighbors: NodeData[] = [n];
+                    globalGraph.forEachNeighbor(n.id, (neighbor, attributes) => {
+                        neighbors.push({
+                            id: neighbor,
+                            indegree: 0,
+                            outdegree: 0,
+                        });
+                    });
+                    const updatedVisitedNodes = new Set(visitedNodes);
+    
+                    // @ts-ignore
+                    cosmographRef.current?.selectNodes([...neighbors] as any);
+    
+                    setActiveTab("info");
+                    setShowLabelsFor([n]);
+                    setSelectedNode(n);
+                } else {
+                    // @ts-ignore
+                    cosmographRef.current?.unselectNodes();
+                    setActiveTab("general");
+                    setShowLabelsFor(undefined);
+                    setSelectedNode(undefined);
+                }
             }
         },
-        [globalGraph, visitedNodes]
+        [globalGraph, visitedNodes, isHistoryEnabled]
     );
-
+    
+    
+    
     
 
 

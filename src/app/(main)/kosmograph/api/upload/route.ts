@@ -1,4 +1,4 @@
-import { writeFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
 import { join } from "path";
 import { parse } from 'csv-parse/sync';
@@ -16,13 +16,14 @@ export async function POST(request: NextRequest) {
 
     // Determine the file type based on the file name or content
     const fileName = file.name;
-	console.log("hello", fileName);
+    console.log("Processing file:", fileName);
     let records;
 
     if (fileName.endsWith(".csv")) {
         const csvContent = buffer.toString();
         records = parse(csvContent, {
             columns: ['subject', 'predicate', 'object'],
+            delimiter: ',',
             skip_empty_lines: true
         });
     } else if (fileName.endsWith(".tsv")) {
@@ -32,7 +33,7 @@ export async function POST(request: NextRequest) {
             delimiter: '\t',
             skip_empty_lines: true
         });
-	} else if (fileName.endsWith(".txt")) {
+    } else if (fileName.endsWith(".txt")) {
         const textContent = buffer.toString();
         // Assuming each line in the text file is a record with tab-separated values
         records = textContent.split('\n').map(line => {
@@ -47,6 +48,8 @@ export async function POST(request: NextRequest) {
     const path = join(process.cwd(), "public", "data", 'uploadFile.json');
     await writeFile(path, JSON.stringify(records, null, 2));
 
-    return NextResponse.json({ success: true, data: records });
+    // Read the latest data from the saved file to ensure it's up-to-date
+    const latestData = JSON.parse(await readFile(path, 'utf-8'));
+    console.log("Data saved successfully:", latestData);
+    return NextResponse.json({ success: true, data: latestData });
 }
-
