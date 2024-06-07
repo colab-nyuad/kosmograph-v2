@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { join } from "path";
 import { parse } from 'csv-parse/sync';
 
+
 export async function POST(request: NextRequest) {
     const data = await request.formData();
     const file: File | null = data.get("file") as unknown as File;
@@ -35,7 +36,7 @@ export async function POST(request: NextRequest) {
         });
     } else if (fileName.endsWith(".txt")) {
         const textContent = buffer.toString();
-        // Assuming each line in the text file is a record with tab-separated values
+        
         records = textContent.split('\n').map(line => {
             const [subject, predicate, object] = line.split('\t');
             return { subject, predicate, object };
@@ -43,10 +44,21 @@ export async function POST(request: NextRequest) {
     } else {
         return NextResponse.json({ success: false, message: "Unsupported file type" });
     }
-
+    // Extract the name of the file without extension
+    const fileNameWithoutExtension = fileName.split(".")[0];
+    console.log("File name without extension:", fileNameWithoutExtension);
     // Save the parsed data to a JSON file in the public directory
-    const path = join(process.cwd(), "public", "data", 'uploadFile.json');
+    //const path = join(process.cwd(), "public", "data", 'uploadFile.json');
+
+    const path = join("public", "data", fileNameWithoutExtension + ".json");
+    console.log("Saving data to:", path);
+
+    //console.log("Saving data to:", p);
     await writeFile(path, JSON.stringify(records, null, 2));
+    
+    
+    //router.push(`/graphViz?filename=${fileName}`);
+    //await writeFile(path, JSON.stringify(records, null, 2));
 
     // Read the latest data from the saved file to ensure it's up-to-date
     const latestData = JSON.parse(await readFile(path, 'utf-8'));

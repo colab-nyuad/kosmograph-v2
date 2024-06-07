@@ -1,9 +1,9 @@
-version: "3"
+version: "10"
 services:
   kosmosviz:
-    image: kosmosviz
-    platform: arm64
-    build: .
+    image: dedcode/kosmograph:v10.0 
     ports:
       - "5000:5000"
+    volumes:
+      - ./public:/app/public
     restart: always

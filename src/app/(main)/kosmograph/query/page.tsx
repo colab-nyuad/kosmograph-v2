@@ -22,10 +22,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { set, z } from "zod";
+import { fileNameAtom } from "@/components/kosmograph/atoms/store";
+import { useAtom } from "jotai";
+
 
 const QueryPage = () => {
 	const [fileName, setFileName] = React.useState<string | null>();
+	
 	const [numRecords, setNumRecords] = React.useState<number | null>();
 
 	const router = useRouter();
@@ -50,6 +54,9 @@ const QueryPage = () => {
 		const result = await res.json();
 		setFileName(result.fileName);
 		setNumRecords(result?.count ?? 0);
+		
+		
+		
 		// // redirect to the result page
 		// router.push(`/result/${result.fileName}`);
 	};

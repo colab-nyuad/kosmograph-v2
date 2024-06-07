@@ -10,6 +10,8 @@ import { writeFile } from "fs/promises";
 import Link from "next/link";
 import { join } from "path";
 import React from "react";
+import { useAtom } from "jotai";
+import { fileNameAtom } from "@/components/kosmograph/atoms/store";
 
 const UploadPage = () => {
 	const [selectedFile, setSelectedFile] = React.useState<
@@ -18,10 +20,14 @@ const UploadPage = () => {
 	const [fileName, setFileName] = React.useState<string | null>();
 	const [numRecords, setNumRecords] = React.useState<number | null>();
 	const fileInputRef = React.useRef<HTMLInputElement>(null);
-
+	const [fName, setfName] = useAtom(fileNameAtom);
+	
 	const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e?.target?.files?.[0];
 		setFileName(file?.name);
+		let fileNameHelper=file?.name.toString()
+		//@ts-ignore
+		setfName(fileNameHelper);
 
 		if (!file) return;
 

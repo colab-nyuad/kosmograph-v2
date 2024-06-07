@@ -1,0 +1,52 @@
+[
+  {
+    "subject": "/m/03gqgt3",
+    "predicate": "/military/military_conflict/combatants./military/military_combatant_group/combatants",
+    "object": "/m/0d060g"
+  },
+  {
+    "subject": "/m/01c9f2",
+    "predicate": "/award/award_category/winners./award/award_honor/ceremony",
+    "object": "/m/01bx35"
+  },
+  {
+    "subject": "/m/01c9f2",
+    "predicate": "/award/award_category/winners./award/award_honor/ceremony",
+    "object": "/m/01s695"
+  },
+  {
+    "subject": "/m/01lp8",
+    "predicate": "/user/tsegaran/random/taxonomy_subject/entry./user/tsegaran/random/taxonomy_entry/taxonomy",
+    "object": "/m/04n6k"
+  },
+  {
+    "subject": "/m/01xwqn",
+    "predicate": "/influence/influence_node/influenced_by",
+    "object": "/m/0121rx"
+  },
+  {
+    "subject": "/m/065ym0c",
+    "predicate": "/film/film/release_date_s./film/film_regional_release_date/film_release_region",
+    "object": "/m/07ssc"
+  },
+  {
+    "subject": "/m/06kxk2",
+    "predicate": "/people/person/place_of_birth",
+    "object": "/m/01_d4"
+  },
+  {
+    "subject": "/m/08q1tg",
+    "predicate": "/people/cause_of_death/people",
+    "object": "/m/0lcx"
+  },
+  {
+    "subject": "/m/037fqp",
+    "predicate": "/education/educational_institution/school_type",
+    "object": "/m/04399"
+  },
+  {
+    "subject": "/m/0xxc",
+    "predicate": "/education/educational_institution/students_graduates./education/education/major_field_of_study",
+    "object": "/m/01lj9"
+  }
+]

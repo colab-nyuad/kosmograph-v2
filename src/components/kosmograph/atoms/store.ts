@@ -1,7 +1,8 @@
 import Graph from "graphology";
 import { atom } from "jotai";
 import { LinkData, NodeData } from "../hooks/useGraphData";
-import { boolean } from "zod";
+import { boolean, string } from "zod";
+
 
 const initialGraph = new Graph();
 const globalGraphAtom = atom(initialGraph);
@@ -17,6 +18,7 @@ const selectedNodeAtom = atom<NodeData | undefined>(undefined);
 const selectedLinkTypeAtom = atom<LinkData | undefined>(undefined);
 const LinkTypesSelctionAtom = atom<string[]>([]);
 const isHistoryEnabledAtom = atom(true);
+const fileNameAtom = atom(" ");
 export {
 	activeTabAtom,
 	globalGraphAtom,
@@ -30,4 +32,5 @@ export {
 	selectedLinkTypeAtom,
 	LinkTypesSelctionAtom,
 	isHistoryEnabledAtom,
+	fileNameAtom,
 };

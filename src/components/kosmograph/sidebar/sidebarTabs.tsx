@@ -33,7 +33,6 @@ const SidebarTabs = () => {
 	const handleHistoryToggle = () => {
 		
 		setIsHistoryEnabled(!isHistoryEnabled);
-		console.log("History enabled:", !isHistoryEnabled);
 	
 	};
 	
