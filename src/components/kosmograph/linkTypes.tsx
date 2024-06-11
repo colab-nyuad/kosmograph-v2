@@ -86,6 +86,7 @@ export function LinkTypes() {
                                     />
                                     <label htmlFor={name} style={{ color }}>
                                         {name}: {color}
+                                        {/* test */}
                                     </label>
                                 </div>
                                 {activeLinkType === name && (
