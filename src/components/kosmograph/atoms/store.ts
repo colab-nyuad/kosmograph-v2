@@ -15,6 +15,7 @@ const linkTypeColorsAtom = atom<Record<string, string>>({})
 const selectedNodeAtom = atom<NodeData | undefined>(undefined);
 const selectedLinkTypeAtom = atom<LinkData | undefined>(undefined);
 const LinkTypesSelctionAtom = atom<string[]>([]);
+const isDirectedAtom = atom(true);
 const visitedNodesAtom = atom<NodeData[]>([]);
 const additionalVisitedNodesAtom = atom<NodeData[]>([]);
 export {
@@ -29,6 +30,7 @@ export {
 	linkTypeColorsAtom,
 	selectedLinkTypeAtom,
 	LinkTypesSelctionAtom,
+	isDirectedAtom,
 	visitedNodesAtom,
 	additionalVisitedNodesAtom
 };

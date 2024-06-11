@@ -388,7 +388,8 @@ import {
     linkTypeColorsAtom,
     selectedLinkTypeAtom,
     LinkTypesSelctionAtom,
-    additionalVisitedNodesAtom
+    additionalVisitedNodesAtom,
+    isDirectedAtom
 } from "./atoms/store";
 import { LinkData, LinkType, NodeData } from "./hooks/useGraphData";
 import { Accordion } from "@/components/ui/accordion"; // Import the Accordion component
@@ -443,6 +444,7 @@ export function GraphViz({
     const [filteredNodes, setFilteredNodes] = useState<NodeData[]>([]);
     const [linkTypes, setLinkTypes] = useAtom(LinkTypesSelctionAtom);
     const [additionalVisitedNodes, setAdditionalVisitedNodes] = useAtom(additionalVisitedNodesAtom,);
+    const [isDirected] = useAtom(isDirectedAtom);
 
     useEffect(() => {
         const fetchGraphData = async () => {
@@ -726,6 +728,7 @@ export function GraphViz({
                     linkColor={getLinkColor}
                     linkArrowsSizeScale={1}
                     linkGreyoutOpacity={0.0}
+                    linkArrowsSizeScale={isDirected ? 1 : 0}
                     focusedNodeRingColor={"blue"}
                     hoveredNodeRingColor={"rgb(244, 63, 94)"}
                     nodeLabelClassName={"text-white"}
