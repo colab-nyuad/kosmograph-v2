@@ -526,13 +526,16 @@ import {
   fileNameAtom,
   fileDataAtom,
   isDirectedAtom,
-  linkColorAtom,
-  linkSizeAtom,
+  colorSetAtom,
 } from "./atoms/store";
 import { LinkData, LinkType, NodeData } from "./hooks/useGraphData";
-import { Accordion } from "@/components/ui/accordion";
+import { Accordion } from "@/components/ui/accordion"; // Import the Accordion component
+import { set } from "zod";
+import { log } from "console";
+import { get } from "http";
 import SidebarTabs from "./sidebar/sidebarTabs";
 
+//node sizes global
 const maxNodeSize = 500;
 const minNodeSize = 15;
 
@@ -556,13 +559,8 @@ const createGraph = (nodes: NodeData[], links: LinkData[]) => {
   return newGraph;
 };
 
-export function GraphViz({
-  cosmographRef,
-  sidebarOpen,
-}: {
-  cosmographRef: React.MutableRefObject<null>;
-  sidebarOpen: boolean;
-}) {
+export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.MutableRefObject<null>; sidebarOpen: boolean; }) {
+    const [color, setColor] = useAtom(colorSetAtom);
   const [isDirected] = useAtom(isDirectedAtom);
   const { theme } = useTheme();
   const [globalGraph, setGlobalGraph] = useAtom(globalGraphAtom);
@@ -585,8 +583,6 @@ export function GraphViz({
   const [isHistoryEnabled, setIsHistoryEnabled] = useAtom(isHistoryEnabledAtom);
   const [fileName, setFileName] = useAtom(fileNameAtom);
   const [fileData] = useAtom(fileDataAtom);
-  const [linkColor] = useAtom(linkColorAtom);
-  const [linkSize] = useAtom(linkSizeAtom);
 
   useEffect(() => {
     const fetchGraphData = async () => {
@@ -619,6 +615,7 @@ export function GraphViz({
         });
       });
 
+      // Remove duplicate nodes
       const uniqueNodes = Array.from(new Set(nodes.map((node) => node.id))).map(
         (id) => nodes.find((node) => node.id === id)!
       );
@@ -826,45 +823,7 @@ export function GraphViz({
   };
 
   const getLinkColor = (link: LinkData) => {
-    if (linkColor === "default") {
-      return graphData?.linkTypeColors[link.type] || "#000000";
-    }
-    const linkCounts = {
-      total: link.source ? link.source + link.target : 0,
-      incoming: link.target,
-      outgoing: link.source,
-    };
-    switch (linkColor) {
-      case "total":
-        return getColorBetween(linkCounts.total, 0, graphData?.links.length);
-      case "incoming":
-        return getColorBetween(linkCounts.incoming, 0, graphData?.links.length);
-      case "outgoing":
-        return getColorBetween(linkCounts.outgoing, 0, graphData?.links.length);
-      default:
-        return "#000000";
-    }
-  };
-
-  const getLinkWidth = (link: LinkData) => {
-    if (linkSize === "default") {
-      return 1;
-    }
-    const linkCounts = {
-      total: link.source ? link.source + link.target : 0,
-      incoming: link.target,
-      outgoing: link.source,
-    };
-    switch (linkSize) {
-      case "total":
-        return (linkCounts.total / graphData?.links.length) * 10;
-      case "incoming":
-        return (linkCounts.incoming / graphData?.links.length) * 10;
-      case "outgoing":
-        return (linkCounts.outgoing / graphData?.links.length) * 10;
-      default:
-        return 1;
-    }
+    return graphData?.linkTypeColors[link.type] || "#000000";
   };
 
   const themeToUse = theme === "dark" ? "#030014" : "#fafafa";
@@ -886,7 +845,7 @@ export function GraphViz({
           backgroundColor={themeToUse}
           nodeColor={calculateColorSize()}
           nodeSize={calculateNodeSize()}
-          linkWidth={getLinkWidth}
+          linkWidth={1}
           linkColor={getLinkColor}
           linkArrowsSizeScale={isDirected ? 1 : 0}
           linkGreyoutOpacity={0.0}
