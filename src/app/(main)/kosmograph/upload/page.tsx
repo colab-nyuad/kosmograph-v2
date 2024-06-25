@@ -1,4 +1,6 @@
+//@ts-nocheck
 "use client";
+
 import CustomCard from "@/components/global/custom-card";
 import BackToHome from "@/components/kosmograph/backToHome";
 import { Button } from "@/components/ui/button";

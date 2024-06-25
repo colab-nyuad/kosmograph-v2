@@ -1,63 +1,65 @@
 import { writeFile } from "fs/promises";
-import { NextRequest, NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from "next";
 import { join } from "path";
 
-export async function POST(request: NextRequest) {
-	//get text area data
-	const sparqlQuery = await request.json();
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    if (req.method === "POST") {
+      const { query } = req.body;
 
-	console.log(sparqlQuery);
-	const queryUrl =
-		"https://query.citygraph.co/proxy/wdqs/bigdata/namespace/wdq/sparql?query=" +
-		encodeURIComponent(sparqlQuery.query) +
-		"&format=json";
+      if (!query) {
+        res.status(400).json({ error: "Query is required" });
+        return;
+      }
 
-	const headers = {
-		Accept: "application/json",
-		"User-Agent": "CityGraph",
-		"Access-Control-Allow-Origin": "*",
-	};
+      const queryUrl = `https://query.wikidata.org/bigdata/namespace/wdq/sparql?query=${encodeURIComponent(query)}&format=json`;
+      const headers = {
+        Accept: "application/json",
+        "User-Agent": "CityGraph",
+        "Access-Control-Allow-Origin": "*",
+      };
 
-	//fetch data from url
-	const res = await fetch(queryUrl, {
-		method: "GET",
-		headers: headers,
-	});
+      const response = await fetch(queryUrl, { method: "GET", headers });
 
-	const result = await res.json();
+      if (!response.ok) {
+        throw new Error(`Fetch error: ${response.statusText}`);
+      }
 
-	// filename is query + random number + .csv
-	const filename = "query" + Math.floor(Math.random() * 100) + ".csv";
+      const result = await response.json();
 
-	const filePath = join(process.cwd(), "data", filename);
+      const filename = `query${Math.floor(Math.random() * 100)}.csv`;
+      const filePath = join(process.cwd(), "data", filename);
 
-	let fileData = "s,p,o\n";
+      let fileData = "s,p,o\n";
+      let count = 0;
 
-	let count = 0;
+      result.results.bindings.forEach((item: any) => {
+        let num = 0;
+        for (const [_, value] of Object.entries(item)) {
+          if (num == 2) {
+            fileData += (value as { value: string }).value + "\n";
+            num = 0;
+            count++;
+          } else {
+            fileData += (value as { value: string }).value + ",";
+            num++;
+          }
+        }
+      });
 
-	//   loop through results and get the data from value key
-	const data = result.results.bindings.map((item: any) => {
-		let num = 0;
-		// count the number of lines
-		for (const [_, value] of Object.entries(item)) {
-			// write the value key to the file in format s,p,o
-			if (num == 2) {
-				fileData += (value as { value: string }).value + "\n";
-				num = 0;
-				count++;
-			} else {
-				fileData += (value as { value: string }).value + ",";
-				num++;
-			}
-		}
-	});
+      await writeFile(filePath, fileData);
 
-	console.log(fileData, filePath);
-	// write the file
-	await writeFile(filePath, fileData);
-
-	return NextResponse.json({
-		fileName: filename,
-		count: count,
-	});
+      res.status(200).json({
+        fileName: filename,
+        count: count,
+      });
+    } else {
+      res.setHeader("Allow", ["POST"]);
+      res.status(405).end(`Method ${req.method} Not Allowed`);
+    }
+  } catch (error) {
+    console.error(error);
+	//@ts-expect-error
+    res.status(500).json({ error: error.message });
+  }
 }
