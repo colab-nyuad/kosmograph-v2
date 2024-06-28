@@ -1,4 +1,4 @@
-// atoms/store.ts
+
 import Graph from "graphology";
 import { atom } from "jotai";
 import { LinkData, NodeData } from "../hooks/useGraphData";
@@ -24,10 +24,13 @@ const fileNameAtom = atomWithLocalStorage('fileName', "uploadFile.json");
 const fileDataAtom = atom<Record<string, any>>({});
 const linkColorAtom = atom("default");
 const linkSizeAtom = atom("default");
-const colorSetAtom = React.useState("#121212");
+//review color set atom
+//const colorSetAtom = React.useState("#121212");
+const queryAtom = atom<string>('');
 
 export {
-	colorSetAtom,
+  queryAtom,
+	
   isDirectedAtom,
   fileDataAtom,
   activeTabAtom,
@@ -45,4 +48,5 @@ export {
   fileNameAtom,
   linkColorAtom,
   linkSizeAtom,
+  //colorSetAtom,
 };

@@ -1,4 +1,10 @@
-// // @ts-nocheck 
+// @ts-nocheck 
+
+
+
+
+
+
 // import { LinkTypes } from "../kosmograph/linkTypes";
 // import { getColorBetween } from "@/lib/utils";
 // import {
@@ -496,7 +502,9 @@
 // }
 
 // export default GraphViz;
-//@ts-nocheck
+
+
+
 // GraphViz.tsx
 import { LinkTypes } from "../kosmograph/linkTypes";
 import { getColorBetween } from "@/lib/utils";
@@ -526,7 +534,8 @@ import {
   fileNameAtom,
   fileDataAtom,
   isDirectedAtom,
-  colorSetAtom,
+  //colorSetAtom,
+  queryAtom,
 } from "./atoms/store";
 import { LinkData, LinkType, NodeData } from "./hooks/useGraphData";
 import { Accordion } from "@/components/ui/accordion"; // Import the Accordion component
@@ -560,7 +569,9 @@ const createGraph = (nodes: NodeData[], links: LinkData[]) => {
 };
 
 export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.MutableRefObject<null>; sidebarOpen: boolean; }) {
-    const [color, setColor] = useAtom(colorSetAtom);
+  //const [color, setColor] = useAtom(colorSetAtom);
+
+  const [query] = useAtom(queryAtom);
   const [isDirected] = useAtom(isDirectedAtom);
   const { theme } = useTheme();
   const [globalGraph, setGlobalGraph] = useAtom(globalGraphAtom);
@@ -583,6 +594,64 @@ export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.
   const [isHistoryEnabled, setIsHistoryEnabled] = useAtom(isHistoryEnabledAtom);
   const [fileName, setFileName] = useAtom(fileNameAtom);
   const [fileData] = useAtom(fileDataAtom);
+
+  //query rendering 
+  useEffect(() => {
+    const fetchGraphData = async () => {
+      try {
+        // Construct the query URL
+        const queryUrl = `https://query.wikidata.org/bigdata/namespace/wdq/sparql?query=${encodeURIComponent(query)}&format=json`;
+        
+        console.log("Fetching data from URL:", queryUrl);
+        const response = await fetch(queryUrl, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "User-Agent": "CityGraph",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`Fetch error: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log("Received data from query:", JSON.stringify(result, null, 2));
+
+        const nodes: NodeData[] = [];
+        const links: LinkData[] = [];
+
+        // Process the result data
+        result.results.bindings.forEach((binding: any) => {
+          const subject = binding.s.value;
+          const predicate = binding.p.value;
+          const object = binding.o.value;
+
+          nodes.push({ id: subject, indegree: 0, outdegree: 0 });
+          nodes.push({ id: object, indegree: 0, outdegree: 0 });
+          links.push({ source: subject, target: object, type: predicate });
+        });
+
+        // Remove duplicate nodes
+        const uniqueNodes = Array.from(new Set(nodes.map((node) => node.id))).map(
+          (id) => nodes.find((node) => node.id === id)!
+        );
+        const uniqueLinksArray = Array.from(new Set(links.map((link) => JSON.stringify(link))));
+        const linkTypeColors = getUniqueLinkTypesWithColors(links, uniqueLinksArray);
+
+        setGraphData({ nodes: uniqueNodes, links, linkTypeColors });
+        setLinkTypeColors(linkTypeColors);
+      } catch (error) {
+        console.error("Error fetching graph data:", error);
+        // Handle the error appropriately (e.g., show an error message to the user)
+      }
+    };
+
+    fetchGraphData();
+  }, [query, setLinkTypeColors]);
+
+
+
 
   useEffect(() => {
     const fetchGraphData = async () => {
