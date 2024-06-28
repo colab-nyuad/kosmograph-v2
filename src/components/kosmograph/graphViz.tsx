@@ -1,4 +1,10 @@
-// // @ts-nocheck 
+// @ts-nocheck 
+
+
+
+
+
+
 // import { LinkTypes } from "../kosmograph/linkTypes";
 // import { getColorBetween } from "@/lib/utils";
 // import {
@@ -496,7 +502,9 @@
 // }
 
 // export default GraphViz;
-//@ts-nocheck
+
+
+
 // GraphViz.tsx
 import { LinkTypes } from "../kosmograph/linkTypes";
 import { getColorBetween } from "@/lib/utils";
