@@ -19,15 +19,19 @@ const linkTypeColorsAtom = atom<Record<string, string>>({});
 const selectedNodeAtom = atom<NodeData | undefined>(undefined);
 const selectedLinkTypeAtom = atom<LinkData | undefined>(undefined);
 const LinkTypesSelctionAtom = atom<string[]>([]);
-const isHistoryEnabledAtom = atom(true);
+// const isHistoryEnabledAtom = atom(true);
 const fileNameAtom = atomWithLocalStorage('fileName', "uploadFile.json");
 const fileDataAtom = atom<Record<string, any>>({});
 const linkColorAtom = atom("default");
 const linkSizeAtom = atom("default");
-const colorSetAtom = React.useState("#121212");
+// const colorSetAtom = React.useState("#121212");
+
+// new
+const visitedNodesAtom = atom<NodeData[]>([]);
+const additionalVisitedNodesAtom = atom<NodeData[]>([]);
 
 export {
-	colorSetAtom,
+	// colorSetAtom,
   isDirectedAtom,
   fileDataAtom,
   activeTabAtom,
@@ -41,8 +45,11 @@ export {
   linkTypeColorsAtom,
   selectedLinkTypeAtom,
   LinkTypesSelctionAtom,
-  isHistoryEnabledAtom,
+  // isHistoryEnabledAtom,
   fileNameAtom,
   linkColorAtom,
   linkSizeAtom,
+  // changes
+  visitedNodesAtom,
+  additionalVisitedNodesAtom
 };
