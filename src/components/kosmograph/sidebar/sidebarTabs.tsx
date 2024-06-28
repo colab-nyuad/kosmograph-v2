@@ -8,11 +8,13 @@ import {
 	activeTabAtom,
 	globalGraphAtom,
 	selectedNodeAtom,
-	isHistoryEnabledAtom,
+	// isHistoryEnabledAtom,
 } from "../atoms/store";
 import { LinkTypes } from "../linkTypes";
 import SidebarLinkTab from "./sidebarLinkTab";
 import SidebarNodeTab from "./sidebarNodeTab";
+import SidebarExploreTab from "./sidebarExploreTab";
+
 import { Button } from "@/components/ui/button";
 
 
@@ -21,9 +23,9 @@ const SidebarTabs = () => {
 	const [selectedNode, setSelectedNode] = useAtom(selectedNodeAtom);
 	const [globalGraph, setGlobalGraph] = useAtom(globalGraphAtom);
 
-	const [isHistoryEnabled, setIsHistoryEnabled] = useAtom(
-		isHistoryEnabledAtom
-	);
+	// const [isHistoryEnabled, setIsHistoryEnabled] = useAtom(
+	// 	isHistoryEnabledAtom
+	// );
 
 	// Pass this function to the node click even to navigate to the info tab
 	const navigateToTab = (tabValue: React.SetStateAction<string>) => {
@@ -101,28 +103,8 @@ const SidebarTabs = () => {
 					<div>Graph not loaded properly!</div>
 				)}
 			</TabsContent>
-			<TabsContent
-				value="explore"
-				className="flex flex-col items-center justify-center"
-			>
-				<div className="flex items-center mt-4">
-					<span className="pr-3 text-slate-700 dark:text-slate-400">
-						History
-					</span>
-					<button
-						type="button"
-						role="switch"
-						aria-checked={isHistoryEnabled}
-						data-state={isHistoryEnabled ? true: false}
-						className={`peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 ${isHistoryEnabled ? "bg-primary" : "bg-input"}`}
-						//@ts-ignore
-						onClick={(event) => handleHistoryToggle()}
-					>
-						<span
-							className={`pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform ${isHistoryEnabled ? "translate-x-5" : "translate-x-0"}`}
-						></span>
-					</button>
-				</div>
+			<TabsContent value="explore">
+				<SidebarExploreTab />
 			</TabsContent>
 		</Tabs>
 	);
