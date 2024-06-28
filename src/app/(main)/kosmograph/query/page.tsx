@@ -23,27 +23,30 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import {useAtom} from "jotai";
+import { queryAtom } from "@/components/kosmograph/atoms/store";
 
 const QueryPage = () => {
   const [fileName, setFileName] = React.useState<string | null>(null);
   const [numRecords, setNumRecords] = React.useState<number | null>(null);
-
+  const [query, setQuery] = useAtom(queryAtom);
   const router = useRouter();
   const form = useForm<z.infer<typeof QueryFormSchema>>({
     mode: "onChange",
     resolver: zodResolver(QueryFormSchema),
   });
   const isLoading = form.formState.isSubmitting;
-
   const onSubmit = async (data: z.infer<typeof QueryFormSchema>) => {
-  console.log(data);
-  const res = await fetch("/kosmograph/api/query", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+    setQuery(data.query);
+  
+    console.log(data);
+    const res = await fetch("/kosmograph/api/query", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+  } );
 
   const result = await res.json();
   setFileName(result.fileName);

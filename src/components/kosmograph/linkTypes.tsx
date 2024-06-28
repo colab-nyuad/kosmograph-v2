@@ -126,8 +126,8 @@ import { SketchPicker } from "react-color";
 export function LinkTypes() {
     const [linkTypeColors, setLinkTypeColors] = useAtom(linkTypeColorsAtom);
     const [selectedLinkType, setSelectedLinkType] = useAtom(selectedLinkTypeAtom);
-    const [color, setColor] = useAtom(colorSetAtom);
-    //const [color, setColor] = React.useState("#121212");
+    //const [color, setColor] = useAtom(colorSetAtom);
+    const [color, setColor] = React.useState("#121212");
     const [linkTypes, setLinkTypes] = useAtom(LinkTypesSelctionAtom);
     const [activeLinkType, setActiveLinkType] = React.useState(null);
 
