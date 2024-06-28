@@ -27,7 +27,7 @@ const HomePage = () => {
 								<CardContent>
 									<p>
 										Tool for visualizing knowledge Graphs.Supported formats:
-										.csv, .tsv
+										.csv, .tsv, .txt
 									</p>
 								</CardContent>
 							</Card>
