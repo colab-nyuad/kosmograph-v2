@@ -66,7 +66,7 @@ export function GraphViz({
   const [nodeScale] = useAtom(nodeScaleAtom);
   const [nodeSize] = useAtom(nodeSizeAtom);
   const [nodeColor] = useAtom(nodeColorAtom);
-  const [numberOfNeighbors] = useAtom(numberOfNeighborsAtom);
+  const [numberOfNeighbors, setNumberOfNeighbors] = useAtom(numberOfNeighborsAtom);
   const [activeTab, setActiveTab] = useAtom(activeTabAtom);
   const [showLabelsFor, setShowLabelsFor] = useState<NodeData[] | undefined>([]);
   const [selectedNode, setSelectedNode] = useAtom(selectedNodeAtom);
@@ -165,10 +165,10 @@ export function GraphViz({
 
 
   const onCosmographClick = React.useCallback<Exclude<CosmographInputConfig<NodeData, LinkData>["onClick"], undefined>>(
-    (n) => {
-      if (n) {
-        let neighbors: NodeData[] = [n];
-        globalGraph.forEachNeighbor(n.id, (neighbor) => {
+    (node) => {
+      if (node) {
+        let neighbors: NodeData[] = [node];
+        globalGraph.forEachNeighbor(node.id, (neighbor) => {
           neighbors.push({
             id: neighbor,
             indegree: 0,
@@ -178,25 +178,29 @@ export function GraphViz({
 
         const updatedVisitedNodes = new Set<NodeData>(visitedNodes);
         neighbors.forEach(node => updatedVisitedNodes.add(node));
-        //@ts-ignore
         cosmographRef.current?.selectNodes([...updatedVisitedNodes] as any);
 
         const additionalUpdatedVisitedNodes = new Set<NodeData>(additionalVisitedNodes);
         neighbors.forEach(node => additionalUpdatedVisitedNodes.add(node));
-        //@ts-ignore
         cosmographRef.current?.selectNodes([...additionalUpdatedVisitedNodes] as any);
 
         setActiveTab("info");
-        setShowLabelsFor([n]);
+        setShowLabelsFor([node]);
         setVisitedNodes(updatedVisitedNodes);
-        setSelectedNode(n);
+        setSelectedNode(node);
         setAdditionalVisitedNodes([...additionalUpdatedVisitedNodes]);
+
+        let neighborCount = 0;
+        globalGraph.forEachNeighbor(node.id, () => {
+          neighborCount++;
+        });
+        setNumberOfNeighbors(neighborCount);
       } else {
-        //@ts-ignore
         cosmographRef.current?.unselectNodes();
         setActiveTab("general");
         setShowLabelsFor(undefined);
         setSelectedNode(undefined);
+        setNumberOfNeighbors(0);
       }
     },
     [globalGraph, visitedNodes, additionalVisitedNodes]

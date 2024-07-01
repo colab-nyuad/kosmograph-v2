@@ -9,6 +9,7 @@ import {
 	globalGraphAtom,
 	selectedNodeAtom,
 	// isHistoryEnabledAtom,
+	numberOfNeighborsAtom
 } from "../atoms/store";
 import { LinkTypes } from "../linkTypes";
 import SidebarLinkTab from "./sidebarLinkTab";
@@ -22,6 +23,7 @@ const SidebarTabs = () => {
 	const [activeTab, setActiveTab] = useAtom(activeTabAtom);
 	const [selectedNode, setSelectedNode] = useAtom(selectedNodeAtom);
 	const [globalGraph, setGlobalGraph] = useAtom(globalGraphAtom);
+	const [numberOfNeighbors] = useAtom(numberOfNeighborsAtom);
 
 	// const [isHistoryEnabled, setIsHistoryEnabled] = useAtom(
 	// 	isHistoryEnabledAtom
@@ -32,11 +34,9 @@ const SidebarTabs = () => {
 		setActiveTab(tabValue);
 	};
 
-	const handleHistoryToggle = () => {
-		
+	const handleHistoryToggle = () => {	
 		setIsHistoryEnabled(!isHistoryEnabled);
 		console.log("History enabled:", !isHistoryEnabled);
-	
 	};
 	
 
@@ -94,6 +94,9 @@ const SidebarTabs = () => {
 												In Degree
 											</div>
 										</div>
+									</div>
+									<div className="flex-col mt-3">
+										<div>Number of Neighbors: {numberOfNeighbors}</div>
 									</div>
 								</div>
 							)}
