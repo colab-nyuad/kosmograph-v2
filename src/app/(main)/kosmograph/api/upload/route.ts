@@ -35,11 +35,17 @@ export async function POST(request: NextRequest) {
         });
     } else if (fileName.endsWith(".txt")) {
         const textContent = buffer.toString();
-        // Assuming each line in the text file is a record with tab-separated values
-        records = textContent.split('\n').map(line => {
-            const [subject, predicate, object] = line.split('\t');
-            return { subject, predicate, object };
-        }).filter(record => record.subject && record.predicate && record.object);
+    
+        // Detect the delimiter (either ',' or '\t')
+        const firstLine = textContent.split('\n')[0];
+        const delimiter = firstLine.includes('\t') ? '\t' : ',';
+    
+        // Parse the content using the detected delimiter
+        records = parse(textContent, {
+            columns: ['subject', 'predicate', 'object'],
+            delimiter: delimiter,
+            skip_empty_lines: true
+        });
     } else {
         return NextResponse.json({ success: false, message: "Unsupported file type" });
     }
@@ -49,6 +55,8 @@ export async function POST(request: NextRequest) {
     await writeFile(path, JSON.stringify(records, null, 2));
 
     // Read the latest data from the saved file to ensure it's up-to-date
+    console.log(path);
+   
     const latestData = JSON.parse(await readFile(path, 'utf-8'));
     console.log("Data saved successfully:", latestData);
     return NextResponse.json({ success: true, data: latestData });
