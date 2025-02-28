@@ -5,6 +5,10 @@ import { LinkData, NodeData } from "../hooks/useGraphData";
 import { atomWithLocalStorage } from "../utils/localStorageAtom";
 import React from "react";
 
+const kHopValueAtom = atom<number>(1);
+const isKHopEnabledAtom = atom<boolean>(false);
+
+
 const initialGraph = new Graph();
 const globalGraphAtom = atom(initialGraph);
 
@@ -28,7 +32,14 @@ const linkSizeAtom = atom("default");
 //const colorSetAtom = React.useState("#121212");
 const queryAtom = atom<string>('');
 
+//for new PCA visualisation
+const showPCAViewAtom = atom<boolean>(false);
+
 export {
+  //showPCAViewAtom,
+  kHopValueAtom,
+  isKHopEnabledAtom,
+
   queryAtom,
 	
   isDirectedAtom,

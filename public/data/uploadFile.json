@@ -1,0 +1,7467 @@
+[
+  {
+    "subject": "Springfield University",
+    "predicate": "type",
+    "object": "University"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Computer Science Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Mathematics Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Biology Department"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Alice Johnson"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Bob Smith"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Carol Davis"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "teachesCourse",
+    "object": "CS101"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "teachesCourse",
+    "object": "CS201"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "MATH101"
+  },
+  {
+    "subject": "CS101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "CS201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "MATH101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "BIO101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "offersCourse",
+    "object": "CS101"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "offersCourse",
+    "object": "CS201"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "offersCourse",
+    "object": "MATH101"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "offersCourse",
+    "object": "BIO101"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "type",
+    "object": "Student"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "type",
+    "object": "Student"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "type",
+    "object": "Student"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "type",
+    "object": "Student"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "CS101"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "MATH101"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "CS101"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "BIO101"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "CS201"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "MATH101"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "BIO101"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "CS101"
+  },
+  {
+    "subject": "CS101",
+    "predicate": "hasTextbook",
+    "object": "Data Structures and Algorithms"
+  },
+  {
+    "subject": "Data Structures and Algorithms",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "MATH101",
+    "predicate": "hasTextbook",
+    "object": "Calculus: Early Transcendentals"
+  },
+  {
+    "subject": "Calculus: Early Transcendentals",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "BIO101",
+    "predicate": "hasTextbook",
+    "object": "Biology: Concepts and Investigations"
+  },
+  {
+    "subject": "Biology: Concepts and Investigations",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "publishedPaper",
+    "object": "Quantum Computing Fundamentals"
+  },
+  {
+    "subject": "Quantum Computing Fundamentals",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "publishedPaper",
+    "object": "Advances in Machine Learning"
+  },
+  {
+    "subject": "Advances in Machine Learning",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "publishedPaper",
+    "object": "Number Theory and Cryptography"
+  },
+  {
+    "subject": "Number Theory and Cryptography",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "locatedInBuilding",
+    "object": "Engineering Hall"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "locatedInBuilding",
+    "object": "Science Building"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "locatedIn",
+    "object": "Springfield"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasLibrary",
+    "object": "Main Library"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasSportsFacility",
+    "object": "Sports Complex"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasCafeteria",
+    "object": "Campus Cafe"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDormitory",
+    "object": "Maple Hall"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDormitory",
+    "object": "Oak Hall"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "hasLab",
+    "object": "Artificial Intelligence Lab"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "hasLab",
+    "object": "Cybersecurity Lab"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant John Doe"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "conductsResearchIn",
+    "object": "Artificial Intelligence"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "conductsResearchIn",
+    "object": "Cybersecurity"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "hasLab",
+    "object": "Statistics Lab"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "hasLab",
+    "object": "Applied Mathematics Lab"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "conductsResearchIn",
+    "object": "Number Theory"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "conductsResearchIn",
+    "object": "Mathematical Modeling"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Jane Smith"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "hasLab",
+    "object": "Genetics Lab"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "hasLab",
+    "object": "Microbiology Lab"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "conductsResearchIn",
+    "object": "Biotechnology"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "conductsResearchIn",
+    "object": "Marine Biology"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Michael Adams"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "teachesCourse",
+    "object": "CS301"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "teachesCourse",
+    "object": "CS401"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "teachesCourse",
+    "object": "CS501"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "MATH201"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "MATH301"
+  },
+  {
+    "subject": "CS301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "CS401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "CS501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "MATH201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "MATH301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "CS301"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "BIO101"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "CS401"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "MATH201"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "CS501"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "MATH301"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MATH101"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "CS301"
+  },
+  {
+    "subject": "CS301",
+    "predicate": "hasTextbook",
+    "object": "Programming in Java"
+  },
+  {
+    "subject": "Programming in Java",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "CS401",
+    "predicate": "hasTextbook",
+    "object": "Advanced Algorithms"
+  },
+  {
+    "subject": "Advanced Algorithms",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "CS501",
+    "predicate": "hasTextbook",
+    "object": "Machine Learning Basics"
+  },
+  {
+    "subject": "Machine Learning Basics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "MATH201",
+    "predicate": "hasTextbook",
+    "object": "Linear Algebra and Its Applications"
+  },
+  {
+    "subject": "Linear Algebra and Its Applications",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "MATH301",
+    "predicate": "hasTextbook",
+    "object": "Abstract Algebra"
+  },
+  {
+    "subject": "Abstract Algebra",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "offersCourse",
+    "object": "BIO201"
+  },
+  {
+    "subject": "BIO201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "BIO201",
+    "predicate": "hasTextbook",
+    "object": "Molecular Biology"
+  },
+  {
+    "subject": "Molecular Biology",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "publishedPaper",
+    "object": "Deep Learning Applications"
+  },
+  {
+    "subject": "Deep Learning Applications",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "publishedPaper",
+    "object": "Neural Networks Explored"
+  },
+  {
+    "subject": "Neural Networks Explored",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "publishedPaper",
+    "object": "Advanced Topology Studies"
+  },
+  {
+    "subject": "Advanced Topology Studies",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "publishedPaper",
+    "object": "Combinatorics in Depth"
+  },
+  {
+    "subject": "Combinatorics in Depth",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Computer Science"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Mathematics"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Biology"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Literature"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "History"
+  },
+  {
+    "subject": "Graduate Assistant John Doe",
+    "predicate": "assistsInCourse",
+    "object": "CS101"
+  },
+  {
+    "subject": "Graduate Assistant John Doe",
+    "predicate": "assistsInCourse",
+    "object": "CS201"
+  },
+  {
+    "subject": "Graduate Assistant Jane Smith",
+    "predicate": "assistsInCourse",
+    "object": "MATH101"
+  },
+  {
+    "subject": "Graduate Assistant Jane Smith",
+    "predicate": "assistsInCourse",
+    "object": "MATH201"
+  },
+  {
+    "subject": "Graduate Assistant Michael Adams",
+    "predicate": "assistsInCourse",
+    "object": "BIO101"
+  },
+  {
+    "subject": "Graduate Assistant Michael Adams",
+    "predicate": "assistsInCourse",
+    "object": "BIO201"
+  },
+  {
+    "subject": "Engineering Hall",
+    "predicate": "locatedIn",
+    "object": "Main Campus"
+  },
+  {
+    "subject": "Science Building",
+    "predicate": "locatedIn",
+    "object": "North Campus"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "locatedIn",
+    "object": "South Campus"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "locatedIn",
+    "object": "Main Campus"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "livesInDormitory",
+    "object": "Maple Hall"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "livesInDormitory",
+    "object": "Oak Hall"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "livesInDormitory",
+    "object": "Maple Hall"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "livesInDormitory",
+    "object": "Oak Hall"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "hasOfficeIn",
+    "object": "Engineering Hall"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "hasOfficeIn",
+    "object": "Engineering Hall"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "hasOfficeIn",
+    "object": "Science Building"
+  },
+  {
+    "subject": "Artificial Intelligence Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Machine Learning"
+  },
+  {
+    "subject": "Artificial Intelligence Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Neural Networks"
+  },
+  {
+    "subject": "Cybersecurity Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Cryptography"
+  },
+  {
+    "subject": "Cybersecurity Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Network Security"
+  },
+  {
+    "subject": "Genetics Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Genome Editing"
+  },
+  {
+    "subject": "Genetics Lab",
+    "predicate": "conductsResearchIn",
+    "object": "DNA Sequencing"
+  },
+  {
+    "subject": "Microbiology Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Bacteriology"
+  },
+  {
+    "subject": "Microbiology Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Virology"
+  },
+  {
+    "subject": "Statistics Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Data Analysis"
+  },
+  {
+    "subject": "Applied Mathematics Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Optimization"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Physics Department"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Chemistry Department"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "English Department"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "History Department"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Economics Department"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Philosophy Department"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Art Department"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "Music Department"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "type",
+    "object": "Academic Department"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Henry Clark"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Irene Walker"
+  },
+  {
+    "subject": "Professor Irene Walker",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Jack Martinez"
+  },
+  {
+    "subject": "Professor Jack Martinez",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Linda Adams"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Mark Turner"
+  },
+  {
+    "subject": "Professor Mark Turner",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Nancy Foster"
+  },
+  {
+    "subject": "Professor Nancy Foster",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Olivia Hughes"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Paul Edwards"
+  },
+  {
+    "subject": "Professor Paul Edwards",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Quentin Lewis"
+  },
+  {
+    "subject": "Professor Quentin Lewis",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Rachel Young"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Steven Allen"
+  },
+  {
+    "subject": "Professor Steven Allen",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Teresa Hall"
+  },
+  {
+    "subject": "Professor Teresa Hall",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Ursula Green"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Victor Kim"
+  },
+  {
+    "subject": "Professor Victor Kim",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Wendy Scott"
+  },
+  {
+    "subject": "Professor Wendy Scott",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Xavier Lopez"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Yolanda Perez"
+  },
+  {
+    "subject": "Professor Yolanda Perez",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Zachary Davis"
+  },
+  {
+    "subject": "Professor Zachary Davis",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Aaron Nelson"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Beatrice White"
+  },
+  {
+    "subject": "Professor Beatrice White",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Charles King"
+  },
+  {
+    "subject": "Professor Charles King",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Diana Russell"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Ethan Brooks"
+  },
+  {
+    "subject": "Professor Ethan Brooks",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "hasProfessor",
+    "object": "Professor Fiona Clark"
+  },
+  {
+    "subject": "Professor Fiona Clark",
+    "predicate": "type",
+    "object": "Professor"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS101"
+  },
+  {
+    "subject": "PHYS101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "teachesCourse",
+    "object": "PHYS101"
+  },
+  {
+    "subject": "PHYS101",
+    "predicate": "hasTextbook",
+    "object": "Fundamentals of Physics"
+  },
+  {
+    "subject": "Fundamentals of Physics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS102"
+  },
+  {
+    "subject": "PHYS102",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Irene Walker",
+    "predicate": "teachesCourse",
+    "object": "PHYS102"
+  },
+  {
+    "subject": "PHYS102",
+    "predicate": "hasTextbook",
+    "object": "Introduction to Classical Mechanics"
+  },
+  {
+    "subject": "Introduction to Classical Mechanics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS201"
+  },
+  {
+    "subject": "PHYS201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Jack Martinez",
+    "predicate": "teachesCourse",
+    "object": "PHYS201"
+  },
+  {
+    "subject": "PHYS201",
+    "predicate": "hasTextbook",
+    "object": "Modern Physics Concepts"
+  },
+  {
+    "subject": "Modern Physics Concepts",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS202"
+  },
+  {
+    "subject": "PHYS202",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "teachesCourse",
+    "object": "PHYS202"
+  },
+  {
+    "subject": "PHYS202",
+    "predicate": "hasTextbook",
+    "object": "Electromagnetism Principles"
+  },
+  {
+    "subject": "Electromagnetism Principles",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS301"
+  },
+  {
+    "subject": "PHYS301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Irene Walker",
+    "predicate": "teachesCourse",
+    "object": "PHYS301"
+  },
+  {
+    "subject": "PHYS301",
+    "predicate": "hasTextbook",
+    "object": "Quantum Mechanics Intro"
+  },
+  {
+    "subject": "Quantum Mechanics Intro",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS302"
+  },
+  {
+    "subject": "PHYS302",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Jack Martinez",
+    "predicate": "teachesCourse",
+    "object": "PHYS302"
+  },
+  {
+    "subject": "PHYS302",
+    "predicate": "hasTextbook",
+    "object": "Particle Physics for Beginners"
+  },
+  {
+    "subject": "Particle Physics for Beginners",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS303"
+  },
+  {
+    "subject": "PHYS303",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "teachesCourse",
+    "object": "PHYS303"
+  },
+  {
+    "subject": "PHYS303",
+    "predicate": "hasTextbook",
+    "object": "Statistical Mechanics Fundamentals"
+  },
+  {
+    "subject": "Statistical Mechanics Fundamentals",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS401"
+  },
+  {
+    "subject": "PHYS401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Irene Walker",
+    "predicate": "teachesCourse",
+    "object": "PHYS401"
+  },
+  {
+    "subject": "PHYS401",
+    "predicate": "hasTextbook",
+    "object": "Advanced Thermodynamics"
+  },
+  {
+    "subject": "Advanced Thermodynamics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS402"
+  },
+  {
+    "subject": "PHYS402",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Jack Martinez",
+    "predicate": "teachesCourse",
+    "object": "PHYS402"
+  },
+  {
+    "subject": "PHYS402",
+    "predicate": "hasTextbook",
+    "object": "Astronomy and Astrophysics"
+  },
+  {
+    "subject": "Astronomy and Astrophysics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS501"
+  },
+  {
+    "subject": "PHYS501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "teachesCourse",
+    "object": "PHYS501"
+  },
+  {
+    "subject": "PHYS501",
+    "predicate": "hasTextbook",
+    "object": "Quantum Field Theory Essentials"
+  },
+  {
+    "subject": "Quantum Field Theory Essentials",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM101"
+  },
+  {
+    "subject": "CHEM101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "teachesCourse",
+    "object": "CHEM101"
+  },
+  {
+    "subject": "CHEM101",
+    "predicate": "hasTextbook",
+    "object": "General Chemistry"
+  },
+  {
+    "subject": "General Chemistry",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM102"
+  },
+  {
+    "subject": "CHEM102",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Mark Turner",
+    "predicate": "teachesCourse",
+    "object": "CHEM102"
+  },
+  {
+    "subject": "CHEM102",
+    "predicate": "hasTextbook",
+    "object": "Organic Chemistry Basics"
+  },
+  {
+    "subject": "Organic Chemistry Basics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM201"
+  },
+  {
+    "subject": "CHEM201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Nancy Foster",
+    "predicate": "teachesCourse",
+    "object": "CHEM201"
+  },
+  {
+    "subject": "CHEM201",
+    "predicate": "hasTextbook",
+    "object": "Inorganic Chemistry Principles"
+  },
+  {
+    "subject": "Inorganic Chemistry Principles",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM202"
+  },
+  {
+    "subject": "CHEM202",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "teachesCourse",
+    "object": "CHEM202"
+  },
+  {
+    "subject": "CHEM202",
+    "predicate": "hasTextbook",
+    "object": "Physical Chemistry Concepts"
+  },
+  {
+    "subject": "Physical Chemistry Concepts",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM301"
+  },
+  {
+    "subject": "CHEM301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Mark Turner",
+    "predicate": "teachesCourse",
+    "object": "CHEM301"
+  },
+  {
+    "subject": "CHEM301",
+    "predicate": "hasTextbook",
+    "object": "Analytical Chemistry Techniques"
+  },
+  {
+    "subject": "Analytical Chemistry Techniques",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM302"
+  },
+  {
+    "subject": "CHEM302",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Nancy Foster",
+    "predicate": "teachesCourse",
+    "object": "CHEM302"
+  },
+  {
+    "subject": "CHEM302",
+    "predicate": "hasTextbook",
+    "object": "Biochemistry Fundamentals"
+  },
+  {
+    "subject": "Biochemistry Fundamentals",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM303"
+  },
+  {
+    "subject": "CHEM303",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "teachesCourse",
+    "object": "CHEM303"
+  },
+  {
+    "subject": "CHEM303",
+    "predicate": "hasTextbook",
+    "object": "Polymer Science Introduction"
+  },
+  {
+    "subject": "Polymer Science Introduction",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM401"
+  },
+  {
+    "subject": "CHEM401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Mark Turner",
+    "predicate": "teachesCourse",
+    "object": "CHEM401"
+  },
+  {
+    "subject": "CHEM401",
+    "predicate": "hasTextbook",
+    "object": "Advanced Organic Chemistry"
+  },
+  {
+    "subject": "Advanced Organic Chemistry",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM402"
+  },
+  {
+    "subject": "CHEM402",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Nancy Foster",
+    "predicate": "teachesCourse",
+    "object": "CHEM402"
+  },
+  {
+    "subject": "CHEM402",
+    "predicate": "hasTextbook",
+    "object": "Materials Chemistry"
+  },
+  {
+    "subject": "Materials Chemistry",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM501"
+  },
+  {
+    "subject": "CHEM501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "teachesCourse",
+    "object": "CHEM501"
+  },
+  {
+    "subject": "CHEM501",
+    "predicate": "hasTextbook",
+    "object": "Nanochemistry"
+  },
+  {
+    "subject": "Nanochemistry",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG101"
+  },
+  {
+    "subject": "ENG101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "teachesCourse",
+    "object": "ENG101"
+  },
+  {
+    "subject": "ENG101",
+    "predicate": "hasTextbook",
+    "object": "British Literature Survey"
+  },
+  {
+    "subject": "British Literature Survey",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG102"
+  },
+  {
+    "subject": "ENG102",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Paul Edwards",
+    "predicate": "teachesCourse",
+    "object": "ENG102"
+  },
+  {
+    "subject": "ENG102",
+    "predicate": "hasTextbook",
+    "object": "American Literature Anthology"
+  },
+  {
+    "subject": "American Literature Anthology",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG201"
+  },
+  {
+    "subject": "ENG201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Quentin Lewis",
+    "predicate": "teachesCourse",
+    "object": "ENG201"
+  },
+  {
+    "subject": "ENG201",
+    "predicate": "hasTextbook",
+    "object": "Shakespearean Studies"
+  },
+  {
+    "subject": "Shakespearean Studies",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG202"
+  },
+  {
+    "subject": "ENG202",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "teachesCourse",
+    "object": "ENG202"
+  },
+  {
+    "subject": "ENG202",
+    "predicate": "hasTextbook",
+    "object": "Modernist Poetry Reader"
+  },
+  {
+    "subject": "Modernist Poetry Reader",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG301"
+  },
+  {
+    "subject": "ENG301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Paul Edwards",
+    "predicate": "teachesCourse",
+    "object": "ENG301"
+  },
+  {
+    "subject": "ENG301",
+    "predicate": "hasTextbook",
+    "object": "Postcolonial Literature"
+  },
+  {
+    "subject": "Postcolonial Literature",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG302"
+  },
+  {
+    "subject": "ENG302",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Quentin Lewis",
+    "predicate": "teachesCourse",
+    "object": "ENG302"
+  },
+  {
+    "subject": "ENG302",
+    "predicate": "hasTextbook",
+    "object": "Literary Theory and Criticism"
+  },
+  {
+    "subject": "Literary Theory and Criticism",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG303"
+  },
+  {
+    "subject": "ENG303",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "teachesCourse",
+    "object": "ENG303"
+  },
+  {
+    "subject": "ENG303",
+    "predicate": "hasTextbook",
+    "object": "Victorian Novels"
+  },
+  {
+    "subject": "Victorian Novels",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG401"
+  },
+  {
+    "subject": "ENG401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Paul Edwards",
+    "predicate": "teachesCourse",
+    "object": "ENG401"
+  },
+  {
+    "subject": "ENG401",
+    "predicate": "hasTextbook",
+    "object": "Contemporary Fiction"
+  },
+  {
+    "subject": "Contemporary Fiction",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG402"
+  },
+  {
+    "subject": "ENG402",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Quentin Lewis",
+    "predicate": "teachesCourse",
+    "object": "ENG402"
+  },
+  {
+    "subject": "ENG402",
+    "predicate": "hasTextbook",
+    "object": "World Literature Masterpieces"
+  },
+  {
+    "subject": "World Literature Masterpieces",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG501"
+  },
+  {
+    "subject": "ENG501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "teachesCourse",
+    "object": "ENG501"
+  },
+  {
+    "subject": "ENG501",
+    "predicate": "hasTextbook",
+    "object": "Literary Research Methods"
+  },
+  {
+    "subject": "Literary Research Methods",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST101"
+  },
+  {
+    "subject": "HIST101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "teachesCourse",
+    "object": "HIST101"
+  },
+  {
+    "subject": "HIST101",
+    "predicate": "hasTextbook",
+    "object": "World History Overview"
+  },
+  {
+    "subject": "World History Overview",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST102"
+  },
+  {
+    "subject": "HIST102",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Steven Allen",
+    "predicate": "teachesCourse",
+    "object": "HIST102"
+  },
+  {
+    "subject": "HIST102",
+    "predicate": "hasTextbook",
+    "object": "European History Since 1500"
+  },
+  {
+    "subject": "European History Since 1500",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST201"
+  },
+  {
+    "subject": "HIST201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Teresa Hall",
+    "predicate": "teachesCourse",
+    "object": "HIST201"
+  },
+  {
+    "subject": "HIST201",
+    "predicate": "hasTextbook",
+    "object": "American Colonial History"
+  },
+  {
+    "subject": "American Colonial History",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST202"
+  },
+  {
+    "subject": "HIST202",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "teachesCourse",
+    "object": "HIST202"
+  },
+  {
+    "subject": "HIST202",
+    "predicate": "hasTextbook",
+    "object": "The Age of Revolutions"
+  },
+  {
+    "subject": "The Age of Revolutions",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST301"
+  },
+  {
+    "subject": "HIST301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Steven Allen",
+    "predicate": "teachesCourse",
+    "object": "HIST301"
+  },
+  {
+    "subject": "HIST301",
+    "predicate": "hasTextbook",
+    "object": "Modern Asian History"
+  },
+  {
+    "subject": "Modern Asian History",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST302"
+  },
+  {
+    "subject": "HIST302",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Teresa Hall",
+    "predicate": "teachesCourse",
+    "object": "HIST302"
+  },
+  {
+    "subject": "HIST302",
+    "predicate": "hasTextbook",
+    "object": "History of the Middle East"
+  },
+  {
+    "subject": "History of the Middle East",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST303"
+  },
+  {
+    "subject": "HIST303",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "teachesCourse",
+    "object": "HIST303"
+  },
+  {
+    "subject": "HIST303",
+    "predicate": "hasTextbook",
+    "object": "Latin American History"
+  },
+  {
+    "subject": "Latin American History",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST401"
+  },
+  {
+    "subject": "HIST401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Steven Allen",
+    "predicate": "teachesCourse",
+    "object": "HIST401"
+  },
+  {
+    "subject": "HIST401",
+    "predicate": "hasTextbook",
+    "object": "Renaissance and Reformation"
+  },
+  {
+    "subject": "Renaissance and Reformation",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST402"
+  },
+  {
+    "subject": "HIST402",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Teresa Hall",
+    "predicate": "teachesCourse",
+    "object": "HIST402"
+  },
+  {
+    "subject": "HIST402",
+    "predicate": "hasTextbook",
+    "object": "Medieval Europe"
+  },
+  {
+    "subject": "Medieval Europe",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST501"
+  },
+  {
+    "subject": "HIST501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "teachesCourse",
+    "object": "HIST501"
+  },
+  {
+    "subject": "HIST501",
+    "predicate": "hasTextbook",
+    "object": "Historical Research Methods"
+  },
+  {
+    "subject": "Historical Research Methods",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON101"
+  },
+  {
+    "subject": "ECON101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "teachesCourse",
+    "object": "ECON101"
+  },
+  {
+    "subject": "ECON101",
+    "predicate": "hasTextbook",
+    "object": "Principles of Economics"
+  },
+  {
+    "subject": "Principles of Economics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON102"
+  },
+  {
+    "subject": "ECON102",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Victor Kim",
+    "predicate": "teachesCourse",
+    "object": "ECON102"
+  },
+  {
+    "subject": "ECON102",
+    "predicate": "hasTextbook",
+    "object": "Microeconomics Basics"
+  },
+  {
+    "subject": "Microeconomics Basics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON201"
+  },
+  {
+    "subject": "ECON201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Wendy Scott",
+    "predicate": "teachesCourse",
+    "object": "ECON201"
+  },
+  {
+    "subject": "ECON201",
+    "predicate": "hasTextbook",
+    "object": "Macroeconomics Fundamentals"
+  },
+  {
+    "subject": "Macroeconomics Fundamentals",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON202"
+  },
+  {
+    "subject": "ECON202",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "teachesCourse",
+    "object": "ECON202"
+  },
+  {
+    "subject": "ECON202",
+    "predicate": "hasTextbook",
+    "object": "International Trade Theories"
+  },
+  {
+    "subject": "International Trade Theories",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON301"
+  },
+  {
+    "subject": "ECON301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Victor Kim",
+    "predicate": "teachesCourse",
+    "object": "ECON301"
+  },
+  {
+    "subject": "ECON301",
+    "predicate": "hasTextbook",
+    "object": "Econometrics Methods"
+  },
+  {
+    "subject": "Econometrics Methods",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON302"
+  },
+  {
+    "subject": "ECON302",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Wendy Scott",
+    "predicate": "teachesCourse",
+    "object": "ECON302"
+  },
+  {
+    "subject": "ECON302",
+    "predicate": "hasTextbook",
+    "object": "Development Economics"
+  },
+  {
+    "subject": "Development Economics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON303"
+  },
+  {
+    "subject": "ECON303",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "teachesCourse",
+    "object": "ECON303"
+  },
+  {
+    "subject": "ECON303",
+    "predicate": "hasTextbook",
+    "object": "Behavioral Economics"
+  },
+  {
+    "subject": "Behavioral Economics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON401"
+  },
+  {
+    "subject": "ECON401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Victor Kim",
+    "predicate": "teachesCourse",
+    "object": "ECON401"
+  },
+  {
+    "subject": "ECON401",
+    "predicate": "hasTextbook",
+    "object": "Advanced Macroeconomics"
+  },
+  {
+    "subject": "Advanced Macroeconomics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON402"
+  },
+  {
+    "subject": "ECON402",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Wendy Scott",
+    "predicate": "teachesCourse",
+    "object": "ECON402"
+  },
+  {
+    "subject": "ECON402",
+    "predicate": "hasTextbook",
+    "object": "Monetary Economics"
+  },
+  {
+    "subject": "Monetary Economics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON501"
+  },
+  {
+    "subject": "ECON501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "teachesCourse",
+    "object": "ECON501"
+  },
+  {
+    "subject": "ECON501",
+    "predicate": "hasTextbook",
+    "object": "Economics Research Techniques"
+  },
+  {
+    "subject": "Economics Research Techniques",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL101"
+  },
+  {
+    "subject": "PHIL101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "teachesCourse",
+    "object": "PHIL101"
+  },
+  {
+    "subject": "PHIL101",
+    "predicate": "hasTextbook",
+    "object": "Introduction to Philosophy"
+  },
+  {
+    "subject": "Introduction to Philosophy",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL102"
+  },
+  {
+    "subject": "PHIL102",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Yolanda Perez",
+    "predicate": "teachesCourse",
+    "object": "PHIL102"
+  },
+  {
+    "subject": "PHIL102",
+    "predicate": "hasTextbook",
+    "object": "Ethics and Morality"
+  },
+  {
+    "subject": "Ethics and Morality",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL201"
+  },
+  {
+    "subject": "PHIL201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Zachary Davis",
+    "predicate": "teachesCourse",
+    "object": "PHIL201"
+  },
+  {
+    "subject": "PHIL201",
+    "predicate": "hasTextbook",
+    "object": "Ancient Greek Philosophy"
+  },
+  {
+    "subject": "Ancient Greek Philosophy",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL202"
+  },
+  {
+    "subject": "PHIL202",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "teachesCourse",
+    "object": "PHIL202"
+  },
+  {
+    "subject": "PHIL202",
+    "predicate": "hasTextbook",
+    "object": "Philosophy of Mind"
+  },
+  {
+    "subject": "Philosophy of Mind",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL301"
+  },
+  {
+    "subject": "PHIL301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Yolanda Perez",
+    "predicate": "teachesCourse",
+    "object": "PHIL301"
+  },
+  {
+    "subject": "PHIL301",
+    "predicate": "hasTextbook",
+    "object": "Modern Philosophy"
+  },
+  {
+    "subject": "Modern Philosophy",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL302"
+  },
+  {
+    "subject": "PHIL302",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Zachary Davis",
+    "predicate": "teachesCourse",
+    "object": "PHIL302"
+  },
+  {
+    "subject": "PHIL302",
+    "predicate": "hasTextbook",
+    "object": "Contemporary Ethics"
+  },
+  {
+    "subject": "Contemporary Ethics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL303"
+  },
+  {
+    "subject": "PHIL303",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "teachesCourse",
+    "object": "PHIL303"
+  },
+  {
+    "subject": "PHIL303",
+    "predicate": "hasTextbook",
+    "object": "Phenomenology and Existentialism"
+  },
+  {
+    "subject": "Phenomenology and Existentialism",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL401"
+  },
+  {
+    "subject": "PHIL401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Yolanda Perez",
+    "predicate": "teachesCourse",
+    "object": "PHIL401"
+  },
+  {
+    "subject": "PHIL401",
+    "predicate": "hasTextbook",
+    "object": "Philosophy of Language"
+  },
+  {
+    "subject": "Philosophy of Language",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL402"
+  },
+  {
+    "subject": "PHIL402",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Zachary Davis",
+    "predicate": "teachesCourse",
+    "object": "PHIL402"
+  },
+  {
+    "subject": "PHIL402",
+    "predicate": "hasTextbook",
+    "object": "Political Philosophy"
+  },
+  {
+    "subject": "Political Philosophy",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL501"
+  },
+  {
+    "subject": "PHIL501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "teachesCourse",
+    "object": "PHIL501"
+  },
+  {
+    "subject": "PHIL501",
+    "predicate": "hasTextbook",
+    "object": "Philosophical Research Methods"
+  },
+  {
+    "subject": "Philosophical Research Methods",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART101"
+  },
+  {
+    "subject": "ART101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "teachesCourse",
+    "object": "ART101"
+  },
+  {
+    "subject": "ART101",
+    "predicate": "hasTextbook",
+    "object": "History of Art"
+  },
+  {
+    "subject": "History of Art",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART102"
+  },
+  {
+    "subject": "ART102",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Beatrice White",
+    "predicate": "teachesCourse",
+    "object": "ART102"
+  },
+  {
+    "subject": "ART102",
+    "predicate": "hasTextbook",
+    "object": "Drawing Basics"
+  },
+  {
+    "subject": "Drawing Basics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART201"
+  },
+  {
+    "subject": "ART201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Charles King",
+    "predicate": "teachesCourse",
+    "object": "ART201"
+  },
+  {
+    "subject": "ART201",
+    "predicate": "hasTextbook",
+    "object": "Painting Techniques"
+  },
+  {
+    "subject": "Painting Techniques",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART202"
+  },
+  {
+    "subject": "ART202",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "teachesCourse",
+    "object": "ART202"
+  },
+  {
+    "subject": "ART202",
+    "predicate": "hasTextbook",
+    "object": "Modern Art Movements"
+  },
+  {
+    "subject": "Modern Art Movements",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART301"
+  },
+  {
+    "subject": "ART301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Beatrice White",
+    "predicate": "teachesCourse",
+    "object": "ART301"
+  },
+  {
+    "subject": "ART301",
+    "predicate": "hasTextbook",
+    "object": "Art Criticism"
+  },
+  {
+    "subject": "Art Criticism",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART302"
+  },
+  {
+    "subject": "ART302",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Charles King",
+    "predicate": "teachesCourse",
+    "object": "ART302"
+  },
+  {
+    "subject": "ART302",
+    "predicate": "hasTextbook",
+    "object": "Sculpture Fundamentals"
+  },
+  {
+    "subject": "Sculpture Fundamentals",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART303"
+  },
+  {
+    "subject": "ART303",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "teachesCourse",
+    "object": "ART303"
+  },
+  {
+    "subject": "ART303",
+    "predicate": "hasTextbook",
+    "object": "Contemporary Art Trends"
+  },
+  {
+    "subject": "Contemporary Art Trends",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART401"
+  },
+  {
+    "subject": "ART401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Beatrice White",
+    "predicate": "teachesCourse",
+    "object": "ART401"
+  },
+  {
+    "subject": "ART401",
+    "predicate": "hasTextbook",
+    "object": "Renaissance Art Analysis"
+  },
+  {
+    "subject": "Renaissance Art Analysis",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART402"
+  },
+  {
+    "subject": "ART402",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Charles King",
+    "predicate": "teachesCourse",
+    "object": "ART402"
+  },
+  {
+    "subject": "ART402",
+    "predicate": "hasTextbook",
+    "object": "Museology Studies"
+  },
+  {
+    "subject": "Museology Studies",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART501"
+  },
+  {
+    "subject": "ART501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "teachesCourse",
+    "object": "ART501"
+  },
+  {
+    "subject": "ART501",
+    "predicate": "hasTextbook",
+    "object": "Art Research Methods"
+  },
+  {
+    "subject": "Art Research Methods",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS101"
+  },
+  {
+    "subject": "MUS101",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "teachesCourse",
+    "object": "MUS101"
+  },
+  {
+    "subject": "MUS101",
+    "predicate": "hasTextbook",
+    "object": "Music Theory Basics"
+  },
+  {
+    "subject": "Music Theory Basics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS102"
+  },
+  {
+    "subject": "MUS102",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ethan Brooks",
+    "predicate": "teachesCourse",
+    "object": "MUS102"
+  },
+  {
+    "subject": "MUS102",
+    "predicate": "hasTextbook",
+    "object": "History of Western Music"
+  },
+  {
+    "subject": "History of Western Music",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS201"
+  },
+  {
+    "subject": "MUS201",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Fiona Clark",
+    "predicate": "teachesCourse",
+    "object": "MUS201"
+  },
+  {
+    "subject": "MUS201",
+    "predicate": "hasTextbook",
+    "object": "Harmony and Counterpoint"
+  },
+  {
+    "subject": "Harmony and Counterpoint",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS202"
+  },
+  {
+    "subject": "MUS202",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "teachesCourse",
+    "object": "MUS202"
+  },
+  {
+    "subject": "MUS202",
+    "predicate": "hasTextbook",
+    "object": "Music Composition Techniques"
+  },
+  {
+    "subject": "Music Composition Techniques",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS301"
+  },
+  {
+    "subject": "MUS301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ethan Brooks",
+    "predicate": "teachesCourse",
+    "object": "MUS301"
+  },
+  {
+    "subject": "MUS301",
+    "predicate": "hasTextbook",
+    "object": "Orchestration and Arranging"
+  },
+  {
+    "subject": "Orchestration and Arranging",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS302"
+  },
+  {
+    "subject": "MUS302",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Fiona Clark",
+    "predicate": "teachesCourse",
+    "object": "MUS302"
+  },
+  {
+    "subject": "MUS302",
+    "predicate": "hasTextbook",
+    "object": "Ethnomusicology Essentials"
+  },
+  {
+    "subject": "Ethnomusicology Essentials",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS303"
+  },
+  {
+    "subject": "MUS303",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "teachesCourse",
+    "object": "MUS303"
+  },
+  {
+    "subject": "MUS303",
+    "predicate": "hasTextbook",
+    "object": "Jazz Improvisation"
+  },
+  {
+    "subject": "Jazz Improvisation",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS401"
+  },
+  {
+    "subject": "MUS401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ethan Brooks",
+    "predicate": "teachesCourse",
+    "object": "MUS401"
+  },
+  {
+    "subject": "MUS401",
+    "predicate": "hasTextbook",
+    "object": "Music Aesthetics"
+  },
+  {
+    "subject": "Music Aesthetics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS402"
+  },
+  {
+    "subject": "MUS402",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Fiona Clark",
+    "predicate": "teachesCourse",
+    "object": "MUS402"
+  },
+  {
+    "subject": "MUS402",
+    "predicate": "hasTextbook",
+    "object": "Music Analysis and Critique"
+  },
+  {
+    "subject": "Music Analysis and Critique",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS501"
+  },
+  {
+    "subject": "MUS501",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "teachesCourse",
+    "object": "MUS501"
+  },
+  {
+    "subject": "MUS501",
+    "predicate": "hasTextbook",
+    "object": "Advanced Musical Research"
+  },
+  {
+    "subject": "Advanced Musical Research",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "hasLab",
+    "object": "Quantum Physics Lab"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "hasLab",
+    "object": "Astronomy Lab"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "hasLab",
+    "object": "Organic Synthesis Lab"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "hasLab",
+    "object": "Electrochemistry Lab"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "hasLab",
+    "object": "Literary Analysis Center"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "hasLab",
+    "object": "Archival Research Room"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "hasLab",
+    "object": "Econ Data Lab"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "hasLab",
+    "object": "Logic Lab"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "hasLab",
+    "object": "Digital Arts Studio"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "hasLab",
+    "object": "Sound Recording Studio"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "conductsResearchIn",
+    "object": "Quantum Optics"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "conductsResearchIn",
+    "object": "Condensed Matter Physics"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "conductsResearchIn",
+    "object": "Green Chemistry"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "conductsResearchIn",
+    "object": "Pharmacology"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "conductsResearchIn",
+    "object": "Comparative Literature"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "conductsResearchIn",
+    "object": "Rhetoric and Composition"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "conductsResearchIn",
+    "object": "Oral Histories"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "conductsResearchIn",
+    "object": "Public History"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "conductsResearchIn",
+    "object": "Behavioral Finance"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "conductsResearchIn",
+    "object": "Game Theory"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "conductsResearchIn",
+    "object": "Epistemology"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "conductsResearchIn",
+    "object": "Metaphysics"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "conductsResearchIn",
+    "object": "Art Restoration"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "conductsResearchIn",
+    "object": "Graphic Design"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "conductsResearchIn",
+    "object": "Music Therapy"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "conductsResearchIn",
+    "object": "Ethnomusicology"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Peter Shaw"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Sarah Lin"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Thomas Green"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Ingrid Lee"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Robert Hall"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Monica Reed"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Kevin Black"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Laura Kim"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "publishedPaper",
+    "object": "Nano-Scale Thermodynamics"
+  },
+  {
+    "subject": "Nano-Scale Thermodynamics",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Irene Walker",
+    "predicate": "publishedPaper",
+    "object": "Quantum Entanglement Studies"
+  },
+  {
+    "subject": "Quantum Entanglement Studies",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Jack Martinez",
+    "predicate": "publishedPaper",
+    "object": "Dark Matter Detection Techniques"
+  },
+  {
+    "subject": "Dark Matter Detection Techniques",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "publishedPaper",
+    "object": "Sustainable Chemical Processes"
+  },
+  {
+    "subject": "Sustainable Chemical Processes",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Mark Turner",
+    "predicate": "publishedPaper",
+    "object": "Organic Catalysis Innovations"
+  },
+  {
+    "subject": "Organic Catalysis Innovations",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Nancy Foster",
+    "predicate": "publishedPaper",
+    "object": "Protein Folding Insights"
+  },
+  {
+    "subject": "Protein Folding Insights",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "publishedPaper",
+    "object": "Post-War British Poetry Analysis"
+  },
+  {
+    "subject": "Post-War British Poetry Analysis",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Paul Edwards",
+    "predicate": "publishedPaper",
+    "object": "American Realism Revisited"
+  },
+  {
+    "subject": "American Realism Revisited",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Quentin Lewis",
+    "predicate": "publishedPaper",
+    "object": "Literary Semiotics"
+  },
+  {
+    "subject": "Literary Semiotics",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "publishedPaper",
+    "object": "Colonial Archive Discoveries"
+  },
+  {
+    "subject": "Colonial Archive Discoveries",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Steven Allen",
+    "predicate": "publishedPaper",
+    "object": "Diplomatic History of Europe"
+  },
+  {
+    "subject": "Diplomatic History of Europe",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Teresa Hall",
+    "predicate": "publishedPaper",
+    "object": "Women in Medieval History"
+  },
+  {
+    "subject": "Women in Medieval History",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "publishedPaper",
+    "object": "Microfinance and Poverty"
+  },
+  {
+    "subject": "Microfinance and Poverty",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Victor Kim",
+    "predicate": "publishedPaper",
+    "object": "Macroprudential Policies"
+  },
+  {
+    "subject": "Macroprudential Policies",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Wendy Scott",
+    "predicate": "publishedPaper",
+    "object": "Economic Growth Models"
+  },
+  {
+    "subject": "Economic Growth Models",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "publishedPaper",
+    "object": "Dualism in Modern Philosophy"
+  },
+  {
+    "subject": "Dualism in Modern Philosophy",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Yolanda Perez",
+    "predicate": "publishedPaper",
+    "object": "Moral Realism Debate"
+  },
+  {
+    "subject": "Moral Realism Debate",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Zachary Davis",
+    "predicate": "publishedPaper",
+    "object": "Philosophy of Mathematics"
+  },
+  {
+    "subject": "Philosophy of Mathematics",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "publishedPaper",
+    "object": "Visual Perception in Modern Art"
+  },
+  {
+    "subject": "Visual Perception in Modern Art",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Beatrice White",
+    "predicate": "publishedPaper",
+    "object": "Feminist Art Critique"
+  },
+  {
+    "subject": "Feminist Art Critique",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Charles King",
+    "predicate": "publishedPaper",
+    "object": "Renaissance Sculpture Techniques"
+  },
+  {
+    "subject": "Renaissance Sculpture Techniques",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "publishedPaper",
+    "object": "Baroque Music Forms"
+  },
+  {
+    "subject": "Baroque Music Forms",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Ethan Brooks",
+    "predicate": "publishedPaper",
+    "object": "Globalization of Jazz"
+  },
+  {
+    "subject": "Globalization of Jazz",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Fiona Clark",
+    "predicate": "publishedPaper",
+    "object": "Music Pedagogy Reforms"
+  },
+  {
+    "subject": "Music Pedagogy Reforms",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Physics"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Chemistry"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "English Studies"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Economic Theory"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Philosophy"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Art History"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Musicology"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasSection",
+    "object": "Archives"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasSportsFacility",
+    "object": "Tennis Courts"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasSportsFacility",
+    "object": "Soccer Field"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasSportsFacility",
+    "object": "Swimming Pool"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDormitory",
+    "object": "Pine Hall"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDormitory",
+    "object": "Elm Hall"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasCafeteria",
+    "object": "Gourmet Kitchen"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasCafeteria",
+    "object": "Student Diner"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasLibrary",
+    "object": "Science Library"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasLibrary",
+    "object": "Humanities Library"
+  },
+  {
+    "subject": "Engineering Hall",
+    "predicate": "hasFacility",
+    "object": "Computer Lab"
+  },
+  {
+    "subject": "Science Building",
+    "predicate": "hasFacility",
+    "object": "Chemistry Lab"
+  },
+  {
+    "subject": "Main Campus",
+    "predicate": "hasBuilding",
+    "object": "Administration Building"
+  },
+  {
+    "subject": "Main Campus",
+    "predicate": "hasBuilding",
+    "object": "Student Union"
+  },
+  {
+    "subject": "North Campus",
+    "predicate": "hasBuilding",
+    "object": "Observatory"
+  },
+  {
+    "subject": "North Campus",
+    "predicate": "hasBuilding",
+    "object": "Greenhouse"
+  },
+  {
+    "subject": "South Campus",
+    "predicate": "hasBuilding",
+    "object": "Performing Arts Center"
+  },
+  {
+    "subject": "South Campus",
+    "predicate": "hasBuilding",
+    "object": "Recreation Center"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "PHYS101"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "CHEM101"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ENG101"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "HIST101"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "ECON101"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "PHIL101"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ART101"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MUS101"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "PHYS201"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "CHEM201"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ENG201"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "HIST201"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "ECON201"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "PHIL201"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ART201"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MUS201"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "livesInDormitory",
+    "object": "Pine Hall"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "livesInDormitory",
+    "object": "Pine Hall"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "livesInDormitory",
+    "object": "Elm Hall"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "livesInDormitory",
+    "object": "Elm Hall"
+  },
+  {
+    "subject": "Graduate Assistant Peter Shaw",
+    "predicate": "assistsInCourse",
+    "object": "PHYS101"
+  },
+  {
+    "subject": "Graduate Assistant Peter Shaw",
+    "predicate": "assistsInCourse",
+    "object": "PHYS201"
+  },
+  {
+    "subject": "Graduate Assistant Sarah Lin",
+    "predicate": "assistsInCourse",
+    "object": "CHEM101"
+  },
+  {
+    "subject": "Graduate Assistant Sarah Lin",
+    "predicate": "assistsInCourse",
+    "object": "CHEM201"
+  },
+  {
+    "subject": "Graduate Assistant Thomas Green",
+    "predicate": "assistsInCourse",
+    "object": "ENG101"
+  },
+  {
+    "subject": "Graduate Assistant Thomas Green",
+    "predicate": "assistsInCourse",
+    "object": "ENG201"
+  },
+  {
+    "subject": "Graduate Assistant Ingrid Lee",
+    "predicate": "assistsInCourse",
+    "object": "HIST101"
+  },
+  {
+    "subject": "Graduate Assistant Ingrid Lee",
+    "predicate": "assistsInCourse",
+    "object": "HIST201"
+  },
+  {
+    "subject": "Graduate Assistant Robert Hall",
+    "predicate": "assistsInCourse",
+    "object": "ECON101"
+  },
+  {
+    "subject": "Graduate Assistant Robert Hall",
+    "predicate": "assistsInCourse",
+    "object": "ECON201"
+  },
+  {
+    "subject": "Graduate Assistant Monica Reed",
+    "predicate": "assistsInCourse",
+    "object": "PHIL101"
+  },
+  {
+    "subject": "Graduate Assistant Monica Reed",
+    "predicate": "assistsInCourse",
+    "object": "PHIL201"
+  },
+  {
+    "subject": "Graduate Assistant Kevin Black",
+    "predicate": "assistsInCourse",
+    "object": "ART101"
+  },
+  {
+    "subject": "Graduate Assistant Kevin Black",
+    "predicate": "assistsInCourse",
+    "object": "ART201"
+  },
+  {
+    "subject": "Graduate Assistant Laura Kim",
+    "predicate": "assistsInCourse",
+    "object": "MUS101"
+  },
+  {
+    "subject": "Graduate Assistant Laura Kim",
+    "predicate": "assistsInCourse",
+    "object": "MUS201"
+  },
+  {
+    "subject": "Engineering Hall",
+    "predicate": "hasFacility",
+    "object": "Robotics Workshop"
+  },
+  {
+    "subject": "Engineering Hall",
+    "predicate": "hasFacility",
+    "object": "3D Printing Lab"
+  },
+  {
+    "subject": "Science Building",
+    "predicate": "hasFacility",
+    "object": "Nanotechnology Lab"
+  },
+  {
+    "subject": "Science Building",
+    "predicate": "hasFacility",
+    "object": "Planetarium"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "hasFacility",
+    "object": "Gymnasium"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "hasFacility",
+    "object": "Indoor Track"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasFacility",
+    "object": "Quiet Study Room"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasFacility",
+    "object": "Group Study Rooms"
+  },
+  {
+    "subject": "Maple Hall",
+    "predicate": "hasFacility",
+    "object": "Lounge"
+  },
+  {
+    "subject": "Oak Hall",
+    "predicate": "hasFacility",
+    "object": "Study Lounge"
+  },
+  {
+    "subject": "Pine Hall",
+    "predicate": "hasFacility",
+    "object": "Laundry Room"
+  },
+  {
+    "subject": "Elm Hall",
+    "predicate": "hasFacility",
+    "object": "Game Room"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "hasOfficeIn",
+    "object": "Physics Wing"
+  },
+  {
+    "subject": "Professor Irene Walker",
+    "predicate": "hasOfficeIn",
+    "object": "Physics Wing"
+  },
+  {
+    "subject": "Professor Jack Martinez",
+    "predicate": "hasOfficeIn",
+    "object": "Physics Wing"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "hasOfficeIn",
+    "object": "Chemistry Wing"
+  },
+  {
+    "subject": "Professor Mark Turner",
+    "predicate": "hasOfficeIn",
+    "object": "Chemistry Wing"
+  },
+  {
+    "subject": "Professor Nancy Foster",
+    "predicate": "hasOfficeIn",
+    "object": "Chemistry Wing"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "hasOfficeIn",
+    "object": "English Offices"
+  },
+  {
+    "subject": "Professor Paul Edwards",
+    "predicate": "hasOfficeIn",
+    "object": "English Offices"
+  },
+  {
+    "subject": "Professor Quentin Lewis",
+    "predicate": "hasOfficeIn",
+    "object": "English Offices"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "hasOfficeIn",
+    "object": "History Offices"
+  },
+  {
+    "subject": "Professor Steven Allen",
+    "predicate": "hasOfficeIn",
+    "object": "History Offices"
+  },
+  {
+    "subject": "Professor Teresa Hall",
+    "predicate": "hasOfficeIn",
+    "object": "History Offices"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "hasOfficeIn",
+    "object": "Economics Offices"
+  },
+  {
+    "subject": "Professor Victor Kim",
+    "predicate": "hasOfficeIn",
+    "object": "Economics Offices"
+  },
+  {
+    "subject": "Professor Wendy Scott",
+    "predicate": "hasOfficeIn",
+    "object": "Economics Offices"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "hasOfficeIn",
+    "object": "Philosophy Offices"
+  },
+  {
+    "subject": "Professor Yolanda Perez",
+    "predicate": "hasOfficeIn",
+    "object": "Philosophy Offices"
+  },
+  {
+    "subject": "Professor Zachary Davis",
+    "predicate": "hasOfficeIn",
+    "object": "Philosophy Offices"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "hasOfficeIn",
+    "object": "Art Studios"
+  },
+  {
+    "subject": "Professor Beatrice White",
+    "predicate": "hasOfficeIn",
+    "object": "Art Studios"
+  },
+  {
+    "subject": "Professor Charles King",
+    "predicate": "hasOfficeIn",
+    "object": "Art Studios"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "hasOfficeIn",
+    "object": "Music Studios"
+  },
+  {
+    "subject": "Professor Ethan Brooks",
+    "predicate": "hasOfficeIn",
+    "object": "Music Studios"
+  },
+  {
+    "subject": "Professor Fiona Clark",
+    "predicate": "hasOfficeIn",
+    "object": "Music Studios"
+  },
+  {
+    "subject": "Quantum Physics Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Quantum Computation"
+  },
+  {
+    "subject": "Quantum Physics Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Quantum Cryptography"
+  },
+  {
+    "subject": "Astronomy Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Exoplanet Detection"
+  },
+  {
+    "subject": "Astronomy Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Stellar Evolution"
+  },
+  {
+    "subject": "Organic Synthesis Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Drug Discovery"
+  },
+  {
+    "subject": "Organic Synthesis Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Photochemistry"
+  },
+  {
+    "subject": "Electrochemistry Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Battery Technology"
+  },
+  {
+    "subject": "Electrochemistry Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Fuel Cells"
+  },
+  {
+    "subject": "Literary Analysis Center",
+    "predicate": "conductsResearchIn",
+    "object": "Textual Criticism"
+  },
+  {
+    "subject": "Literary Analysis Center",
+    "predicate": "conductsResearchIn",
+    "object": "Digital Humanities"
+  },
+  {
+    "subject": "Archival Research Room",
+    "predicate": "conductsResearchIn",
+    "object": "Primary Source Analysis"
+  },
+  {
+    "subject": "Archival Research Room",
+    "predicate": "conductsResearchIn",
+    "object": "Document Preservation"
+  },
+  {
+    "subject": "Econ Data Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Big Data Economics"
+  },
+  {
+    "subject": "Econ Data Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Computational Finance"
+  },
+  {
+    "subject": "Logic Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Formal Logic"
+  },
+  {
+    "subject": "Logic Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Philosophy of Language"
+  },
+  {
+    "subject": "Digital Arts Studio",
+    "predicate": "conductsResearchIn",
+    "object": "Interactive Media"
+  },
+  {
+    "subject": "Digital Arts Studio",
+    "predicate": "conductsResearchIn",
+    "object": "3D Animation"
+  },
+  {
+    "subject": "Sound Recording Studio",
+    "predicate": "conductsResearchIn",
+    "object": "Acoustic Engineering"
+  },
+  {
+    "subject": "Sound Recording Studio",
+    "predicate": "conductsResearchIn",
+    "object": "Music Production"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "teachesCourse",
+    "object": "PHYS303"
+  },
+  {
+    "subject": "Professor Irene Walker",
+    "predicate": "teachesCourse",
+    "object": "PHYS302"
+  },
+  {
+    "subject": "Professor Jack Martinez",
+    "predicate": "teachesCourse",
+    "object": "PHYS401"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "teachesCourse",
+    "object": "CHEM303"
+  },
+  {
+    "subject": "Professor Mark Turner",
+    "predicate": "teachesCourse",
+    "object": "CHEM402"
+  },
+  {
+    "subject": "Professor Nancy Foster",
+    "predicate": "teachesCourse",
+    "object": "CHEM501"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "teachesCourse",
+    "object": "ENG302"
+  },
+  {
+    "subject": "Professor Paul Edwards",
+    "predicate": "teachesCourse",
+    "object": "ENG402"
+  },
+  {
+    "subject": "Professor Quentin Lewis",
+    "predicate": "teachesCourse",
+    "object": "ENG501"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "teachesCourse",
+    "object": "HIST301"
+  },
+  {
+    "subject": "Professor Steven Allen",
+    "predicate": "teachesCourse",
+    "object": "HIST402"
+  },
+  {
+    "subject": "Professor Teresa Hall",
+    "predicate": "teachesCourse",
+    "object": "HIST501"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "teachesCourse",
+    "object": "ECON302"
+  },
+  {
+    "subject": "Professor Victor Kim",
+    "predicate": "teachesCourse",
+    "object": "ECON401"
+  },
+  {
+    "subject": "Professor Wendy Scott",
+    "predicate": "teachesCourse",
+    "object": "ECON402"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "teachesCourse",
+    "object": "PHIL302"
+  },
+  {
+    "subject": "Professor Yolanda Perez",
+    "predicate": "teachesCourse",
+    "object": "PHIL401"
+  },
+  {
+    "subject": "Professor Zachary Davis",
+    "predicate": "teachesCourse",
+    "object": "PHIL402"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "teachesCourse",
+    "object": "ART301"
+  },
+  {
+    "subject": "Professor Beatrice White",
+    "predicate": "teachesCourse",
+    "object": "ART402"
+  },
+  {
+    "subject": "Professor Charles King",
+    "predicate": "teachesCourse",
+    "object": "ART501"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "teachesCourse",
+    "object": "MUS301"
+  },
+  {
+    "subject": "Professor Ethan Brooks",
+    "predicate": "teachesCourse",
+    "object": "MUS402"
+  },
+  {
+    "subject": "Professor Fiona Clark",
+    "predicate": "teachesCourse",
+    "object": "MUS501"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "PHYS303"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "CHEM303"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ENG302"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "HIST301"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "ECON302"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "PHIL302"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ART301"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MUS301"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "PHYS302"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "CHEM402"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ENG402"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "HIST402"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "ECON401"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "PHIL401"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ART402"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MUS402"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "PHYS401"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "CHEM501"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ENG501"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "HIST501"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "ECON402"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "PHIL402"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ART501"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MUS501"
+  },
+  {
+    "subject": "PHYS303",
+    "predicate": "hasTextbook",
+    "object": "Advanced Quantum Mechanics"
+  },
+  {
+    "subject": "Advanced Quantum Mechanics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "PHYS302",
+    "predicate": "hasTextbook",
+    "object": "Lagrangian and Hamiltonian Mechanics"
+  },
+  {
+    "subject": "Lagrangian and Hamiltonian Mechanics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "PHYS401",
+    "predicate": "hasTextbook",
+    "object": "Relativity and Gravitation"
+  },
+  {
+    "subject": "Relativity and Gravitation",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "CHEM303",
+    "predicate": "hasTextbook",
+    "object": "Biopolymers and Biomaterials"
+  },
+  {
+    "subject": "Biopolymers and Biomaterials",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "CHEM402",
+    "predicate": "hasTextbook",
+    "object": "Industrial Chemistry"
+  },
+  {
+    "subject": "Industrial Chemistry",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "CHEM501",
+    "predicate": "hasTextbook",
+    "object": "Supramolecular Chemistry"
+  },
+  {
+    "subject": "Supramolecular Chemistry",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ENG302",
+    "predicate": "hasTextbook",
+    "object": "Postmodernist Literary Theory"
+  },
+  {
+    "subject": "Postmodernist Literary Theory",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ENG402",
+    "predicate": "hasTextbook",
+    "object": "Global Literature Survey"
+  },
+  {
+    "subject": "Global Literature Survey",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ENG501",
+    "predicate": "hasTextbook",
+    "object": "Literary Criticism Methods"
+  },
+  {
+    "subject": "Literary Criticism Methods",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "HIST301",
+    "predicate": "hasTextbook",
+    "object": "Asian Empires and Trade"
+  },
+  {
+    "subject": "Asian Empires and Trade",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "HIST402",
+    "predicate": "hasTextbook",
+    "object": "History of Religious Movements"
+  },
+  {
+    "subject": "History of Religious Movements",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "HIST501",
+    "predicate": "hasTextbook",
+    "object": "Historiography and Methods"
+  },
+  {
+    "subject": "Historiography and Methods",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ECON302",
+    "predicate": "hasTextbook",
+    "object": "Development Finance"
+  },
+  {
+    "subject": "Development Finance",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ECON401",
+    "predicate": "hasTextbook",
+    "object": "Dynamic Macroeconomics"
+  },
+  {
+    "subject": "Dynamic Macroeconomics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ECON402",
+    "predicate": "hasTextbook",
+    "object": "Central Banking Systems"
+  },
+  {
+    "subject": "Central Banking Systems",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "PHIL302",
+    "predicate": "hasTextbook",
+    "object": "Metaethics and Normativity"
+  },
+  {
+    "subject": "Metaethics and Normativity",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "PHIL401",
+    "predicate": "hasTextbook",
+    "object": "Analytic Philosophy"
+  },
+  {
+    "subject": "Analytic Philosophy",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "PHIL402",
+    "predicate": "hasTextbook",
+    "object": "Philosophy of Science"
+  },
+  {
+    "subject": "Philosophy of Science",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ART301",
+    "predicate": "hasTextbook",
+    "object": "Contemporary Sculpture"
+  },
+  {
+    "subject": "Contemporary Sculpture",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ART402",
+    "predicate": "hasTextbook",
+    "object": "Museum Curation Principles"
+  },
+  {
+    "subject": "Museum Curation Principles",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "ART501",
+    "predicate": "hasTextbook",
+    "object": "Artistic Research Methodologies"
+  },
+  {
+    "subject": "Artistic Research Methodologies",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "MUS301",
+    "predicate": "hasTextbook",
+    "object": "Orchestral Conducting"
+  },
+  {
+    "subject": "Orchestral Conducting",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "MUS402",
+    "predicate": "hasTextbook",
+    "object": "Global Music Cultures"
+  },
+  {
+    "subject": "Global Music Cultures",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "MUS501",
+    "predicate": "hasTextbook",
+    "object": "Advanced Acoustics"
+  },
+  {
+    "subject": "Advanced Acoustics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Science Fair"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Art Exhibition"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Music Festival"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Philosophy Symposium"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "History Conference"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Economics Workshop"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Literature Readings"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Chemistry Colloquium"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Physics Symposium"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsEvent",
+    "object": "Mathematics Conference"
+  },
+  {
+    "subject": "Science Fair",
+    "predicate": "locatedIn",
+    "object": "Science Building"
+  },
+  {
+    "subject": "Art Exhibition",
+    "predicate": "locatedIn",
+    "object": "Art Department"
+  },
+  {
+    "subject": "Music Festival",
+    "predicate": "locatedIn",
+    "object": "Music Department"
+  },
+  {
+    "subject": "Philosophy Symposium",
+    "predicate": "locatedIn",
+    "object": "Philosophy Department"
+  },
+  {
+    "subject": "History Conference",
+    "predicate": "locatedIn",
+    "object": "History Department"
+  },
+  {
+    "subject": "Economics Workshop",
+    "predicate": "locatedIn",
+    "object": "Economics Department"
+  },
+  {
+    "subject": "Literature Readings",
+    "predicate": "locatedIn",
+    "object": "English Department"
+  },
+  {
+    "subject": "Chemistry Colloquium",
+    "predicate": "locatedIn",
+    "object": "Chemistry Department"
+  },
+  {
+    "subject": "Physics Symposium",
+    "predicate": "locatedIn",
+    "object": "Physics Department"
+  },
+  {
+    "subject": "Mathematics Conference",
+    "predicate": "locatedIn",
+    "object": "Mathematics Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersScholarship",
+    "object": "Merit Scholarship"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersScholarship",
+    "object": "Need-Based Grant"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersScholarship",
+    "object": "Research Fellowship"
+  },
+  {
+    "subject": "Merit Scholarship",
+    "predicate": "awardedTo",
+    "object": "Student David Lee"
+  },
+  {
+    "subject": "Merit Scholarship",
+    "predicate": "awardedTo",
+    "object": "Student Emily Chen"
+  },
+  {
+    "subject": "Need-Based Grant",
+    "predicate": "awardedTo",
+    "object": "Student Frank Miller"
+  },
+  {
+    "subject": "Need-Based Grant",
+    "predicate": "awardedTo",
+    "object": "Student Gina Brown"
+  },
+  {
+    "subject": "Research Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant John Doe"
+  },
+  {
+    "subject": "Research Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Jane Smith"
+  },
+  {
+    "subject": "Research Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Michael Adams"
+  },
+  {
+    "subject": "Research Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Peter Shaw"
+  },
+  {
+    "subject": "Research Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Sarah Lin"
+  },
+  {
+    "subject": "Research Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Thomas Green"
+  },
+  {
+    "subject": "Engineering Hall",
+    "predicate": "hasConferenceRoom",
+    "object": "Room A"
+  },
+  {
+    "subject": "Engineering Hall",
+    "predicate": "hasConferenceRoom",
+    "object": "Room B"
+  },
+  {
+    "subject": "Science Building",
+    "predicate": "hasLectureHall",
+    "object": "Hall 101"
+  },
+  {
+    "subject": "Science Building",
+    "predicate": "hasLectureHall",
+    "object": "Hall 102"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasArchive",
+    "object": "Special Collections"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasArchive",
+    "object": "Rare Books Section"
+  },
+  {
+    "subject": "Campus Cafe",
+    "predicate": "offersMeal",
+    "object": "Breakfast Specials"
+  },
+  {
+    "subject": "Campus Cafe",
+    "predicate": "offersMeal",
+    "object": "Vegetarian Options"
+  },
+  {
+    "subject": "Campus Cafe",
+    "predicate": "offersMeal",
+    "object": "Halal Cuisine"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "hasTeam",
+    "object": "Soccer Team"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "hasTeam",
+    "object": "Basketball Team"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "hasTeam",
+    "object": "Swimming Team"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasClub",
+    "object": "Debate Club"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasClub",
+    "object": "Robotics Club"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasClub",
+    "object": "Drama Club"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasClub",
+    "object": "Photography Club"
+  },
+  {
+    "subject": "Debate Club",
+    "predicate": "ledBy",
+    "object": "Professor Carol Davis"
+  },
+  {
+    "subject": "Robotics Club",
+    "predicate": "ledBy",
+    "object": "Professor Bob Smith"
+  },
+  {
+    "subject": "Drama Club",
+    "predicate": "ledBy",
+    "object": "Professor Quentin Lewis"
+  },
+  {
+    "subject": "Photography Club",
+    "predicate": "ledBy",
+    "object": "Professor Charles King"
+  },
+  {
+    "subject": "Debate Club",
+    "predicate": "hasMember",
+    "object": "Student David Lee"
+  },
+  {
+    "subject": "Robotics Club",
+    "predicate": "hasMember",
+    "object": "Student Emily Chen"
+  },
+  {
+    "subject": "Drama Club",
+    "predicate": "hasMember",
+    "object": "Student Frank Miller"
+  },
+  {
+    "subject": "Photography Club",
+    "predicate": "hasMember",
+    "object": "Student Gina Brown"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasAlumni",
+    "object": "Alumnus James Wilson"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasAlumni",
+    "object": "Alumna Maria Rodriguez"
+  },
+  {
+    "subject": "Alumnus James Wilson",
+    "predicate": "type",
+    "object": "Alumni"
+  },
+  {
+    "subject": "Alumna Maria Rodriguez",
+    "predicate": "type",
+    "object": "Alumni"
+  },
+  {
+    "subject": "Alumnus James Wilson",
+    "predicate": "graduatedFrom",
+    "object": "Computer Science Department"
+  },
+  {
+    "subject": "Alumna Maria Rodriguez",
+    "predicate": "graduatedFrom",
+    "object": "Biology Department"
+  },
+  {
+    "subject": "Alumnus James Wilson",
+    "predicate": "worksAt",
+    "object": "TechCorp"
+  },
+  {
+    "subject": "Alumna Maria Rodriguez",
+    "predicate": "worksAt",
+    "object": "BioHealth Inc"
+  },
+  {
+    "subject": "TechCorp",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "BioHealth Inc",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "TechCorp",
+    "predicate": "locatedIn",
+    "object": "Silicon Valley"
+  },
+  {
+    "subject": "BioHealth Inc",
+    "predicate": "locatedIn",
+    "object": "Boston"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "advisorOf",
+    "object": "Student David Lee"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "advisorOf",
+    "object": "Student Emily Chen"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "advisorOf",
+    "object": "Student Frank Miller"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "advisorOf",
+    "object": "Student Gina Brown"
+  },
+  {
+    "subject": "Graduate Assistant John Doe",
+    "predicate": "worksUnder",
+    "object": "Professor Alice Johnson"
+  },
+  {
+    "subject": "Graduate Assistant Jane Smith",
+    "predicate": "worksUnder",
+    "object": "Professor Carol Davis"
+  },
+  {
+    "subject": "Graduate Assistant Michael Adams",
+    "predicate": "worksUnder",
+    "object": "Professor Bob Smith"
+  },
+  {
+    "subject": "Graduate Assistant Peter Shaw",
+    "predicate": "worksUnder",
+    "object": "Professor Henry Clark"
+  },
+  {
+    "subject": "Graduate Assistant Sarah Lin",
+    "predicate": "worksUnder",
+    "object": "Professor Linda Adams"
+  },
+  {
+    "subject": "Graduate Assistant Thomas Green",
+    "predicate": "worksUnder",
+    "object": "Professor Olivia Hughes"
+  },
+  {
+    "subject": "Graduate Assistant Ingrid Lee",
+    "predicate": "worksUnder",
+    "object": "Professor Rachel Young"
+  },
+  {
+    "subject": "Graduate Assistant Robert Hall",
+    "predicate": "worksUnder",
+    "object": "Professor Victor Kim"
+  },
+  {
+    "subject": "Graduate Assistant Monica Reed",
+    "predicate": "worksUnder",
+    "object": "Professor Yolanda Perez"
+  },
+  {
+    "subject": "Graduate Assistant Kevin Black",
+    "predicate": "worksUnder",
+    "object": "Professor Aaron Nelson"
+  },
+  {
+    "subject": "Graduate Assistant Laura Kim",
+    "predicate": "worksUnder",
+    "object": "Professor Diana Russell"
+  },
+  {
+    "subject": "Library Staff John Richards",
+    "predicate": "type",
+    "object": "Staff"
+  },
+  {
+    "subject": "Library Staff Susan Carter",
+    "predicate": "type",
+    "object": "Staff"
+  },
+  {
+    "subject": "Library Staff John Richards",
+    "predicate": "worksIn",
+    "object": "Main Library"
+  },
+  {
+    "subject": "Library Staff Susan Carter",
+    "predicate": "worksIn",
+    "object": "Science Library"
+  },
+  {
+    "subject": "Library Staff John Richards",
+    "predicate": "responsibleFor",
+    "object": "Computer Science Section"
+  },
+  {
+    "subject": "Library Staff Susan Carter",
+    "predicate": "responsibleFor",
+    "object": "Biology Section"
+  },
+  {
+    "subject": "IT Services Department",
+    "predicate": "type",
+    "object": "Administrative Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasDepartment",
+    "object": "IT Services Department"
+  },
+  {
+    "subject": "IT Services Department",
+    "predicate": "hasStaff",
+    "object": "IT Manager Alan Wu"
+  },
+  {
+    "subject": "IT Services Department",
+    "predicate": "hasStaff",
+    "object": "Network Administrator Emma Lee"
+  },
+  {
+    "subject": "IT Manager Alan Wu",
+    "predicate": "type",
+    "object": "Staff"
+  },
+  {
+    "subject": "Network Administrator Emma Lee",
+    "predicate": "type",
+    "object": "Staff"
+  },
+  {
+    "subject": "IT Manager Alan Wu",
+    "predicate": "manages",
+    "object": "University Network"
+  },
+  {
+    "subject": "Network Administrator Emma Lee",
+    "predicate": "manages",
+    "object": "Server Infrastructure"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasParkingFacility",
+    "object": "Central Parking Lot"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasParkingFacility",
+    "object": "North Parking Lot"
+  },
+  {
+    "subject": "Central Parking Lot",
+    "predicate": "locatedIn",
+    "object": "Main Campus"
+  },
+  {
+    "subject": "North Parking Lot",
+    "predicate": "locatedIn",
+    "object": "North Campus"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasHealthcareCenter",
+    "object": "Student Health Center"
+  },
+  {
+    "subject": "Student Health Center",
+    "predicate": "type",
+    "object": "Healthcare Facility"
+  },
+  {
+    "subject": "Student Health Center",
+    "predicate": "offersService",
+    "object": "Medical Checkups"
+  },
+  {
+    "subject": "Student Health Center",
+    "predicate": "offersService",
+    "object": "Mental Health Counseling"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasCareerCenter",
+    "object": "Career Services"
+  },
+  {
+    "subject": "Career Services",
+    "predicate": "type",
+    "object": "Administrative Department"
+  },
+  {
+    "subject": "Career Services",
+    "predicate": "offersService",
+    "object": "Resume Workshops"
+  },
+  {
+    "subject": "Career Services",
+    "predicate": "offersService",
+    "object": "Job Placement"
+  },
+  {
+    "subject": "Career Services",
+    "predicate": "offersService",
+    "object": "Internship Listings"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "hasInternship",
+    "object": "TechCorp Internship"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "hasInternship",
+    "object": "BioHealth Inc Internship"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "hasInternship",
+    "object": "Local Museum Internship"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "hasInternship",
+    "object": "Finance Firm Internship"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "partnersWith",
+    "object": "Local Museum"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "partnersWith",
+    "object": "Finance Firm"
+  },
+  {
+    "subject": "Local Museum",
+    "predicate": "type",
+    "object": "Museum"
+  },
+  {
+    "subject": "Finance Firm",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "Local Museum",
+    "predicate": "locatedIn",
+    "object": "Downtown"
+  },
+  {
+    "subject": "Finance Firm",
+    "predicate": "locatedIn",
+    "object": "Financial District"
+  },
+  {
+    "subject": "Local Museum",
+    "predicate": "hostsExhibit",
+    "object": "Ancient Artifacts"
+  },
+  {
+    "subject": "Finance Firm",
+    "predicate": "offersService",
+    "object": "Financial Consulting"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsSeminar",
+    "object": "Leadership Seminar"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsSeminar",
+    "object": "Entrepreneurship Seminar"
+  },
+  {
+    "subject": "Leadership Seminar",
+    "predicate": "ledBy",
+    "object": "Professor Bob Smith"
+  },
+  {
+    "subject": "Entrepreneurship Seminar",
+    "predicate": "ledBy",
+    "object": "Professor Wendy Scott"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsWorkshop",
+    "object": "Creative Writing Workshop"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsWorkshop",
+    "object": "Public Speaking Workshop"
+  },
+  {
+    "subject": "Creative Writing Workshop",
+    "predicate": "ledBy",
+    "object": "Professor Olivia Hughes"
+  },
+  {
+    "subject": "Public Speaking Workshop",
+    "predicate": "ledBy",
+    "object": "Professor Carol Davis"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "offersCourse",
+    "object": "BIO301"
+  },
+  {
+    "subject": "BIO301",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "BIO301"
+  },
+  {
+    "subject": "BIO301",
+    "predicate": "hasTextbook",
+    "object": "Cellular Biology Principles"
+  },
+  {
+    "subject": "Cellular Biology Principles",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "BIO301"
+  },
+  {
+    "subject": "Engineering Hall",
+    "predicate": "hasFacility",
+    "object": "Fluid Mechanics Lab"
+  },
+  {
+    "subject": "Fluid Mechanics Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Turbulent Flows"
+  },
+  {
+    "subject": "Fluid Mechanics Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Hydrodynamics"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "hasLab",
+    "object": "Virtual Reality Lab"
+  },
+  {
+    "subject": "Virtual Reality Lab",
+    "predicate": "conductsResearchIn",
+    "object": "Human-Computer Interaction"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Paul Grant"
+  },
+  {
+    "subject": "Graduate Assistant Paul Grant",
+    "predicate": "assistsInCourse",
+    "object": "MATH301"
+  },
+  {
+    "subject": "Graduate Assistant Paul Grant",
+    "predicate": "assistsInCourse",
+    "object": "MATH201"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Linda Ford"
+  },
+  {
+    "subject": "Graduate Assistant Linda Ford",
+    "predicate": "assistsInCourse",
+    "object": "BIO201"
+  },
+  {
+    "subject": "Graduate Assistant Linda Ford",
+    "predicate": "assistsInCourse",
+    "object": "BIO101"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Mark Nelson"
+  },
+  {
+    "subject": "Graduate Assistant Mark Nelson",
+    "predicate": "assistsInCourse",
+    "object": "PHYS101"
+  },
+  {
+    "subject": "Graduate Assistant Mark Nelson",
+    "predicate": "assistsInCourse",
+    "object": "PHYS102"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Erica Stevens"
+  },
+  {
+    "subject": "Graduate Assistant Erica Stevens",
+    "predicate": "assistsInCourse",
+    "object": "CHEM101"
+  },
+  {
+    "subject": "Graduate Assistant Erica Stevens",
+    "predicate": "assistsInCourse",
+    "object": "CHEM102"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Frank Adams"
+  },
+  {
+    "subject": "Graduate Assistant Frank Adams",
+    "predicate": "assistsInCourse",
+    "object": "ENG101"
+  },
+  {
+    "subject": "Graduate Assistant Frank Adams",
+    "predicate": "assistsInCourse",
+    "object": "ENG102"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Olivia Wang"
+  },
+  {
+    "subject": "Graduate Assistant Olivia Wang",
+    "predicate": "assistsInCourse",
+    "object": "HIST101"
+  },
+  {
+    "subject": "Graduate Assistant Olivia Wang",
+    "predicate": "assistsInCourse",
+    "object": "HIST102"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Tim Roberts"
+  },
+  {
+    "subject": "Graduate Assistant Tim Roberts",
+    "predicate": "assistsInCourse",
+    "object": "ECON101"
+  },
+  {
+    "subject": "Graduate Assistant Tim Roberts",
+    "predicate": "assistsInCourse",
+    "object": "ECON102"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Julia Kim"
+  },
+  {
+    "subject": "Graduate Assistant Julia Kim",
+    "predicate": "assistsInCourse",
+    "object": "PHIL101"
+  },
+  {
+    "subject": "Graduate Assistant Julia Kim",
+    "predicate": "assistsInCourse",
+    "object": "PHIL102"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Tony Miller"
+  },
+  {
+    "subject": "Graduate Assistant Tony Miller",
+    "predicate": "assistsInCourse",
+    "object": "ART101"
+  },
+  {
+    "subject": "Graduate Assistant Tony Miller",
+    "predicate": "assistsInCourse",
+    "object": "ART102"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Sarah Park"
+  },
+  {
+    "subject": "Graduate Assistant Sarah Park",
+    "predicate": "assistsInCourse",
+    "object": "MUS101"
+  },
+  {
+    "subject": "Graduate Assistant Sarah Park",
+    "predicate": "assistsInCourse",
+    "object": "MUS102"
+  },
+  {
+    "subject": "Artificial Intelligence Lab",
+    "predicate": "hasEquipment",
+    "object": "GPU Cluster"
+  },
+  {
+    "subject": "Cybersecurity Lab",
+    "predicate": "hasEquipment",
+    "object": "Firewall Testbed"
+  },
+  {
+    "subject": "Genetics Lab",
+    "predicate": "hasEquipment",
+    "object": "Genome Sequencer"
+  },
+  {
+    "subject": "Microbiology Lab",
+    "predicate": "hasEquipment",
+    "object": "Autoclave"
+  },
+  {
+    "subject": "Statistics Lab",
+    "predicate": "hasEquipment",
+    "object": "High-Performance Computing Cluster"
+  },
+  {
+    "subject": "Applied Mathematics Lab",
+    "predicate": "hasEquipment",
+    "object": "Mathematical Software Suite"
+  },
+  {
+    "subject": "Quantum Physics Lab",
+    "predicate": "hasEquipment",
+    "object": "Quantum Computer"
+  },
+  {
+    "subject": "Astronomy Lab",
+    "predicate": "hasEquipment",
+    "object": "Radio Telescope"
+  },
+  {
+    "subject": "Organic Synthesis Lab",
+    "predicate": "hasEquipment",
+    "object": "Reactor Vessels"
+  },
+  {
+    "subject": "Electrochemistry Lab",
+    "predicate": "hasEquipment",
+    "object": "Potentiostat"
+  },
+  {
+    "subject": "Digital Arts Studio",
+    "predicate": "hasEquipment",
+    "object": "Graphics Tablets"
+  },
+  {
+    "subject": "Sound Recording Studio",
+    "predicate": "hasEquipment",
+    "object": "High-Fidelity Microphones"
+  },
+  {
+    "subject": "Library Staff John Richards",
+    "predicate": "organizesEvent",
+    "object": "Book Club Meetings"
+  },
+  {
+    "subject": "Library Staff Susan Carter",
+    "predicate": "organizesEvent",
+    "object": "Author Talks"
+  },
+  {
+    "subject": "Book Club Meetings",
+    "predicate": "locatedIn",
+    "object": "Main Library"
+  },
+  {
+    "subject": "Author Talks",
+    "predicate": "locatedIn",
+    "object": "Humanities Library"
+  },
+  {
+    "subject": "IT Services Department",
+    "predicate": "offersService",
+    "object": "Email Support"
+  },
+  {
+    "subject": "IT Services Department",
+    "predicate": "offersService",
+    "object": "Wireless Network Access"
+  },
+  {
+    "subject": "IT Services Department",
+    "predicate": "offersService",
+    "object": "Data Backup Solutions"
+  },
+  {
+    "subject": "Student Health Center",
+    "predicate": "offersService",
+    "object": "Vaccination Drives"
+  },
+  {
+    "subject": "Student Health Center",
+    "predicate": "offersService",
+    "object": "Health Screenings"
+  },
+  {
+    "subject": "Career Services",
+    "predicate": "organizesEvent",
+    "object": "Career Fair"
+  },
+  {
+    "subject": "Career Fair",
+    "predicate": "locatedIn",
+    "object": "Student Union"
+  },
+  {
+    "subject": "Career Services",
+    "predicate": "organizesEvent",
+    "object": "Interview Training Sessions"
+  },
+  {
+    "subject": "Interview Training Sessions",
+    "predicate": "locatedIn",
+    "object": "Administration Building"
+  },
+  {
+    "subject": "Maple Hall",
+    "predicate": "offersHousing",
+    "object": "Undergraduate Students"
+  },
+  {
+    "subject": "Oak Hall",
+    "predicate": "offersHousing",
+    "object": "Undergraduate Students"
+  },
+  {
+    "subject": "Pine Hall",
+    "predicate": "offersHousing",
+    "object": "Graduate Students"
+  },
+  {
+    "subject": "Elm Hall",
+    "predicate": "offersHousing",
+    "object": "Graduate Students"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "participatesIn",
+    "object": "Debate Club"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "participatesIn",
+    "object": "Robotics Club"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "participatesIn",
+    "object": "Drama Club"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "participatesIn",
+    "object": "Photography Club"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS601"
+  },
+  {
+    "subject": "PHYS601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Henry Clark",
+    "predicate": "teachesCourse",
+    "object": "PHYS601"
+  },
+  {
+    "subject": "PHYS601",
+    "predicate": "hasTextbook",
+    "object": "Advanced Solid State Physics"
+  },
+  {
+    "subject": "Advanced Solid State Physics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM601"
+  },
+  {
+    "subject": "CHEM601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Linda Adams",
+    "predicate": "teachesCourse",
+    "object": "CHEM601"
+  },
+  {
+    "subject": "CHEM601",
+    "predicate": "hasTextbook",
+    "object": "Advanced Physical Chemistry"
+  },
+  {
+    "subject": "Advanced Physical Chemistry",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG601"
+  },
+  {
+    "subject": "ENG601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Olivia Hughes",
+    "predicate": "teachesCourse",
+    "object": "ENG601"
+  },
+  {
+    "subject": "ENG601",
+    "predicate": "hasTextbook",
+    "object": "Literary Research Paradigms"
+  },
+  {
+    "subject": "Literary Research Paradigms",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST601"
+  },
+  {
+    "subject": "HIST601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Rachel Young",
+    "predicate": "teachesCourse",
+    "object": "HIST601"
+  },
+  {
+    "subject": "HIST601",
+    "predicate": "hasTextbook",
+    "object": "Historiography Advanced"
+  },
+  {
+    "subject": "Historiography Advanced",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON601"
+  },
+  {
+    "subject": "ECON601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ursula Green",
+    "predicate": "teachesCourse",
+    "object": "ECON601"
+  },
+  {
+    "subject": "ECON601",
+    "predicate": "hasTextbook",
+    "object": "Applied Econometrics"
+  },
+  {
+    "subject": "Applied Econometrics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL601"
+  },
+  {
+    "subject": "PHIL601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Xavier Lopez",
+    "predicate": "teachesCourse",
+    "object": "PHIL601"
+  },
+  {
+    "subject": "PHIL601",
+    "predicate": "hasTextbook",
+    "object": "Contemporary Metaphysics"
+  },
+  {
+    "subject": "Contemporary Metaphysics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART601"
+  },
+  {
+    "subject": "ART601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Aaron Nelson",
+    "predicate": "teachesCourse",
+    "object": "ART601"
+  },
+  {
+    "subject": "ART601",
+    "predicate": "hasTextbook",
+    "object": "Avant-Garde Art Studies"
+  },
+  {
+    "subject": "Avant-Garde Art Studies",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS601"
+  },
+  {
+    "subject": "MUS601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Diana Russell",
+    "predicate": "teachesCourse",
+    "object": "MUS601"
+  },
+  {
+    "subject": "MUS601",
+    "predicate": "hasTextbook",
+    "object": "Contemporary Music Analysis"
+  },
+  {
+    "subject": "Contemporary Music Analysis",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "PHYS601"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "CHEM601"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ENG601"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "HIST601"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "ECON601"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "PHIL601"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "ART601"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MUS601"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasFellowship",
+    "object": "Teaching Fellowship"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant John Doe"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Jane Smith"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Michael Adams"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Peter Shaw"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Sarah Lin"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Thomas Green"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Ingrid Lee"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Robert Hall"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Monica Reed"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Kevin Black"
+  },
+  {
+    "subject": "Teaching Fellowship",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Laura Kim"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsCompetition",
+    "object": "Hackathon"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsCompetition",
+    "object": "Coding Challenge"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsCompetition",
+    "object": "Business Pitch Contest"
+  },
+  {
+    "subject": "Hackathon",
+    "predicate": "locatedIn",
+    "object": "Engineering Hall"
+  },
+  {
+    "subject": "Coding Challenge",
+    "predicate": "locatedIn",
+    "object": "Computer Science Department"
+  },
+  {
+    "subject": "Business Pitch Contest",
+    "predicate": "locatedIn",
+    "object": "Economics Department"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersGrant",
+    "object": "Undergraduate Research Grant"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersGrant",
+    "object": "Graduate Research Grant"
+  },
+  {
+    "subject": "Undergraduate Research Grant",
+    "predicate": "awardedTo",
+    "object": "Student David Lee"
+  },
+  {
+    "subject": "Undergraduate Research Grant",
+    "predicate": "awardedTo",
+    "object": "Student Emily Chen"
+  },
+  {
+    "subject": "Graduate Research Grant",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant John Doe"
+  },
+  {
+    "subject": "Graduate Research Grant",
+    "predicate": "awardedTo",
+    "object": "Graduate Assistant Jane Smith"
+  },
+  {
+    "subject": "IT Services Department",
+    "predicate": "manages",
+    "object": "Online Learning Platform"
+  },
+  {
+    "subject": "Online Learning Platform",
+    "predicate": "usedFor",
+    "object": "Remote Courses"
+  },
+  {
+    "subject": "Online Learning Platform",
+    "predicate": "usedFor",
+    "object": "Webinars"
+  },
+  {
+    "subject": "Student Union",
+    "predicate": "hasFacility",
+    "object": "Student Lounge"
+  },
+  {
+    "subject": "Student Union",
+    "predicate": "hasFacility",
+    "object": "Coffee Shop"
+  },
+  {
+    "subject": "Student Union",
+    "predicate": "hasFacility",
+    "object": "Multipurpose Hall"
+  },
+  {
+    "subject": "Administration Building",
+    "predicate": "hasOffice",
+    "object": "President’s Office"
+  },
+  {
+    "subject": "Administration Building",
+    "predicate": "hasOffice",
+    "object": "Registrar’s Office"
+  },
+  {
+    "subject": "Administration Building",
+    "predicate": "hasOffice",
+    "object": "Admissions Office"
+  },
+  {
+    "subject": "President’s Office",
+    "predicate": "occupiedBy",
+    "object": "University President"
+  },
+  {
+    "subject": "Registrar’s Office",
+    "predicate": "occupiedBy",
+    "object": "University Registrar"
+  },
+  {
+    "subject": "Admissions Office",
+    "predicate": "occupiedBy",
+    "object": "Admissions Director"
+  },
+  {
+    "subject": "University President",
+    "predicate": "type",
+    "object": "Administrator"
+  },
+  {
+    "subject": "University Registrar",
+    "predicate": "type",
+    "object": "Administrator"
+  },
+  {
+    "subject": "Admissions Director",
+    "predicate": "type",
+    "object": "Administrator"
+  },
+  {
+    "subject": "University President",
+    "predicate": "oversees",
+    "object": "All Departments"
+  },
+  {
+    "subject": "University Registrar",
+    "predicate": "manages",
+    "object": "Student Records"
+  },
+  {
+    "subject": "Admissions Director",
+    "predicate": "manages",
+    "object": "Admissions Process"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "hasAdvisor",
+    "object": "Professor Alice Johnson"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "hasAdvisor",
+    "object": "Professor Bob Smith"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "hasAdvisor",
+    "object": "Professor Carol Davis"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "hasAdvisor",
+    "object": "Professor Henry Clark"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "offersCourse",
+    "object": "MATH401"
+  },
+  {
+    "subject": "MATH401",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "MATH401"
+  },
+  {
+    "subject": "MATH401",
+    "predicate": "hasTextbook",
+    "object": "Real Analysis"
+  },
+  {
+    "subject": "Real Analysis",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "MATH401"
+  },
+  {
+    "subject": "MATH401",
+    "predicate": "hasCourseAssistant",
+    "object": "Graduate Assistant Jane Smith"
+  },
+  {
+    "subject": "Chemistry Department",
+    "predicate": "offersCourse",
+    "object": "CHEM701"
+  },
+  {
+    "subject": "CHEM701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Nancy Foster",
+    "predicate": "teachesCourse",
+    "object": "CHEM701"
+  },
+  {
+    "subject": "CHEM701",
+    "predicate": "hasTextbook",
+    "object": "Bioinorganic Chemistry"
+  },
+  {
+    "subject": "Bioinorganic Chemistry",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Physics Department",
+    "predicate": "offersCourse",
+    "object": "PHYS701"
+  },
+  {
+    "subject": "PHYS701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Irene Walker",
+    "predicate": "teachesCourse",
+    "object": "PHYS701"
+  },
+  {
+    "subject": "PHYS701",
+    "predicate": "hasTextbook",
+    "object": "Advanced Particle Physics"
+  },
+  {
+    "subject": "Advanced Particle Physics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "English Department",
+    "predicate": "offersCourse",
+    "object": "ENG701"
+  },
+  {
+    "subject": "ENG701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Paul Edwards",
+    "predicate": "teachesCourse",
+    "object": "ENG701"
+  },
+  {
+    "subject": "ENG701",
+    "predicate": "hasTextbook",
+    "object": "Literary Hermeneutics"
+  },
+  {
+    "subject": "Literary Hermeneutics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "History Department",
+    "predicate": "offersCourse",
+    "object": "HIST701"
+  },
+  {
+    "subject": "HIST701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Teresa Hall",
+    "predicate": "teachesCourse",
+    "object": "HIST701"
+  },
+  {
+    "subject": "HIST701",
+    "predicate": "hasTextbook",
+    "object": "Comparative Historiography"
+  },
+  {
+    "subject": "Comparative Historiography",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Economics Department",
+    "predicate": "offersCourse",
+    "object": "ECON701"
+  },
+  {
+    "subject": "ECON701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Victor Kim",
+    "predicate": "teachesCourse",
+    "object": "ECON701"
+  },
+  {
+    "subject": "ECON701",
+    "predicate": "hasTextbook",
+    "object": "Economic Policy Analysis"
+  },
+  {
+    "subject": "Economic Policy Analysis",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Philosophy Department",
+    "predicate": "offersCourse",
+    "object": "PHIL701"
+  },
+  {
+    "subject": "PHIL701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Yolanda Perez",
+    "predicate": "teachesCourse",
+    "object": "PHIL701"
+  },
+  {
+    "subject": "PHIL701",
+    "predicate": "hasTextbook",
+    "object": "Philosophy of Logic"
+  },
+  {
+    "subject": "Philosophy of Logic",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Art Department",
+    "predicate": "offersCourse",
+    "object": "ART701"
+  },
+  {
+    "subject": "ART701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Beatrice White",
+    "predicate": "teachesCourse",
+    "object": "ART701"
+  },
+  {
+    "subject": "ART701",
+    "predicate": "hasTextbook",
+    "object": "Global Contemporary Art"
+  },
+  {
+    "subject": "Global Contemporary Art",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Music Department",
+    "predicate": "offersCourse",
+    "object": "MUS701"
+  },
+  {
+    "subject": "MUS701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Ethan Brooks",
+    "predicate": "teachesCourse",
+    "object": "MUS701"
+  },
+  {
+    "subject": "MUS701",
+    "predicate": "hasTextbook",
+    "object": "Digital Music Composition"
+  },
+  {
+    "subject": "Digital Music Composition",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasHonorSociety",
+    "object": "Phi Beta Kappa"
+  },
+  {
+    "subject": "Phi Beta Kappa",
+    "predicate": "type",
+    "object": "Honor Society"
+  },
+  {
+    "subject": "Phi Beta Kappa",
+    "predicate": "hasMember",
+    "object": "Student David Lee"
+  },
+  {
+    "subject": "Phi Beta Kappa",
+    "predicate": "hasMember",
+    "object": "Student Emily Chen"
+  },
+  {
+    "subject": "Phi Beta Kappa",
+    "predicate": "hasMember",
+    "object": "Student Frank Miller"
+  },
+  {
+    "subject": "Phi Beta Kappa",
+    "predicate": "hasMember",
+    "object": "Student Gina Brown"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasExchangeProgram",
+    "object": "International Exchange"
+  },
+  {
+    "subject": "International Exchange",
+    "predicate": "partnersWith",
+    "object": "European University"
+  },
+  {
+    "subject": "International Exchange",
+    "predicate": "partnersWith",
+    "object": "Asian University"
+  },
+  {
+    "subject": "European University",
+    "predicate": "type",
+    "object": "University"
+  },
+  {
+    "subject": "Asian University",
+    "predicate": "type",
+    "object": "University"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "participatesIn",
+    "object": "International Exchange"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "participatesIn",
+    "object": "International Exchange"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasMentorshipProgram",
+    "object": "Peer Mentoring"
+  },
+  {
+    "subject": "Peer Mentoring",
+    "predicate": "mentor",
+    "object": "Senior Students"
+  },
+  {
+    "subject": "Peer Mentoring",
+    "predicate": "mentee",
+    "object": "First-Year Students"
+  },
+  {
+    "subject": "Senior Students",
+    "predicate": "type",
+    "object": "Student Group"
+  },
+  {
+    "subject": "First-Year Students",
+    "predicate": "type",
+    "object": "Student Group"
+  },
+  {
+    "subject": "Peer Mentoring",
+    "predicate": "improves",
+    "object": "Academic Success"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hasTechnology",
+    "object": "Self-Checkout Kiosks"
+  },
+  {
+    "subject": "Science Library",
+    "predicate": "hasTechnology",
+    "object": "Research Databases"
+  },
+  {
+    "subject": "Humanities Library",
+    "predicate": "hasTechnology",
+    "object": "Digital Archives"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "offersCourse",
+    "object": "CS601"
+  },
+  {
+    "subject": "CS601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "teachesCourse",
+    "object": "CS601"
+  },
+  {
+    "subject": "CS601",
+    "predicate": "hasTextbook",
+    "object": "Distributed Systems"
+  },
+  {
+    "subject": "Distributed Systems",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "CS601"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "offersCourse",
+    "object": "MATH601"
+  },
+  {
+    "subject": "MATH601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "MATH601"
+  },
+  {
+    "subject": "MATH601",
+    "predicate": "hasTextbook",
+    "object": "Complex Analysis"
+  },
+  {
+    "subject": "Complex Analysis",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MATH601"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "offersCourse",
+    "object": "BIO601"
+  },
+  {
+    "subject": "BIO601",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "BIO601"
+  },
+  {
+    "subject": "BIO601",
+    "predicate": "hasTextbook",
+    "object": "Molecular Genetics"
+  },
+  {
+    "subject": "Molecular Genetics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "BIO601"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "offersCourse",
+    "object": "CS701"
+  },
+  {
+    "subject": "CS701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "teachesCourse",
+    "object": "CS701"
+  },
+  {
+    "subject": "CS701",
+    "predicate": "hasTextbook",
+    "object": "Neural Network Architectures"
+  },
+  {
+    "subject": "Neural Network Architectures",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "CS701"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "offersCourse",
+    "object": "MATH701"
+  },
+  {
+    "subject": "MATH701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "MATH701"
+  },
+  {
+    "subject": "MATH701",
+    "predicate": "hasTextbook",
+    "object": "Partial Differential Equations"
+  },
+  {
+    "subject": "Partial Differential Equations",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "MATH701"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "offersCourse",
+    "object": "BIO701"
+  },
+  {
+    "subject": "BIO701",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "BIO701"
+  },
+  {
+    "subject": "BIO701",
+    "predicate": "hasTextbook",
+    "object": "Advanced Ecology"
+  },
+  {
+    "subject": "Advanced Ecology",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "BIO701"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersFellowship",
+    "object": "Postdoctoral Fellowship"
+  },
+  {
+    "subject": "Postdoctoral Fellowship",
+    "predicate": "awardedTo",
+    "object": "Dr. Amy Johnson"
+  },
+  {
+    "subject": "Dr. Amy Johnson",
+    "predicate": "type",
+    "object": "Postdoctoral Researcher"
+  },
+  {
+    "subject": "Dr. Amy Johnson",
+    "predicate": "worksIn",
+    "object": "Physics Department"
+  },
+  {
+    "subject": "Dr. Amy Johnson",
+    "predicate": "conductsResearchIn",
+    "object": "Quantum Information"
+  },
+  {
+    "subject": "Postdoctoral Fellowship",
+    "predicate": "awardedTo",
+    "object": "Dr. Carlos Martinez"
+  },
+  {
+    "subject": "Dr. Carlos Martinez",
+    "predicate": "type",
+    "object": "Postdoctoral Researcher"
+  },
+  {
+    "subject": "Dr. Carlos Martinez",
+    "predicate": "worksIn",
+    "object": "Chemistry Department"
+  },
+  {
+    "subject": "Dr. Carlos Martinez",
+    "predicate": "conductsResearchIn",
+    "object": "Synthetic Biology"
+  },
+  {
+    "subject": "Postdoctoral Fellowship",
+    "predicate": "awardedTo",
+    "object": "Dr. Elena White"
+  },
+  {
+    "subject": "Dr. Elena White",
+    "predicate": "type",
+    "object": "Postdoctoral Researcher"
+  },
+  {
+    "subject": "Dr. Elena White",
+    "predicate": "worksIn",
+    "object": "Mathematics Department"
+  },
+  {
+    "subject": "Dr. Elena White",
+    "predicate": "conductsResearchIn",
+    "object": "Complex Networks"
+  },
+  {
+    "subject": "Postdoctoral Fellowship",
+    "predicate": "awardedTo",
+    "object": "Dr. Fred Kim"
+  },
+  {
+    "subject": "Dr. Fred Kim",
+    "predicate": "type",
+    "object": "Postdoctoral Researcher"
+  },
+  {
+    "subject": "Dr. Fred Kim",
+    "predicate": "worksIn",
+    "object": "Biology Department"
+  },
+  {
+    "subject": "Dr. Fred Kim",
+    "predicate": "conductsResearchIn",
+    "object": "Cancer Genomics"
+  },
+  {
+    "subject": "International Exchange",
+    "predicate": "includesCoursework",
+    "object": "Language Immersion Program"
+  },
+  {
+    "subject": "Language Immersion Program",
+    "predicate": "type",
+    "object": "Study Program"
+  },
+  {
+    "subject": "Language Immersion Program",
+    "predicate": "teachesLanguage",
+    "object": "Spanish"
+  },
+  {
+    "subject": "Language Immersion Program",
+    "predicate": "teachesLanguage",
+    "object": "Mandarin"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasTransportation",
+    "object": "Campus Shuttle"
+  },
+  {
+    "subject": "Campus Shuttle",
+    "predicate": "type",
+    "object": "Transportation Service"
+  },
+  {
+    "subject": "Campus Shuttle",
+    "predicate": "connects",
+    "object": "Main Campus"
+  },
+  {
+    "subject": "Campus Shuttle",
+    "predicate": "connects",
+    "object": "North Campus"
+  },
+  {
+    "subject": "Campus Shuttle",
+    "predicate": "connects",
+    "object": "South Campus"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersTraining",
+    "object": "Teaching Assistant Workshop"
+  },
+  {
+    "subject": "Teaching Assistant Workshop",
+    "predicate": "attendedBy",
+    "object": "Graduate Assistants"
+  },
+  {
+    "subject": "Teaching Assistant Workshop",
+    "predicate": "improves",
+    "object": "Instructional Skills"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsConference",
+    "object": "Interdisciplinary Research Forum"
+  },
+  {
+    "subject": "Interdisciplinary Research Forum",
+    "predicate": "locatedIn",
+    "object": "Student Union"
+  },
+  {
+    "subject": "Interdisciplinary Research Forum",
+    "predicate": "features",
+    "object": "Multi-Department Panels"
+  },
+  {
+    "subject": "Multi-Department Panels",
+    "predicate": "include",
+    "object": "Physics and Philosophy Discussion"
+  },
+  {
+    "subject": "Multi-Department Panels",
+    "predicate": "include",
+    "object": "Biology and Economics Dialogue"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasCulturalCenter",
+    "object": "International Cultural Center"
+  },
+  {
+    "subject": "International Cultural Center",
+    "predicate": "type",
+    "object": "Cultural Facility"
+  },
+  {
+    "subject": "International Cultural Center",
+    "predicate": "hostsEvent",
+    "object": "Global Cuisine Night"
+  },
+  {
+    "subject": "Global Cuisine Night",
+    "predicate": "features",
+    "object": "International Foods"
+  },
+  {
+    "subject": "Global Cuisine Night",
+    "predicate": "features",
+    "object": "Cultural Performances"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersWorkshop",
+    "object": "Grant Writing Workshop"
+  },
+  {
+    "subject": "Grant Writing Workshop",
+    "predicate": "ledBy",
+    "object": "Research Office"
+  },
+  {
+    "subject": "Research Office",
+    "predicate": "type",
+    "object": "Administrative Department"
+  },
+  {
+    "subject": "Research Office",
+    "predicate": "assistsWith",
+    "object": "Funding Applications"
+  },
+  {
+    "subject": "Research Office",
+    "predicate": "assistsWith",
+    "object": "Research Compliance"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hasIncubator",
+    "object": "Startup Incubator"
+  },
+  {
+    "subject": "Startup Incubator",
+    "predicate": "type",
+    "object": "Entrepreneurship Support"
+  },
+  {
+    "subject": "Startup Incubator",
+    "predicate": "provides",
+    "object": "Mentoring"
+  },
+  {
+    "subject": "Startup Incubator",
+    "predicate": "provides",
+    "object": "Seed Funding"
+  },
+  {
+    "subject": "Startup Incubator",
+    "predicate": "partnersWith",
+    "object": "Local Investors"
+  },
+  {
+    "subject": "Local Investors",
+    "predicate": "type",
+    "object": "Investment Group"
+  },
+  {
+    "subject": "Local Investors",
+    "predicate": "interestedIn",
+    "object": "University Startups"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersCertificate",
+    "object": "Data Science Certificate"
+  },
+  {
+    "subject": "Data Science Certificate",
+    "predicate": "administeredBy",
+    "object": "Computer Science Department"
+  },
+  {
+    "subject": "Data Science Certificate",
+    "predicate": "requires",
+    "object": "Machine Learning Course"
+  },
+  {
+    "subject": "Machine Learning Course",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Machine Learning Course",
+    "predicate": "hasTextbook",
+    "object": "Data Mining Methods"
+  },
+  {
+    "subject": "Data Mining Methods",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "Machine Learning Course"
+  },
+  {
+    "subject": "Computer Science Department",
+    "predicate": "offersCourse",
+    "object": "CS801"
+  },
+  {
+    "subject": "CS801",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "teachesCourse",
+    "object": "CS801"
+  },
+  {
+    "subject": "CS801",
+    "predicate": "hasTextbook",
+    "object": "Reinforcement Learning Fundamentals"
+  },
+  {
+    "subject": "Reinforcement Learning Fundamentals",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Mathematics Department",
+    "predicate": "offersCourse",
+    "object": "MATH801"
+  },
+  {
+    "subject": "MATH801",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "MATH801"
+  },
+  {
+    "subject": "MATH801",
+    "predicate": "hasTextbook",
+    "object": "Advanced Probability Theory"
+  },
+  {
+    "subject": "Advanced Probability Theory",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Biology Department",
+    "predicate": "offersCourse",
+    "object": "BIO801"
+  },
+  {
+    "subject": "BIO801",
+    "predicate": "type",
+    "object": "Course"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "teachesCourse",
+    "object": "BIO801"
+  },
+  {
+    "subject": "BIO801",
+    "predicate": "hasTextbook",
+    "object": "Systems Biology"
+  },
+  {
+    "subject": "Systems Biology",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "CS801"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "MATH801"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "BIO801"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "awardsDegree",
+    "object": "Bachelor of Science"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "awardsDegree",
+    "object": "Bachelor of Arts"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "awardsDegree",
+    "object": "Master of Science"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "awardsDegree",
+    "object": "Master of Arts"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "awardsDegree",
+    "object": "Doctor of Philosophy"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "receivedDegree",
+    "object": "Bachelor of Science"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "receivedDegree",
+    "object": "Bachelor of Arts"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "receivedDegree",
+    "object": "Master of Science"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "receivedDegree",
+    "object": "Master of Arts"
+  },
+  {
+    "subject": "Alumnus James Wilson",
+    "predicate": "receivedDegree",
+    "object": "Doctor of Philosophy"
+  },
+  {
+    "subject": "Campus Cafe",
+    "predicate": "offersMeal",
+    "object": "Gluten-Free Options"
+  },
+  {
+    "subject": "Campus Cafe",
+    "predicate": "offersMeal",
+    "object": "Vegan Choices"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "hasTeam",
+    "object": "Tennis Team"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "hasTeam",
+    "object": "Track and Field Team"
+  },
+  {
+    "subject": "Debate Club",
+    "predicate": "participatesIn",
+    "object": "National Debate Tournament"
+  },
+  {
+    "subject": "Robotics Club",
+    "predicate": "participatesIn",
+    "object": "Robotics Competition"
+  },
+  {
+    "subject": "Drama Club",
+    "predicate": "participatesIn",
+    "object": "Theater Festival"
+  },
+  {
+    "subject": "Photography Club",
+    "predicate": "participatesIn",
+    "object": "Photo Exhibition"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "wonAward",
+    "object": "Math Olympiad Prize"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "wonAward",
+    "object": "Science Fair Prize"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "wonAward",
+    "object": "Literature Essay Prize"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "wonAward",
+    "object": "Art Competition Prize"
+  },
+  {
+    "subject": "Professor Bob Smith",
+    "predicate": "publishedPaper",
+    "object": "Deep Reinforcement Learning"
+  },
+  {
+    "subject": "Deep Reinforcement Learning",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Alice Johnson",
+    "predicate": "publishedPaper",
+    "object": "Quantum Machine Learning"
+  },
+  {
+    "subject": "Quantum Machine Learning",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Professor Carol Davis",
+    "predicate": "publishedPaper",
+    "object": "Nonlinear Dynamics in Biology"
+  },
+  {
+    "subject": "Nonlinear Dynamics in Biology",
+    "predicate": "type",
+    "object": "Research Paper"
+  },
+  {
+    "subject": "Sports Complex",
+    "predicate": "hostedEvent",
+    "object": "Intercollegiate Games"
+  },
+  {
+    "subject": "Intercollegiate Games",
+    "predicate": "featured",
+    "object": "Track Competitions"
+  },
+  {
+    "subject": "Intercollegiate Games",
+    "predicate": "featured",
+    "object": "Soccer Matches"
+  },
+  {
+    "subject": "Intercollegiate Games",
+    "predicate": "featured",
+    "object": "Tennis Championships"
+  },
+  {
+    "subject": "Engineering Hall",
+    "predicate": "hostedEvent",
+    "object": "Innovation Expo"
+  },
+  {
+    "subject": "Innovation Expo",
+    "predicate": "featured",
+    "object": "Student Projects"
+  },
+  {
+    "subject": "Innovation Expo",
+    "predicate": "awarded",
+    "object": "Best Invention Prize"
+  },
+  {
+    "subject": "Science Building",
+    "predicate": "hostedEvent",
+    "object": "Chemistry Symposium"
+  },
+  {
+    "subject": "Chemistry Symposium",
+    "predicate": "featured",
+    "object": "Poster Presentations"
+  },
+  {
+    "subject": "Chemistry Symposium",
+    "predicate": "awarded",
+    "object": "Best Poster Prize"
+  },
+  {
+    "subject": "Main Library",
+    "predicate": "hostedEvent",
+    "object": "Literary Festival"
+  },
+  {
+    "subject": "Literary Festival",
+    "predicate": "featured",
+    "object": "Author Keynotes"
+  },
+  {
+    "subject": "Literary Festival",
+    "predicate": "awarded",
+    "object": "Writing Award"
+  },
+  {
+    "subject": "Campus Shuttle",
+    "predicate": "providesService",
+    "object": "Disabled Student Transport"
+  },
+  {
+    "subject": "Campus Shuttle",
+    "predicate": "providesService",
+    "object": "Night Service"
+  },
+  {
+    "subject": "Student Health Center",
+    "predicate": "offersService",
+    "object": "Telehealth"
+  },
+  {
+    "subject": "Student Health Center",
+    "predicate": "offersService",
+    "object": "Nutrition Counseling"
+  },
+  {
+    "subject": "Career Services",
+    "predicate": "partnersWith",
+    "object": "Local Businesses"
+  },
+  {
+    "subject": "Career Services",
+    "predicate": "partnersWith",
+    "object": "Nonprofit Organizations"
+  },
+  {
+    "subject": "Research Office",
+    "predicate": "helpsWith",
+    "object": "Grant Proposals"
+  },
+  {
+    "subject": "Research Office",
+    "predicate": "helpsWith",
+    "object": "Ethics Approvals"
+  },
+  {
+    "subject": "Startup Incubator",
+    "predicate": "hostsPitchEvent",
+    "object": "Startup Demo Day"
+  },
+  {
+    "subject": "Startup Demo Day",
+    "predicate": "attendedBy",
+    "object": "Investors"
+  },
+  {
+    "subject": "Startup Demo Day",
+    "predicate": "attendedBy",
+    "object": "Entrepreneurs"
+  },
+  {
+    "subject": "Data Science Certificate",
+    "predicate": "requires",
+    "object": "Statistics Course"
+  },
+  {
+    "subject": "Statistics Course",
+    "predicate": "hasTextbook",
+    "object": "Probability and Statistics"
+  },
+  {
+    "subject": "Probability and Statistics",
+    "predicate": "type",
+    "object": "Textbook"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "enrolledIn",
+    "object": "Statistics Course"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "enrolledIn",
+    "object": "Statistics Course"
+  },
+  {
+    "subject": "International Cultural Center",
+    "predicate": "hostsEvent",
+    "object": "Language Exchange Sessions"
+  },
+  {
+    "subject": "Language Exchange Sessions",
+    "predicate": "encourages",
+    "object": "Cultural Interaction"
+  },
+  {
+    "subject": "International Cultural Center",
+    "predicate": "hostsEvent",
+    "object": "Global Film Night"
+  },
+  {
+    "subject": "Global Film Night",
+    "predicate": "screens",
+    "object": "Foreign Language Films"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersOnlineCourse",
+    "object": "Intro to Programming"
+  },
+  {
+    "subject": "Intro to Programming",
+    "predicate": "type",
+    "object": "Online Course"
+  },
+  {
+    "subject": "Intro to Programming",
+    "predicate": "hasInstructor",
+    "object": "Professor Bob Smith"
+  },
+  {
+    "subject": "Intro to Programming",
+    "predicate": "hasPlatform",
+    "object": "Online Learning Platform"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "enrolledIn",
+    "object": "Intro to Programming"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "offersOnlineCourse",
+    "object": "Basic Economics"
+  },
+  {
+    "subject": "Basic Economics",
+    "predicate": "type",
+    "object": "Online Course"
+  },
+  {
+    "subject": "Basic Economics",
+    "predicate": "hasInstructor",
+    "object": "Professor Wendy Scott"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "enrolledIn",
+    "object": "Basic Economics"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "hostsWebinar",
+    "object": "Research Ethics Webinar"
+  },
+  {
+    "subject": "Research Ethics Webinar",
+    "predicate": "ledBy",
+    "object": "Research Office"
+  },
+  {
+    "subject": "Graduate Assistants",
+    "predicate": "attend",
+    "object": "Teaching Assistant Workshop"
+  },
+  {
+    "subject": "Graduate Assistants",
+    "predicate": "attend",
+    "object": "Grant Writing Workshop"
+  },
+  {
+    "subject": "Springfield University",
+    "predicate": "issuesIDCard",
+    "object": "Student ID"
+  },
+  {
+    "subject": "Student ID",
+    "predicate": "usedFor",
+    "object": "Library Access"
+  },
+  {
+    "subject": "Student ID",
+    "predicate": "usedFor",
+    "object": "Gym Entry"
+  },
+  {
+    "subject": "Student David Lee",
+    "predicate": "hasID",
+    "object": "Student ID"
+  },
+  {
+    "subject": "Student Emily Chen",
+    "predicate": "hasID",
+    "object": "Student ID"
+  },
+  {
+    "subject": "Student Frank Miller",
+    "predicate": "hasID",
+    "object": "Student ID"
+  },
+  {
+    "subject": "Student Gina Brown",
+    "predicate": "hasID",
+    "object": "Student ID"
+  },
+  {
+    "subject": "Artificial Intelligence Lab",
+    "predicate": "partnersWith",
+    "object": "TechCorp"
+  },
+  {
+    "subject": "Cybersecurity Lab",
+    "predicate": "partnersWith",
+    "object": "Government Agency"
+  },
+  {
+    "subject": "Government Agency",
+    "predicate": "type",
+    "object": "Public Institution"
+  },
+  {
+    "subject": "Government Agency",
+    "predicate": "interestedIn",
+    "object": "Cyber Defense"
+  },
+  {
+    "subject": "Genetics Lab",
+    "predicate": "partnersWith",
+    "object": "BioHealth Inc"
+  },
+  {
+    "subject": "Microbiology Lab",
+    "predicate": "partnersWith",
+    "object": "Pharmaceutical Company"
+  },
+  {
+    "subject": "Pharmaceutical Company",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "Pharmaceutical Company",
+    "predicate": "focusesOn",
+    "object": "Drug Development"
+  },
+  {
+    "subject": "Statistics Lab",
+    "predicate": "partnersWith",
+    "object": "Finance Firm"
+  },
+  {
+    "subject": "Applied Mathematics Lab",
+    "predicate": "partnersWith",
+    "object": "Engineering Company"
+  },
+  {
+    "subject": "Engineering Company",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "Engineering Company",
+    "predicate": "worksOn",
+    "object": "Structural Analysis"
+  },
+  {
+    "subject": "Quantum Physics Lab",
+    "predicate": "partnersWith",
+    "object": "National Lab"
+  },
+  {
+    "subject": "National Lab",
+    "predicate": "type",
+    "object": "Research Institution"
+  },
+  {
+    "subject": "National Lab",
+    "predicate": "focusesOn",
+    "object": "Quantum Technologies"
+  },
+  {
+    "subject": "Astronomy Lab",
+    "predicate": "partnersWith",
+    "object": "Space Agency"
+  },
+  {
+    "subject": "Space Agency",
+    "predicate": "type",
+    "object": "Government Agency"
+  },
+  {
+    "subject": "Space Agency",
+    "predicate": "focusesOn",
+    "object": "Astronomical Research"
+  },
+  {
+    "subject": "Organic Synthesis Lab",
+    "predicate": "partnersWith",
+    "object": "Chemical Company"
+  },
+  {
+    "subject": "Chemical Company",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "Chemical Company",
+    "predicate": "produces",
+    "object": "Industrial Chemicals"
+  },
+  {
+    "subject": "Electrochemistry Lab",
+    "predicate": "partnersWith",
+    "object": "Energy Company"
+  },
+  {
+    "subject": "Energy Company",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "Energy Company",
+    "predicate": "develops",
+    "object": "Renewable Technologies"
+  },
+  {
+    "subject": "Digital Arts Studio",
+    "predicate": "partnersWith",
+    "object": "Design Firm"
+  },
+  {
+    "subject": "Design Firm",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "Design Firm",
+    "predicate": "creates",
+    "object": "Visual Branding"
+  },
+  {
+    "subject": "Sound Recording Studio",
+    "predicate": "partnersWith",
+    "object": "Music Label"
+  },
+  {
+    "subject": "Music Label",
+    "predicate": "type",
+    "object": "Company"
+  },
+  {
+    "subject": "Music Label",
+    "predicate": "produces",
+    "object": "Recorded Music"
+  }
+]
