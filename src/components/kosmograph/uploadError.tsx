@@ -3,7 +3,12 @@ import React from "react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-const UploadError = () => {
+interface UploadErrorProps {
+	message?: string;
+}
+
+const UploadError: React.FC<UploadErrorProps> = ({ message }) => {
+	const defaultMessage = "No file detected, Please Upload or Write a Query a file to continue";
 	return (
 		<div>
 			{" "}
@@ -11,7 +16,7 @@ const UploadError = () => {
 				<AlertCircle className="h-4 w-4" />
 				<AlertTitle>Error</AlertTitle>
 				<AlertDescription>
-					No file detected, Please Upload or Write a Query a file to continue
+					{message || defaultMessage}
 				</AlertDescription>
 			</Alert>
 		</div>

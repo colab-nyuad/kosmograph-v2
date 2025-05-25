@@ -12,7 +12,7 @@ import clsx from "clsx";
 import Graph from "graphology";
 import { useAtom } from "jotai";
 import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react"; // Import useMemo
 import {
   activeTabAtom,
   globalGraphAtom,
@@ -83,8 +83,6 @@ export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.
   const [visitedNodes, setVisitedNodes] = useState<Set<NodeData>>(new Set());
   const [linkTypeColors, setLinkTypeColors] = useAtom(linkTypeColorsAtom);
   const [selectedLinkType, setSelectedLinkType] = useAtom(selectedLinkTypeAtom);
-  const [filteredLinks, setFilteredLinks] = useState<LinkData[]>([]);
-  const [filteredNodes, setFilteredNodes] = useState<NodeData[]>([]);
   const [linkTypes, setLinkTypes] = useAtom(LinkTypesSelctionAtom);
   const [isHistoryEnabled, setIsHistoryEnabled] = useAtom(isHistoryEnabledAtom);
   const [fileName, setFileName] = useAtom(fileNameAtom);
@@ -194,38 +192,49 @@ export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.
 
   useEffect(() => {
     if (graphData) {
-      const newGraph = createGraph(graphData.nodes, graphData.links);
-      setGlobalGraph(newGraph);
-      setDegree(graphData);
+      // Memoize createGraph call
+      const newGraph = createGraph(graphData.nodes, graphData.links); // createGraph itself is not expensive enough to warrant useMemo here for the function definition
+      setGlobalGraph(newGraph); 
+      
+      // Call setDegree - Note: setDegree mutates graphData.nodes. This is not ideal for React.
+      // For this task, we keep it as is, but a refactor for immutability would be better.
+      setDegree(graphData); 
+
       const initialEnabledLinkTypes = Object.keys(graphData.linkTypeColors).reduce((acc, type) => {
         acc[type] = true;
         return acc;
       }, {} as Record<string, boolean>);
-
       setEnabledLinkTypes(initialEnabledLinkTypes);
-      setFilteredLinks(graphData.links);
-      setFilteredNodes(graphData.nodes);
+      // Initial filtering is done here, subsequent filtering based on linkTypes is in another useEffect
+      // setFilteredLinks(graphData.links); // This will be handled by the memoized filteredGraphData
+      // setFilteredNodes(graphData.nodes); // This will be handled by the memoized filteredGraphData
     }
-  }, [graphData, setGlobalGraph]);
+  }, [graphData, setGlobalGraph]); // setDegree is not added as a dep as it's a stable function but mutates graphData
 
-  useEffect(() => {
-    if (graphData) {
-      const filteredLinks = linkTypes.length
-        ? graphData.links.filter((link) => linkTypes.some((type) => type.name === link.type))
-        : graphData.links;
+  const filteredGraphData = useMemo(() => {
+    if (!graphData) return { nodes: [], links: [] };
 
-      const connectedNodeIds = new Set();
-      filteredLinks.forEach((link) => {
-        connectedNodeIds.add(link.source);
-        connectedNodeIds.add(link.target);
-      });
+    const currentFilteredLinks = linkTypes.length
+      ? graphData.links.filter((link) => linkTypes.some((type) => type.name === link.type && type.selected))
+      : graphData.links;
 
-      const filteredNodes = graphData.nodes.filter((node) => connectedNodeIds.has(node.id));
+    const connectedNodeIds = new Set<string>();
+    currentFilteredLinks.forEach((link) => {
+      connectedNodeIds.add(link.source);
+      connectedNodeIds.add(link.target);
+    });
 
-      setFilteredLinks(filteredLinks);
-      setFilteredNodes(filteredNodes);
-    }
+    const currentFilteredNodes = graphData.nodes.filter((node) => connectedNodeIds.has(node.id));
+    
+    return { nodes: currentFilteredNodes, links: currentFilteredLinks };
   }, [graphData, linkTypes]);
+  
+  // Update state based on memoized filtered data
+  useEffect(() => {
+    setFilteredNodes(filteredGraphData.nodes);
+    setFilteredLinks(filteredGraphData.links);
+  }, [filteredGraphData]);
+
 
   const onCosmographClick = React.useCallback<Exclude<CosmographInputConfig<NodeData, LinkData>["onClick"], undefined>>(
     (n) => {
@@ -297,74 +306,75 @@ export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.
     });
   };
 
-  const calculateNodeSize = () => {
-    const total = Math.sqrt(graphData?.links.length || 1);
-    const minSize = 15; // Minimum size for nodes
-    const maxSize = maxNodeSize; // Maximum size for nodes
-    const scaleSize = (size) => Math.min(maxSize, Math.max(minSize, size));
-
+  const memoizedCalculateNodeSize = useMemo(() => {
+    if (!graphData) return () => minNodeSize * nodeScale[0]; // Default size if no graphData
+    const total = Math.sqrt(graphData.links.length || 1);
+    const scaleSize = (size: number) => Math.min(maxNodeSize, Math.max(minNodeSize, size));
+  
     switch (nodeSize) {
       case "total":
-        return (n) => {
+        return (n: NodeData) => {
           const size = ((n.indegree + n.outdegree) / total) * 30 * nodeScale[0] + 1;
           return scaleSize(size);
         };
       case "incoming":
-        return (n) => {
+        return (n: NodeData) => {
           const size = (n.indegree / total) * 10 * nodeScale[0] + 1;
           return scaleSize(size);
         };
       case "outgoing":
-        return (n) => {
+        return (n: NodeData) => {
           const size = (n.outdegree / total) * 10 * nodeScale[0] + 1;
           return scaleSize(size);
         };
       default:
-        return (n) => 15 * nodeScale[0];
+        return () => minNodeSize * nodeScale[0];
     }
-  };
-
-  const calculateNodeSizeForCol = () => {
-    const total = Math.sqrt(graphData?.links.length || 1);
-
+  }, [graphData, nodeSize, nodeScale]);
+  
+  const memoizedCalculateNodeSizeForCol = useMemo(() => {
+    if (!graphData) return () => minNodeSize * nodeScale[0]; // Default size if no graphData
+    const total = Math.sqrt(graphData.links.length || 1);
+  
     switch (nodeColor) {
       case "total":
-        return (n) => {
-          return ((n.indegree + n.outdegree) / total) * 30 * nodeScale[0] + 1;
-        };
+        return (n: NodeData) => ((n.indegree + n.outdegree) / total) * 30 * nodeScale[0] + 1;
       case "incoming":
-        return (n) => {
-          return (n.indegree / total) * 10 * nodeScale[0] + 1;
-        };
+        return (n: NodeData) => (n.indegree / total) * 10 * nodeScale[0] + 1;
       case "outgoing":
-        return (n) => {
-          return (n.outdegree / total) * 10 * nodeScale[0] + 1;
-        };
+        return (n: NodeData) => (n.outdegree / total) * 10 * nodeScale[0] + 1;
       default:
-        return (n) => 15 * nodeScale[0];
+        return () => minNodeSize * nodeScale[0];
     }
-  };
-
-  const calculateColorSize = () => {
-    const getNodeSize = calculateNodeSizeForCol();
+  }, [graphData, nodeColor, nodeScale]);
+  
+  const memoizedCalculateColorSize = useMemo(() => {
+    if (!graphData) return () => "#FFC0CB"; // Default color if no graphData
+    const getNodeSize = memoizedCalculateNodeSizeForCol;
     const colors = [
       "#FFC0CB", // Light pink
       "#FF69B4",
       "#FF1493",
       "#DB7093",
     ];
-    return (node) => {
+    // Calculate maxNodeSize based on the current graphData and nodeColor selection
+    // This needs to be inside the useMemo as it depends on graphData
+    const allNodeSizes = graphData.nodes.map(n => getNodeSize(n));
+    const maxNodeSizeVal = Math.max(...allNodeSizes, minNodeSize); // ensure maxNodeSizeVal is at least minNodeSize
+  
+    return (node: NodeData) => {
       const size = getNodeSize(node);
       let colorIndex;
-      if (size != 15) {
-        const maxNodeSize = Math.max(...graphData?.nodes.map((n) => getNodeSize(n)));
-        colorIndex = Math.floor((size / maxNodeSize) * (colors.length - 1));
+      // Check against minNodeSize directly if that's the default/fallback size from getNodeSize
+      if (size > (minNodeSize * nodeScale[0]) && maxNodeSizeVal > (minNodeSize * nodeScale[0])) { // Check if size is greater than default and max is greater than default
+        colorIndex = Math.floor(((size - (minNodeSize * nodeScale[0])) / (maxNodeSizeVal - (minNodeSize * nodeScale[0]))) * (colors.length - 1));
+        colorIndex = Math.max(0, Math.min(colorIndex, colors.length - 1)); // Clamp index
       } else {
-        colorIndex = 0;
+        colorIndex = 0; // Default to the first color if size is minimal or maxNodeSizeVal is minimal
       }
       return colors[colorIndex];
     };
-  };
+  }, [graphData, nodeColor, nodeScale, memoizedCalculateNodeSizeForCol]);
 
   const generateRandomColor = () => {
     const letters = "0123456789ABCDEF";
@@ -380,15 +390,16 @@ export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.
     links.forEach((link) => {
       if (!linkTypeColors[link.type]) {
         linkTypeColors[link.type] = generateRandomColor();
-        uniqueLinksArray.push({ type: link.type });
+        // uniqueLinksArray.push({ type: link.type }); // This function is called during data fetching, uniqueLinksArray might not be what we expect here
       }
     });
     return linkTypeColors;
   };
-
-  const getLinkColor = (link: LinkData) => {
-    return graphData?.linkTypeColors[link.type] || "#000000";
-  };
+  
+  const memoizedGetLinkColor = useMemo(() => {
+    if (!graphData) return () => "#000000"; // Default color if no graphData
+    return (link: LinkData) => graphData.linkTypeColors[link.type] || "#000000";
+  }, [graphData]);
 
   const themeToUse = theme === "dark" ? "#030014" : "#fafafa";
 
@@ -404,13 +415,13 @@ export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.
       <CosmographProvider>
         <Cosmograph
           ref={cosmographRef}
-          nodes={filteredNodes}
-          links={filteredLinks}
+          nodes={filteredGraphData.nodes} // Use memoized nodes
+          links={filteredGraphData.links} // Use memoized links
           backgroundColor={themeToUse}
-          nodeColor={calculateColorSize()}
-          nodeSize={calculateNodeSize()}
+          nodeColor={memoizedCalculateColorSize} // Use memoized function
+          nodeSize={memoizedCalculateNodeSize} // Use memoized function
           linkWidth={1}
-          linkColor={getLinkColor}
+          linkColor={memoizedGetLinkColor} // Use memoized function
           linkArrowsSizeScale={isDirected ? 1 : 0}
           linkGreyoutOpacity={0.0}
           focusedNodeRingColor={"blue"}
@@ -430,13 +441,13 @@ export function GraphViz({ cosmographRef, sidebarOpen }: { cosmographRef: React.
           initialZoomLevel={162}
           randomSeed={42}
           scaleNodesOnZoom={false}
-          simulationFriction={0.1}
+          simulationFriction={0.85}      // Adjusted parameter
           simulationLinkSpring={0.5}
           simulationLinkDistance={18}
           simulationRepulsionFromMouse={5.0}
           onClick={onCosmographClick}
           nodeSamplingDistance={10.0}
-          simulationRepulsion={1.0}
+          simulationRepulsion={0.2}       // Adjusted parameter
           linkVisibilityMinTransparency={1}
         />
       </CosmographProvider>
